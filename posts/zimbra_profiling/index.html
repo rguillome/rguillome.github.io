@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>JustIT - Profiler une JVM de Zimbra Mailbox</title>
+    <link href="/assets/media/favicon.ico" rel="icon" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Guillaume Renaudin">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+<link href='/assets/stylesheets/bootstrap.min-88238289010db19359d2181e634e95cd.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/style-28c011f93a5d02de09256f309c5a46f5.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/base-9edbb2b7de9bbee2f38cdabbda84c092.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google_prettify/sons-of-obsidian-afb0925bfa2d994f17dab93e13fbf999.css' type='text/css' rel='stylesheet' media='all'>
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/"><img src="/assets/media/justit_logo.png" /></a>
+          <div class="container-description">
+            <p class="description"><span>... Does it help ?</span></p>
+          </div>
+          <ul class="nav">
+              
+                <li><a href="/archive">Archive</a></li>
+              
+              
+                <li><a href="/tags">Tags</a></li>
+              
+              
+                <li><a href="/categories">Categories</a></li>
+              
+              
+                <li><a href="/about">About</a></li>
+              
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>Profiler une JVM de Zimbra Mailbox </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>05/09/2014</strong>
+    </div>
+    <div class="content">
+      <p><strong>Simple envie...</strong></p>
+
+<p>Sur une application actuellement en production, suite à une montée de version de Zimbra CS 7 à Zimbra CS 8, nous avons constaté des temps de traitement Batch plus longs sur un WebServices Zimbra appelé en boucle pour des grosses volumétries.
+L&#39;envie nous a donc pris de voir, comment le changement de version associé à une grosse volumétrie, impactait autant le temps de traitement du webservice Zimbra. Nous sommes partis sur un profiling de JVM.</p>
+
+<p><strong>Comment ?</strong></p>
+
+<ul>
+<li><p>Utilisation de JProfiler6 (certes pas tout récent mais nous avions une licence dispo sous la main pour cette version)</p>
+
+<p>Pour utiliser JProfiler (comme d&#39;autres outil de profilage), il faut mettre un agent au niveau de la JVM. Les explications complètes sont <a href="http://resources.ej-technologies.com/jprofiler/help/doc/indexRedirect.html?http&amp;&amp;&amp;resources.ej-technologies.com/jprofiler/help/doc/sessions/remoteTable.html">ici</a> mais en résumé, il faut récupérer les librairies de l&#39;agent en fonction de l&#39;environnement et ajouter l&#39;option suivante à la commande Java :</p>
+
+<pre><code class="-agentpath:/path_to_jprofiler_agent_lib```">
+*Les librairies sont contenues dans le répertoire bin d&#39;une installation de JProfiler donc si vous souhaitez profiler un JVM s&#39;exécutant sous Linux, depuis une GUI JProfiler sous Windows, alors il vous faudra une installation de JProfiler pour Linux (x86 ou x64) en plus de l&#39;installation Windows.*
+</code></pre></li>
+</ul>
+
+<ul>
+<li><p>Configuration de la JVM Mailbox</p>
+
+<p>Il existe une option mailboxd<em>java</em>options qui permet de passer des commandes supplémentaires au daemon Mailbox.</p>
+
+<ul>
+<li>Modifier les options de JVM :
+<code>zmlocalconfig -e mailboxd_java_options=&quot;....&quot;</code></li>
+<li>Récupérer la valeur courante :
+<code>zmlocalconfig -s mailboxd_java_options</code></li>
+<li>Pour ajouter l&#39;option de profilage :
+<code>zmlocalconfig -e mailboxd_java_options=&quot;`zmlocalconfig -s mailboxd_java_options` -agentpath:/path_to_jprofiler_agent_lib&quot;</code></li>
+</ul></li>
+</ul>
+
+<p><strong>Oui mais...</strong></p>
+
+<p>La commande pour gérer le daemon mailbox (mailboxd) est : <code>zmmailboxdctl</code> ou encore <code>zmcontrol</code> qui lance tous les services Zimbra. Cette commande fait appel à du code C pour générer la ligne de commande d&#39;exécution du processus Java qui correspond au daemon Zimbra Mailbox.</p>
+
+<p>En lançant la commande <code>zmmailboxdctl start</code>, on obtient l&#39;erreur suivante (dans /var/log/zimbra.log):
+<code>shell
+zmmailboxdmgr [31715]: JVM option: -agentpath=/appli/jprofiler6/bin/linux-x64/libjprofilerti.so=nowait: not allowed
+</code>
+Finalement, en regardant le code source C du programme zmmailboxdmgr, on comprend mieux...</p>
+
+<pre><code class="C">#ifndef UNRESTRICTED_JVM_ARGS
+/* Mailbox server JVM starts as root and then drops priveleges to run
+* as the zimbra Unix user. Zimbra Unix user is allowed to modify JVM
+* options. We preclude the Zimbra Unix user from specifying certain
+* options - code that runs when root must be from files owned by root.
+*/
+
+static const char *DisallowedJVMArgs[] = {
+&quot;-Djava.class.path&quot;,
+&quot;-Djava.endorsed.dirs&quot;,
+&quot;-Djava.ext.dirs&quot;
+&quot;-Djava.library.path&quot;,
+&quot;-Dsun.boot.class.path&quot;,
+&quot;-Dsun.boot.library.path&quot;,
+&quot;-Xbootclasspath&quot;,
+&quot;-Xrun&quot;,
+&quot;-agentlib&quot;,
+&quot;-agentpath&quot;,
+&quot;-classpath&quot;,
+&quot;-javaagent&quot;,
+};
+</code></pre>
+
+<p>Et c&#39;est utilisé ici :</p>
+
+<pre><code class="C">for (i = nextArg; i &lt; argc; i++) {
+   if (IsAllowedJVMArg(argv[i])) {
+   AddArg(argv[i]);
+} else {
+   syslog(LOG_ERR, &quot;JVM option: %s: not allowed\n&quot;, argv[i]);
+   exit(1);
+}
+</code></pre>
+
+<p>L&#39;explication donnée dans le code me semble quelque peu discutable, tout du moins je n&#39;ai pas trouvé de lien entre la diminution de privilèges et le fait de lancer un agent de profiling avec agentpath notamment... De là à s&#39;imaginer que le staff technique ne souhaite pas que l&#39;on puisse profiler le code Java Zimbra...</p>
+
+<p><strong>Solution (Simple) :</strong>
+Après une recherche connexe sur la configuration Zimbra, il apparait que les indications suivantes (modification du code source et recompilation ne sont pas nécessaires). Une simple utilisation de la version &quot;unrestricted&quot; de la commande suffit :</p>
+
+<p><em>(as root)</em></p>
+
+<pre><code class="shell">
+# cd /opt/zimbra/libexec
+
+# mv zmmailboxdmgr zmmailboxdmgr.orig
+# ln -s zmmailboxdmgr.unrestricted zmmailboxdmgr
+</code></pre>
+
+<p><strong>Solution (si ça ne passe pas) :</strong></p>
+
+<ul>
+<li>Cloner le repository GIT <a href="https://github.com/Grynn/zimbra-mirror.git">suivant</a> ou voici un zip des sources. <a href="https://docs.google.com/file/d/0BxS_NuLNuFQjb3JLUEl5XzRwWWhCbHVTaHlleDZ6YTRyR01z/edit?usp=docslist_api">SOURCES modifiées</a></li>
+</ul>
+
+<p>Modifications apportées :</p>
+
+<ol>
+<li>Suppression du mot clef <strong>agentpath</strong> dans la liste des mots interdits</li>
+<li>Ajout d&#39;une variable <strong>OPTIONS</strong> non présente dans les sources mais qui semble nécessaire pour notre version de production (Zimbra 8.0.6_GA) pour éviter un <code>ClassNotFournException</code> sur une classe de jetty-suid</li>
+</ol>
+
+<p>Dans zmmailboxdmgr.c :</p>
+
+<pre><code class="C">...
+static const char *DisallowedJVMArgs[] = {
+   &quot;-Djava.class.path&quot;,
+   &quot;-Djava.endorsed.dirs&quot;,
+   &quot;-Djava.ext.dirs&quot;
+   &quot;-Djava.library.path&quot;,
+   &quot;-Dsun.boot.class.path&quot;,
+   &quot;-Dsun.boot.library.path&quot;,
+   &quot;-Xbootclasspath&quot;,
+   &quot;-Xrun&quot;,
+   &quot;-agentlib&quot;,
+   &quot;-javaagent&quot;,
+};
+#endif
+...
+   AddArgFmt(&quot;-Djetty.home=%s&quot;, MAILBOXD_HOME);
+   AddArgFmt(&quot;-DSTART=%s/etc/start.config&quot;, MAILBOXD_HOME);
+   AddArg(&quot;-jar&quot;);
+   AddArgFmt(&quot;%s/start.jar&quot;, MAILBOXD_HOME);
+   AddArgFmt(&quot;%s/etc/jetty.properties&quot;, MAILBOXD_HOME);
+   AddArgFmt(&quot;%s/etc/jetty-setuid.xml&quot;, MAILBOXD_HOME);
+   AddArgFmt(&quot;%s/etc/jetty.xml&quot;, MAILBOXD_HOME);
+   AddArgFmt(&quot;OPTIONS=%s&quot;, ZIMBRA_OPTIONS);
+
+   if (Verbose) {
+...
+</code></pre>
+
+<p>Dans Makefile.c :</p>
+
+<pre><code class="C">LAUNCHER_CFLAGS = \
+-DJAVA_BINARY=&#39;&quot;$(JAVA_BINARY)&quot;&#39; \
+-DMAILBOXD_MANAGER_PIDFILE=&#39;&quot;$(MAILBOXD_MANAGER_PIDFILE)&quot;&#39; \
+-DMAILBOXD_MANAGER_DEPRECATED_PIDFILE=&#39;&quot;$(MAILBOXD_MANAGER_DEPRECATED_PIDFILE)&quot;&#39; \
+-DMAILBOXD_JAVA_PIDFILE=&#39;&quot;$(MAILBOXD_JAVA_PIDFILE)&quot;&#39; \
+-DMAILBOXD_CWD=&#39;&quot;$(MAILBOXD_CWD)&quot;&#39; \
+-DMAILBOXD_HOME=&#39;&quot;$(MAILBOXD_HOME)&quot;&#39; \
+-DMAILBOXD_OUTFILE=&#39;&quot;$(MAILBOXD_OUTFILE)&quot;&#39; \
+-DZIMBRA_LIB=&#39;&quot;$(ZIMBRA_LIB)&quot;&#39; \
+-DZIMBRA_USER=&#39;&quot;$(ZIMBRA_USER)&quot;&#39; \
+-DZIMBRA_OPTIONS=&#39;&quot;$(ZIMBRA_OPTIONS)&quot;&#39; \
+-DZIMBRA_CONFIG=&#39;&quot;$(ZIMBRA_CONFIG)&quot;&#39;
+</code></pre>
+
+<ul>
+<li>Compiler sur l&#39;environnement cible les sources modifiées grâce à un simple make</li>
+<li>Remplacer les scripts zmmailboxdmgr et zmmailboxdmgr.unrestricted par les fichiers générés dans le répertoire build</li>
+<li>Relancer le daemon Zimbra : zmmailboxdctl stop puis zmmailboxdctl start</li>
+</ul>
+
+<p>Il n&#39;y a plus qu&#39;à profiler sur le port indiqué (par défaut avec JProfiler : 8849)</p>
+
+    </div>
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      <li>
+        <a href="/categories#Web Tools-ref">Web Tools <span>1</span></a>
+      </li>
+    </ul>
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      <li>
+        <a href="/tags#zimbra-ref">zimbra <span>1</span></a>
+      </li>
+      <li>
+        <a href="/tags#debug-ref">debug <span>1</span></a>
+      </li>
+      <li>
+        <a href="/tags#profiling-ref">profiling <span>1</span></a>
+      </li>
+    </ul>
+    <hr>
+    <div class="pagination">
+      <ul>
+          <li class="prev disabled"><a>&larr; Previous</a></li>
+
+          <li><a href="/archive">Archive</a></li>
+
+          <li class="next"><a href="/posts/retour_devfest_2014" title="DevFest Nantes 2014">Next &rarr;</a></li>
+      </ul>
+    </div>
+    <hr>
+    
+  </div>
+</div>
+
+
+      </div>
+
+      <hr>
+      <div class="footer">
+        <p>&copy; Guillaume Renaudin 2017
+          with help from <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">ruhoh</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Google Prettify -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+<!-- end Google Prettify -->
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-42249239-2']);
+  _gaq.push(['_trackPageview']);
+  
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+
+  </body>
+</html>

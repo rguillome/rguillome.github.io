@@ -1,0 +1,585 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+  <channel>
+    <title>JustIT</title>
+    <description>... Does it help ?</description>
+    <link>https://blog.guillaumerenaudin.com</link>
+    <pubDate>15/03/2017</pubDate>
+    <item>
+      <title>R&#xE9;installer automatiquement des applications Android via APK sous Linux</title>
+      <link>https://blog.guillaumerenaudin.com/posts/android_apk_reinstall</link>
+      <pubDate>25/02/2017</pubDate>
+      <description>&lt;p&gt;J&amp;#39;ai &#xE9;t&#xE9; confront&#xE9; &#xE0; une probl&#xE9;matique : r&#xE9;installer une liste d&amp;#39;applications Android &#xE0; partir d&amp;#39;APKs en contournant les probl&#xE9;matiques de conflits de version, downgrade etc.&lt;/p&gt;
+
+&lt;p&gt;Les &#xE9;tapes, pour chaque application que l&amp;#39;on souhaite r&#xE9;installer, sont successivement :&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;D&#xE9;sinstallation via AAPT&lt;/li&gt;
+&lt;li&gt;Installation &#xE0; partir de l&amp;#39;APK via ADB&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Le tout n&#xE9;cessite :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Linux&lt;/li&gt;
+&lt;li&gt;Android Asset Packaging Tool (&lt;a href="http://www.elinux.org/Android_aapt"&gt;aapt&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Android Device Bridge (&lt;a href="https://developer.android.com/studio/command-line/adb.html"&gt;adb&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Un r&#xE9;pertoire qui contient toutes les APKs&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;La contrainte principale :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Pour la d&#xE9;sintallation, il est n&#xE9;cessaire de conna&#xEE;tre le nom de l&amp;#39;application install&#xE9;e dans le device. Pour cela, on va utiliser le &amp;quot;package name&amp;quot; du manifest AndroidManifest.xml. Il faut donc que dans l&amp;#39;APK &#xE0; r&#xE9;installer, le nom soit identique, sinon le device contiendra toujours l&amp;#39;ancienne version de l&amp;#39;application&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Le script, &#xE0; ex&#xE9;cuter &#xE0; partir du r&#xE9;pertoire contenant tous les APKs, est donc :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="shell"&gt;#!/bin/sh
+# @author : @RGuillome
+
+for i in `ls *.apk`
+do
+
+    PACKAGE_NAME=`aapt dump badging $i | grep package:\ name | awk -F&amp;#39;[/=]&amp;#39; &amp;#39;{print $2}&amp;#39; | awk &amp;#39;{print $1}&amp;#39; | sed  &amp;quot;s/&amp;#39;//g&amp;quot;`;
+    echo &amp;quot;Uninstall package : $PACKAGE_NAME&amp;quot;;
+    adb uninstall $PACKAGE_NAME;
+
+    echo &amp;quot;Installation de $i&amp;quot;;
+    adb install -r -d $i;
+done
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    <item>
+      <title>Pr&#xE9;sentation avec Reveal.js en mode container Docker</title>
+      <link>https://blog.guillaumerenaudin.com/posts/presentation_reveal_docker</link>
+      <pubDate>12/05/2016</pubDate>
+      <description>&lt;p&gt;Dans le cadre d&amp;#39;une pr&#xE9;sentation de Docker, j&amp;#39;ai d&#xE9;cid&#xE9; d&amp;#39;utiliser &lt;a href="http://lab.hakim.se/reveal-js/#/"&gt;Reveal.js&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Pour ceux qui ne connaissent pas &lt;strong&gt;&lt;em&gt;reveal.js&lt;/em&gt;&lt;/strong&gt; est un framework Javascript qui permet de transformer du contenu texte fourni par exemple en &lt;a href="https://daringfireball.net/projects/markdown/"&gt;Markdown&lt;/a&gt; en HTML.&lt;/p&gt;
+
+&lt;p&gt;Il permet de customiser le contenu de la pr&#xE9;sentation, les backgrounds, animations, etc.&lt;/p&gt;
+
+&lt;p&gt;Pour fonctionner, il y a 2 modes :&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Le mode &amp;quot;basic&amp;quot; avec du contenu directement int&#xE9;gr&#xE9; dans une page HTML qui s&amp;#39;occupe &#xE9;galement de charger le javascript. Cette page affich&#xE9;e depuis un navigateur charge la librairie &lt;strong&gt;&lt;em&gt;reveal&lt;/em&gt;&lt;/strong&gt; qui transforme des balises &lt;code&gt;sections&lt;/code&gt; en contenu format&#xE9; via HTML&lt;/li&gt;
+&lt;li&gt;Le mode &amp;quot;externalis&#xE9;&amp;quot; o&#xF9; l&amp;#39;on peut charger un fichier Markdown externe par exemple. C&amp;#39;est bien pratique, cela permet de d&#xE9;coupler du contenu structur&#xE9; du rendu final (ce qui est souvent un effet recherch&#xE9; et permet de ne pas enfermer le discours utile dans la techno de pr&#xE9;sentation - &#xE0; bon PowerPointeur, salut !)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;J&amp;#39;ai donc choisi de privil&#xE9;gier ce second mode. Petite probl&#xE9;matique : le fonctionnement de &lt;strong&gt;&lt;em&gt;reveal&lt;/em&gt;&lt;/strong&gt; impose que les fichiers &amp;quot;externes&amp;quot; soit expos&#xE9; telle une ressource web. Cela n&#xE9;cessite donc de la pr&#xE9;senter sur un serveur Web.&lt;/p&gt;
+
+&lt;p&gt;Pas de soucis, &lt;strong&gt;&lt;em&gt;reveal&lt;/em&gt;&lt;/strong&gt; propose de s&amp;#39;installer via l&amp;#39;outillage Node qui va bien : un npm install et un npm start et nous disposons d&amp;#39;un serveur qui expose toutes les ressources du r&#xE9;pertoire courant (statiques de &lt;strong&gt;&lt;em&gt;reveal&lt;/em&gt;&lt;/strong&gt; y compris).&lt;/p&gt;
+
+&lt;p&gt;Oui mais du coup, &#xE0; chaque fois que je vais vouloir ex&#xE9;cuter ma pr&#xE9;sentation reveal sur un nouvel environnement, je vais devoir t&#xE9;l&#xE9;charger toutes les d&#xE9;pendances JS, r&#xE9;aliser les t&#xE2;ches automatique de configuration/installation: ce qui va me prendre du temps, beaucoup de temps...&lt;/p&gt;
+
+&lt;h3 id="toc_0"&gt;La solution...  Docker !&lt;/h3&gt;
+
+&lt;p&gt;Apr&#xE8;s tout ma pr&#xE9;sentation est sur docker: quel meilleur d&#xE9;monstrateur que ma pr&#xE9;sentation elle-m&#xEA;me?&lt;/p&gt;
+
+&lt;p&gt;Apr&#xE8;s avoir cherch&#xE9; sur &lt;a href="https://hub.docker.com/"&gt;Docker Hub&lt;/a&gt;, je ne suis pas le seul &#xE0; avoir eu l&amp;#39;id&#xE9;e... c&amp;#39;est toujours bon signe ;) Mais les images que j&amp;#39;ai trouv&#xE9;es ne r&#xE9;pondaient pas &#xE0; mes exigences  :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Construire facilement une image de container avec une nouvelle version de &lt;strong&gt;&lt;em&gt;reveal&lt;/em&gt;&lt;/strong&gt; (je souhaite que la maintenance et les &#xE9;volutions futures soient la plus simple possible. J&amp;#39;imagine m&#xEA;me mettre en place un &amp;quot;listener&amp;quot; sur le d&#xE9;p&#xF4;t git de &lt;strong&gt;&lt;em&gt;reveal&lt;/em&gt;&lt;/strong&gt;)&lt;/li&gt;
+&lt;li&gt;Je souhaite pouvoir r&#xE9;utiliser facilement mon image pour ex&#xE9;cuter diff&#xE9;rentes pr&#xE9;sentations donc fournir du contenu depuis l&amp;#39;ext&#xE9;rieur du container &#xE0; l&amp;#39;ex&#xE9;cution. Solution: Passer par un volume Docker...&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Bref, j&amp;#39;ai build&#xE9;, push&#xE9; ma premi&#xE8;re image Docker : &lt;a href="https://hub.docker.com/r/rguillom/reveal/"&gt;rguillom/reveal&lt;/a&gt; !&lt;/p&gt;
+
+&lt;p&gt;Et le d&#xE9;p&#xF4;t GitHub qui va bien : &lt;a href="https://github.com/rguillome/docker-revealjs-img"&gt;https://github.com/rguillome/docker-revealjs-img&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Sortie lisible d'une stacktrace d'exception en Java</title>
+      <link>https://blog.guillaumerenaudin.com/posts/generate_clear_stacktrace_output</link>
+      <pubDate>25/06/2015</pubDate>
+      <description>&lt;p&gt;Java 8 apporte son lot de nouveaut&#xE9;s notamment les Stream. Le but n&amp;#39;&#xE9;tant pas de fournir un cours ou une analyse sur les Stream, il en existe de tr&#xE8;s bons tel que &lt;a href="http://blog.ippon.fr/2014/03/17/api-stream-une-nouvelle-facon-de-gerer-les-collections-en-java-8/"&gt;celui-ci&lt;/a&gt; sur le blog d&amp;#39;Ippon, mais de fournir des astuces sur des probl&#xE8;mes r&#xE9;currents dans le d&#xE9;veloppement d&amp;#39;application Java.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Afficher une Stack d&amp;#39;exception sous forme lisible :&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="Java"&gt;try{
+
+...
+
+} catch (MonException ex) {
+    List&amp;lt;StackTraceElement&amp;gt; listStackLine = Arrays.asList(e.getStackTrace());
+    String stack = listStackLine.stream().map(StackTraceElement::toString)
+                    .collect(Collectors.joining(&amp;quot;\n&amp;quot;));
+    fail(&amp;quot;Exception re&#xE7;ue : &amp;quot;+e.getMessage()+&amp;quot; avec la stack &amp;quot;+stack);
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Explications :&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Ligne  6 : r&#xE9;cup&#xE9;ration du tableau de String dans l&amp;#39;exception et transformation en String&lt;/li&gt;
+&lt;li&gt;Ligne 7 : utilisation d&amp;#39;une stream puis application d&amp;#39;une m&#xE9;thode de transformation pour ne garder que le r&#xE9;sultat de la m&#xE9;thode &amp;quot;toString&amp;quot; de la classe StackTraceElement et utilisation d&amp;#39;une m&#xE9;thode de collecte qui joint les &#xE9;l&#xE9;ments de la liste par un retour chariot.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;em&gt;Cela peut &#xEA;tre utile pour l&amp;#39;inclure dans un log, un r&#xE9;sultat de TU ou un fichier de rapport par exemple.&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Renommer en masse des fichiers (Linux)</title>
+      <link>https://blog.guillaumerenaudin.com/posts/masse_rename_linux</link>
+      <pubDate>03/04/2015</pubDate>
+      <description>&lt;p&gt;Dans les projets auxquels je participe, j&amp;#39;ai souvent besoin de renommer des fichiers en masse; en rempla&#xE7;ant une sous-chaine fixe du nom de fichier par une autre et ce sur plusieurs fichiers d&amp;#39;un r&#xE9;pertoire &#xE0; la fois.&lt;/p&gt;
+
+&lt;p&gt;Voici un script shell qui me permet d&amp;#39;effectuer ces op&#xE9;rations:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="shell"&gt;#!/bin/sh
+# RSLOF : Replace Substring in List of FileNames
+#
+# @author : @RGuillome
+# @args :
+#  - 1 : substring to replace
+#   - 2 : replace by...
+
+if [ $# -le 2 ];
+ then echo &amp;quot;Usage : rslof [SUBSTRING_TO_REPLACE] [SUBSTRING_REPLACEMENT]&amp;quot;
+fi
+
+substring_to_replace=$1
+substring_replacement=$2
+
+
+echo &amp;quot;Replacement of $1 by $2&amp;quot;
+
+for i in `ls *$substring_to_replace*`
+do
+ new_name=$(echo &amp;quot;${i/$substring_to_replace/$substring_replacement}&amp;quot;)
+ echo &amp;quot;$i name will be replaced by $new_name&amp;quot;
+ mv $i $new_name
+done
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    <item>
+      <title>Lecture d'une stacktrace en Java</title>
+      <link>https://blog.guillaumerenaudin.com/posts/stacktrace_easyreading</link>
+      <pubDate>08/01/2015</pubDate>
+      <description>&lt;p&gt;Cet article pr&#xE9;sente quelques informations int&#xE9;ressantes pour lire une stacktrace lors du log d&amp;#39;une exception par exemple.&lt;/p&gt;
+
+&lt;p&gt;Tout d&amp;#39;abord, un petit rappel sur la lecture d&amp;#39;une trace d&amp;#39;exception : il s&amp;#39;agit du cheminement d&amp;#39;ex&#xE9;cution du programme jusqu&amp;#39;&#xE0; l&amp;#39;erreur survenue. Une trace de pile (stack trace) et donc le dernier &#xE9;l&#xE9;ment survenu est toujours le premier r&#xE9;cup&#xE9;r&#xE9; par les logs et on remonte la chronologie en lisant la trace par le bas.&lt;/p&gt;
+
+&lt;p&gt;Dans le cas o&#xF9; l&amp;#39;exception est la cons&#xE9;quence d&amp;#39;autres exceptions indiqu&#xE9;es par le code en tant que cause, des cause by... permettront de retracer l&amp;#39;origine de l&amp;#39;erreur. Il faut donc dans ce cas, se focaliser sur ce point.&lt;/p&gt;
+
+&lt;p&gt;La trace, en plus d&amp;#39;indiquer le type d&amp;#39;exception survenue, compl&#xE8;tera par des informations sur la signature de la m&#xE9;thode dans laquelle l&amp;#39;erreur est survenue: Le nom canonique de la classe et le nom de la m&#xE9;thode ainsi que les param&#xE8;tres d&amp;#39;appel et le param&#xE8;tre de retour.&lt;/p&gt;
+
+&lt;p&gt;On aura donc une trace de la forme :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="[package].[className].[methodName]([parametersIn])[parameterOut]```"&gt;
+
+Par exemple :
+```org.springframework.cache.annotation.CacheAnnotationParser.parseCacheAnnotations(Ljava/lang/reflect/AnnotatedElement;)Ljava/util/Collection;```
+
+
+Les arguments ont une notation particuli&#xE8;re comme on peut le voir dans l&amp;#39;exemple.
+
+
+Chaque argument est donc pr&#xE9;sent&#xE9; de cette forme :
+
+```[Type][(optional)[package].[className]];```
+
+
+O&#xF9; Type sera :
+
+    L dans le cas d&amp;#39;une classe ou une interface
+    Z pour pour un boolean
+    B pour un byte
+    C pour un char
+    D pour un double
+    F pour un float
+    I pour un int
+    J pour un long
+    S pour un short
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    <item>
+      <title>DevFest Nantes 2014</title>
+      <link>https://blog.guillaumerenaudin.com/posts/retour_devfest_2014</link>
+      <pubDate>18/11/2014</pubDate>
+      <description>&lt;style type="text/css"&gt;
+  img[alt=DockerWhale] {
+    width: 20%;
+    float:right;
+    clear:right;
+  }
+
+  img[alt=GoogleCloudPlatform] {
+    width: 30%;
+    float:right;
+    clear:right;
+  }
+
+  img[alt=Kubernetes] {
+    width: 20%;
+    float:right;
+    clear:right;
+  }
+&lt;/style&gt;
+
+&lt;p&gt;&lt;img src="/assets/media/retour_devfest_2014/gdg_logo.png" alt="LogoDevFest"&gt;
+Retour sur le &lt;strong&gt;DevFest 2014&lt;/strong&gt; qui a eu lieu &#xE0; la cit&#xE9; des congr&#xE8;s de Nantes  le 07/11/2014.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="/assets/media/retour_devfest_2014/GOPR4459.JPG" alt="Hall Devfest 2014"&gt;&lt;/p&gt;
+
+&lt;p&gt;En terme de chiffre cette 3e &#xE9;dition s&amp;#39;est illustr&#xE9;e par :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;environ 500 participants,&lt;/li&gt;
+&lt;li&gt;28 conf&#xE9;rences&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Les moments de pause entre les conf&#xE9;rences &#xE9;taient anim&#xE9;s par des stands de sponsors (ESN : &lt;a href="http://www.zenika.fr/"&gt;Zenika&lt;/a&gt;, &lt;a href="http://www.netapsys.fr/"&gt;Netapsys&lt;/a&gt;, &lt;a href="http://www.sqli.com/"&gt;SQLI&lt;/a&gt;, ... &#xC9;diteurs : &lt;a href="http://www.myscript.com/?lang=fr"&gt;MyScript&lt;/a&gt;, ...) ainsi que par le &lt;a href="http://www.gdgnantes.com/"&gt;GDG Nantes&lt;/a&gt; bien s&#xFB;r !&lt;/p&gt;
+
+&lt;p&gt;Des stands ludiques :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Question pour un champion avec une application mobile d&#xE9;velopp&#xE9;e par le &lt;a href="http://www.gdgnantes.com/"&gt;GDG Nantes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Des tests d&amp;#39;Oculus Rift&lt;/li&gt;
+&lt;li&gt;Un robot Lego Mindstorms&#xA9; contr&#xF4;l&#xE9; par un bracelet Myo&lt;/li&gt;
+&lt;li&gt;Une application permettant de naviguer dans la programmation des conf&#xE9;rences avec un Leap motion&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Voici la liste des conf&#xE9;rences auxquelles j&amp;#39;ai particip&#xE9; et qui sont r&#xE9;sum&#xE9;es ici :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Keynote&lt;/li&gt;
+&lt;li&gt;Lucy in the sky with Docker&lt;/li&gt;
+&lt;li&gt;Launching and growing a startup on the Google Cloud Platform&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Scaling clusters declaratively with Kubernetes and Docker&lt;/p&gt;
+
+&lt;p&gt;... Une matin&#xE9;e pure Cloud Computing !&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id="toc_0"&gt;Keynote&lt;/h1&gt;
+
+&lt;p&gt;Apr&#xE8;s une introduction et un lancement de l&amp;#39;&#xE9;v&#xE8;nement par &lt;a href="https://plus.google.com/+jeanfrancoisgarreau/posts"&gt;Jean-Fran&#xE7;ois Garreau&lt;/a&gt;, cette keynote a &#xE9;t&#xE9; anim&#xE9;e par une session de &lt;a href="https://plus.google.com/+RossiODDET/posts"&gt;Rossi Oddet&lt;/a&gt; (consultant chez SQLi) : la m&#xE9;thode GTD (Getting Things Done)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="/assets/media/retour_devfest_2014/rossi_oddet_devfest14.jpeg" alt="GTD Rossi Oddet"&gt;&lt;/p&gt;
+
+&lt;p&gt;A mi-chemin entre pr&#xE9;sentation et &lt;em&gt;one-man show&lt;/em&gt;, Rossi Oddet part d&amp;#39;une analyse : le stress et la souffrance au travail peuvent &#xEA;tre une cons&#xE9;quence d&amp;#39;une mauvaise gestion de l&amp;#39;organisation. Ne pas en tenir compte, conduit &#xE0; des situations humaines pr&#xE9;occupantes. Et la fronti&#xE8;re entre vie professionnelle et vie personnelle toujours plus mince, ne permet plus de limiter ces d&#xE9;g&#xE2;ts &#xE0; un seul domaine.&lt;/p&gt;
+
+&lt;p&gt;Ne pas traiter ou repousser les actions &#xE0; plus tard &#xE0; une cons&#xE9;quence directe : le cerveau est de plus en plus encombr&#xE9; par ce qu&amp;#39;il reste &#xE0; faire. Plut&#xF4;t que d&amp;#39;agir, on y pense en continue. Mais pour cela, on d&#xE9;pense quand m&#xEA;me de l&amp;#39;&#xE9;nergie et on accapare sa m&#xE9;moire avec une multitude de petits rappels...&lt;/p&gt;
+
+&lt;p&gt;Solution propos&#xE9;e par la GTD : Tout noter. Et adopter un processus de traitement en fonction de l&amp;#39;importance, de l&amp;#39;&#xE9;ch&#xE9;ance et de la dur&#xE9;e de chaque t&#xE2;che &#xE0; effectuer :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Une r&#xE9;ponse attendue pour un email qui prend moins de 2 minutes : on traite tout de suite et on n&amp;#39;y pense plus,
+Des t&#xE2;ches plus longues &#xE0; effectuer : cr&#xE9;er une nouvelle note dans &lt;a href="https://evernote.com/intl/fr/"&gt;Evernote&lt;/a&gt;
+Du temps libre pour traiter de nouvelles t&#xE2;ches : On d&#xE9;pile, on traite, on d&#xE9;l&#xE8;gue, on r&#xE9;organise avec &lt;a href="https://www.zendone.com/"&gt;Zendone&lt;/a&gt;. La boite mail aussi peut devenir un outil &#xE0; organiser (Tags, Labels, ...)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Et c&amp;#39;est valable pour tous les domaines : priv&#xE9;s comme professionnels.&lt;/p&gt;
+
+&lt;p&gt;Pour les supports, ils sont disponibles ici : &lt;a href="http://fr.slideshare.net/RossiOddet/devfest-nantes-2014-keynote-gtdgettingthingsdone"&gt;http://fr.slideshare.net/RossiOddet/devfest-nantes-2014-keynote-gtdgettingthingsdone&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=NZ9DwaAbMcg&amp;amp;index=2&amp;amp;list=PLuZ_sYdawLiVbxgDCmrckrzJBcMfW_ycO"&gt;Vid&#xE9;o de la keynote&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id="toc_1"&gt;Lucky in the sky with Docker&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src="/assets/media/retour_devfest_2014/docker.png" alt="DockerWhale"&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;a href="https://twitter.com/dgageot"&gt;David Gageot&lt;/a&gt; est un d&#xE9;veloppeur ind&#xE9;pendant, Java Champion, Google Developer Expert, ancien directeur technique chez &lt;a href="http://www.valtech.fr/fr"&gt;Valtech&lt;/a&gt;, d&#xE9;veloppeur chez &lt;a href="http://www.sonarsource.com/"&gt;SonarSource&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://www.docker.com/"&gt;Docker&lt;/a&gt; est un des sujets phare du moment. David le d&#xE9;mystifie, nous emmenant rapidement dans les entrailles de cet outil, syst&#xE8;me de conteneur permettant de cr&#xE9;er des environnements d&amp;#39;ex&#xE9;cution isol&#xE9;s sur plateforme Linux. Attention, il ne s&amp;#39;agit pas de VM &#xE0; l&amp;#39;instar de &lt;a href="https://www.vagrantup.com/"&gt;Vagrant&lt;/a&gt; car la gestion du r&#xE9;seau et du syst&#xE8;me de fichier s&amp;#39;appuie sur les services du syst&#xE8;me depuis lequel docker s&amp;#39;ex&#xE9;cute. Aujourd&amp;#39;hui, et c&amp;#39;est son plus gros inconv&#xE9;nient, docker ne peut s&amp;#39;ex&#xE9;cuter que sous Linux car il repose sur l&amp;#39;&lt;a href="https://linuxcontainers.org/"&gt;API LXC&lt;/a&gt; de Linux qui n&amp;#39;a pas forc&#xE9;ment son &#xE9;quivalent sur les autres OS. David, sous MacOS X, lance donc ses d&#xE9;mos dans une VM Linux.&lt;/p&gt;
+
+&lt;p&gt;Docker c&amp;#39;est d&amp;#39;abord quelques commandes tr&#xE8;s puissantes :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;construire une image nomm&#xE9;e &amp;quot;first_container&amp;quot;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;docker build -t first_container .&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;d&#xE9;marrer une image&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;docker run first_container&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;arr&#xEA;ter une image&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;docker stop first_container&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;La liste des commandes est d&#xE9;taill&#xE9;e dans la documentation officielle : &lt;a href="http://docs.docker.com/reference/commandline/cli/"&gt;http://docs.docker.com/reference/commandline/cli/&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Puis David, nous pr&#xE9;sente le contenu des fichiers de configuration &lt;a href="https://docs.docker.com/reference/builder/"&gt;DockerFile&lt;/a&gt; : la syntaxe assez simple pour int&#xE9;grer des nouvelles actions lors de la construction, les conteneurs existants, etc.&lt;/p&gt;
+
+&lt;p&gt;La suite de la pr&#xE9;sentation rentre dans les sp&#xE9;cificit&#xE9;s et les atouts de docker :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Le cache qui permet &#xE0; docker de ne pas r&#xE9;-ex&#xE9;cuter une s&#xE9;rie d&amp;#39;actions qui ont d&#xE9;j&#xE0; &#xE9;t&#xE9;  effectu&#xE9;es dans un ordre donn&#xE9;,&lt;/li&gt;
+&lt;li&gt;L&amp;#39;h&#xE9;ritage des configurations d&amp;#39;autres images. Des images sont d&#xE9;j&#xE0; pr&#xE9;-configur&#xE9;es en ligne (image d&amp;#39;Ubuntu, Debian, par exemple). Il est donc possible de construire des environnements modulaires,&lt;/li&gt;
+&lt;li&gt;Le partage entre le syst&#xE8;me de fichier virtuel dans l&amp;#39;image et celui de l&amp;#39;OS qui ex&#xE9;cute Docker,&lt;/li&gt;
+&lt;li&gt;La possibilit&#xE9; de modifier des ports au d&#xE9;marrage du conteneur : pas besoin de modifier la configuration interne de ses serveurs d&amp;#39;application si l&amp;#39;on a des conflits entre plusieurs conteneurs&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Pour finir, David propose une d&#xE9;mo et en quelque sorte une introduction &#xE0; la pr&#xE9;sentation de Brian Dorsey : l&amp;#39;automatisation et la supervision de conteneurs docker dans un cluster et notamment sur &lt;a href="https://cloud.google.com/compute"&gt;Google Compute Engine&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;En apart&#xE9;, je trouve le tutoriel de Docker tr&#xE8;s bien fait, donc si vous voulez en voir plus :  &lt;a href="https://www.docker.com/tryit/"&gt;Try it&lt;/a&gt; !&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=wEghVJygoOw&amp;amp;index=21&amp;amp;list=PLuZ_sYdawLiVbxgDCmrckrzJBcMfW_ycO"&gt;Vid&#xE9;o de Lucy in the sky with Docker&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id="toc_2"&gt;Launching and growing a startup on the Google Cloud Platform&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src="/assets/media/retour_devfest_2014/gcp-logo.png" alt="GoogleCloudPlatform"&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;a href="https://plus.google.com/+JeromeMouton/posts"&gt;J&#xE9;r&#xF4;me Mouton&lt;/a&gt; est un Google Developer Expert, co-fondateur de &lt;a href="https://snapengage.com/"&gt;SnapEngage&lt;/a&gt; o&#xF9; il est directeur technique. &#xC9;galement &#xE0; la t&#xEA;te du GDG de Berlin, il n&amp;#39;en est pas &#xE0; son coup d&amp;#39;essai, puisqu&amp;#39;il avait d&#xE9;j&#xE0; pr&#xE9;sent&#xE9; un sujet sur AppEngine lors du pr&#xE9;c&#xE9;dent DevFest de Nantes.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;J&#xE9;r&#xF4;me pr&#xE9;sente tout d&amp;#39;abord l&amp;#39;int&#xE9;r&#xEA;t de l&amp;#39;orientation &lt;a href="https://en.wikipedia.org/wiki/Platform_as_a_service"&gt;Paas&lt;/a&gt;. A ses d&#xE9;buts en tant qu&#x2019;entrepreneur dans le monde du Web, il cr&#xE9;ait des publicit&#xE9;s qui s&amp;#39;adaptaient au contenu visualis&#xE9; lors de la navigation des internautes. Les campagnes de publicit&#xE9; sont souvent ponctuelles mais peuvent g&#xE9;n&#xE9;rer beaucoup de trafic car s&amp;#39;affichent syst&#xE9;matiquement sur diff&#xE9;rents sites int&#xE9;grant les outils des r&#xE9;gies.&lt;/p&gt;
+
+&lt;p&gt;L&amp;#39;utilisation d&amp;#39;&lt;a href="https://cloud.google.com/appengine/#features"&gt;AppEngine&lt;/a&gt;, permet de r&#xE9;pondre &#xE0; ce besoin important de flexibilit&#xE9; et permet de ne payer r&#xE9;ellement que pour les ressources n&#xE9;cessaires.&lt;/p&gt;
+
+&lt;p&gt;Aujourd&amp;#39;hui les besoins se sont &#xE9;largis. Google Cloud Platform propose avec &lt;a href="https://cloud.google.com/compute/"&gt;Compute Engine&lt;/a&gt; des fonctionnalit&#xE9;s &lt;a href="https://fr.wikipedia.org/wiki/Infrastructure_as_a_service"&gt;Iaas&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Les diff&#xE9;rents outils qui composent l&amp;#39;offre ciblent aussi bien le d&#xE9;veloppement que l&amp;#39;exploitation et la supervision des applicatifs :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;En plus d&amp;#39;AppEngine et Compute Engine, &lt;a href="https://cloud.google.com/container-engine/"&gt;Container Engine&lt;/a&gt; (en version Alpha), propose de donner acc&#xE8;s &#xE0; la puissance et la simplicit&#xE9; de conteneurs Docker,&lt;/li&gt;
+&lt;li&gt;C&#xF4;t&#xE9; gestion de donn&#xE9;es:
+
+&lt;ul&gt;
+&lt;li&gt;on notera &lt;a href="https://cloud.google.com/sql/"&gt;Cloud SQL&lt;/a&gt; qui donne acc&#xE8;s &#xE0; un SGBD MySQL&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://cloud.google.com/storage/"&gt;Cloud Storage&lt;/a&gt; permet lui de stocker des objets et de profiter de la gestion des caches locaux (les temps d&amp;#39;acc&#xE8;s entre la nouvelle Z&#xE9;lande et les &#xC9;tats-Unis par exemple sont parfois tr&#xE8;s lents tandis que des caches peuvent exister en Australie)&lt;/li&gt;
+&lt;li&gt;Et si on pr&#xE9;f&#xE8;re les base NoSQL, pas de soucis : &lt;a href="https://cloud.google.com/datastore/"&gt;Cloud Datastore&lt;/a&gt; r&#xE9;pondra pr&#xE9;sent !&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;C&#xF4;t&#xE9; &lt;a href="https://cloud.google.com/networking/"&gt;r&#xE9;seau&lt;/a&gt; : du load balancing HTTP ou m&#xEA;me TCP/UDP, des enregistrements DNS&lt;/li&gt;
+&lt;li&gt;Dans le domaine du Big Data : &lt;a href="https://cloud.google.com/bigquery/"&gt;BigQuery&lt;/a&gt; permettra d&amp;#39;ex&#xE9;cuter des requ&#xEA;tes SQL sur des volumes de donn&#xE9;es de plusieurs T&#xE9;raoctets&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;En bref, Google Cloud Platform r&#xE9;pond &#xE0; beaucoup de besoins techniques de la vie d&amp;#39;une startup : de la version initiale qui n&amp;#39;est pas ou peu sollicit&#xE9;e &#xE0; la version &#xE9;volu&#xE9;e et pl&#xE9;biscit&#xE9;e d&amp;#39;un produit, les contraintes de scalabilit&#xE9; ne sont plus un frein et peuvent &#xEA;tre abord&#xE9;es plus sereinement afin de ce concentrer sur son c&#x153;ur de m&#xE9;tier et le d&#xE9;veloppement de nouvelles fonctionnalit&#xE9;s.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=U9oM7dEJCvk&amp;amp;index=12&amp;amp;list=PLuZ_sYdawLiVbxgDCmrckrzJBcMfW_ycO"&gt;Vid&#xE9;o de Launching and growing a startup on the Google Cloud Platform&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id="toc_3"&gt;Scaling clusters declaratively with Kubernetes and Docker&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src="/assets/media/retour_devfest_2014/kubernetes.png" alt="Kubernetes"&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;a href="http://briandorsey.info/"&gt;Brian Dorsey&lt;/a&gt; est d&#xE9;veloppeur chez Google. Il travaille au sein de l&amp;#39;&#xE9;quipe Google Developer Relations. Il &#xE9;vang&#xE9;lise ainsi les nouveaux produits Google et permet d&amp;#39;orienter ou au moins de conseiller les d&#xE9;veloppeurs du monde entier quant &#xE0; l&amp;#39;utilisation des nombreuses API Google. Il se concentre notamment sur la partie produit Google Cloud Plateforme.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Brian est venu nous parler de la gestion des clusters chez Google et comment ils sont arriv&#xE9;s &#xE0; l&amp;#39;&#xE9;laboration d&amp;#39;un outil permettant d&amp;#39;administrer et de superviser l&amp;#39;&#xE9;tat d&amp;#39;un cluster de container Docker: &lt;a href="http://kubernetes.io/"&gt;Kubernetes&lt;/a&gt; (en Open Source au passage)&lt;/p&gt;
+
+&lt;p&gt;Tout d&amp;#39;abord, il introduit deux concepts d&amp;#39;organisation :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Des containers Docker sont regroup&#xE9;s au sein de &lt;strong&gt;&lt;a href="https://github.com/GoogleCloudPlatform/kubernetes/blob/master/DESIGN.md#pods"&gt;Pods&lt;/a&gt;&lt;/strong&gt;. Ces pods sont donc un ensemble de containers tr&#xE8;s li&#xE9;s entre eux par les services qu&amp;#39;il rendent. Ces containers vont partager des volumes et la m&#xEA;me IP (ce qui va faciliter la communication via localhost notamment) car sont localis&#xE9; sur le m&#xEA;me h&#xF4;te logique. Dans l&amp;#39;exemple illustrant cette session, le pod utilis&#xE9; contient une application web, une base de donn&#xE9;es et un syst&#xE8;me de cache&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Des &lt;strong&gt;&lt;a href="https://github.com/GoogleCloudPlatform/kubernetes/blob/master/DESIGN.md#labels"&gt;Labels&lt;/a&gt;&lt;/strong&gt; permettent d&amp;#39;associer des pods (moins coupl&#xE9;s que les containers au sein d&amp;#39;un pod) qui coop&#xE8;rent entre eux. Ils d&#xE9;finissent par exemple le r&#xF4;le ou les but des pods. Ces cl&#xE9;s sont souvent utilis&#xE9;es pour identifi&#xE9; l&amp;#39;environnement pour laquelle le pod est destin&#xE9; (dev, qa, etc.) ou encore son emplacement dans une architecture n-tiers (frontend, backend).&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Kubernetes introduit ensuite la notion de &lt;strong&gt;Replication controllers&lt;/strong&gt; utilis&#xE9;s pour g&#xE9;rer les pods et leur instanciation. Gr&#xE2;ce &#xE0; une syntaxe JSON qui leur sert de template, les replication controllers s&amp;#39;assurent qu&amp;#39;&#xE0; tout moment, le nombre d&amp;#39;instance de chaque Pod est bien pr&#xE9;sente sur le syst&#xE8;me cible, dans l&amp;#39;&#xE9;tat configur&#xE9;.&lt;/p&gt;
+
+&lt;p&gt;Voici un exemple d&amp;#39;un fichier de template disponible sur le github de Kubernetes :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="json"&gt;{
+  &amp;quot;id&amp;quot;: &amp;quot;redisSlaveController&amp;quot;,
+  &amp;quot;kind&amp;quot;: &amp;quot;ReplicationController&amp;quot;,
+  &amp;quot;apiVersion&amp;quot;: &amp;quot;v1beta1&amp;quot;,
+  &amp;quot;desiredState&amp;quot;: {
+    &amp;quot;replicas&amp;quot;: 2,
+    &amp;quot;replicaSelector&amp;quot;: {&amp;quot;name&amp;quot;: &amp;quot;redisslave&amp;quot;},
+    &amp;quot;podTemplate&amp;quot;: {
+      &amp;quot;desiredState&amp;quot;: {
+         &amp;quot;manifest&amp;quot;: {
+           &amp;quot;version&amp;quot;: &amp;quot;v1beta1&amp;quot;,
+           &amp;quot;id&amp;quot;: &amp;quot;redisSlaveController&amp;quot;,
+           &amp;quot;containers&amp;quot;: [{
+             &amp;quot;name&amp;quot;: &amp;quot;slave&amp;quot;,
+             &amp;quot;image&amp;quot;: &amp;quot;brendanburns/redis-slave&amp;quot;,
+             &amp;quot;cpu&amp;quot;: 200,
+             &amp;quot;ports&amp;quot;: [{&amp;quot;containerPort&amp;quot;: 6379, &amp;quot;hostPort&amp;quot;: 6380}]
+           }]
+         }
+       },
+       &amp;quot;labels&amp;quot;: {
+         &amp;quot;name&amp;quot;: &amp;quot;redisslave&amp;quot;,
+         &amp;quot;uses&amp;quot;: &amp;quot;redis-master&amp;quot;,
+       }
+      }},
+  &amp;quot;labels&amp;quot;: {&amp;quot;name&amp;quot;: &amp;quot;redisslave&amp;quot;}
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Enfin un dernier composant fait son apparition : les &lt;strong&gt;services&lt;/strong&gt;. Il permettent de pointer vers les diff&#xE9;rents pods et jouent donc le r&#xF4;le de proxies permettant d&amp;#39;orient&#xE9; les requ&#xEA;tes en fonction de contraintes configur&#xE9;es. Il permettent ainsi de r&#xE9;partir les demandes au sein des replicas de pods.&lt;/p&gt;
+
+&lt;p&gt;En terme de d&#xE9;mo, le rendu est tr&#xE8;s convaincant: Brian configure Kubernetes pour qu&amp;#39;il compose l&amp;#39;environnement de 2 instances d&amp;#39;un pod et en quelques secondes l&amp;#39;&#xE9;tat &amp;quot;D&#xE9;marr&#xE9;&amp;quot; de ces instances est visible dans une application qui les monitore.&lt;/p&gt;
+
+&lt;p&gt;Un changement du nombre de replicas plus tard (5 au lieu de 2) et en &#xE0; peine plus de temps, les 5 instances sont visibles.&lt;/p&gt;
+
+&lt;p&gt;L&amp;#39;exercice se complique lorsque Brian publie une modification du pod qui pointe maintenant vers d&amp;#39;autres containers Docker (donc l&amp;#39;un contient notamment une autre application web). Kubernetes r&#xE9;v&#xE8;le l&#xE0; encore sa puissance : en moins d&amp;#39;une dizaine de secondes le rafra&#xEE;chissement est effectu&#xE9; sur l&amp;#39;application de monitoring.&lt;/p&gt;
+
+&lt;p&gt;Pour le final, Brian tue un des process Docker dans un pod ce qui a pour cons&#xE9;quence de le rendre  indisponible; Kubernetes op&#xE8;re au bout de quelques secondes (param&#xE9;trables comme pour la mise &#xE0; jour) et voil&#xE0; &#xE0; nouveau notre pod accessible.&lt;/p&gt;
+
+&lt;p&gt;Et quand cette magie sera-t-elle disponible? La r&#xE9;ponse : Aujourd&amp;#39;hui en test et probablement demain pour certaines solutions car cette solution est d&#xE9;sormais disponible dans &lt;a href="https://cloud.google.com/container-engine/"&gt;Google Container Engine&lt;/a&gt; (disponible en version Alpha)&lt;/p&gt;
+
+&lt;p&gt;Le code de la solution est disponible sur le &lt;a href="https://github.com/googlecloudplatform/kubernetes"&gt;github de Kubernetes&lt;/a&gt;. Cela signifie que cette solution pourrait &#xE9;galement voir son apparition au sein des clouds priv&#xE9;s car il est vrai que c&amp;#39;est un vrai atout d&amp;#39;organisation, de supervision et de gestion de la haute disponibilit&#xE9; de nos environnements de production. Il permet d&amp;#39;oser rendre ses conteneurs modulaires en s&amp;#39;affranchissant de la complexit&#xE9; de surveillance et de maintenance d&amp;#39;un syst&#xE8;me dans un &#xE9;tat sain.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;En apart&#xE9;, Brian a d&#xE9;velopp&#xE9; un outil qui peut r&#xE9;pondre &#xE0; une probl&#xE9;matique tr&#xE8;s courante dans le monde du d&#xE9;veloppement et de l&amp;#39;int&#xE9;gration informatique: le suivi du cycle de vie d&amp;#39;un produit/logiciel sur une plateforme et surtout la gestion des versions et mises &#xE0; jour. Il s&amp;#39;agit de &lt;a href="https://briandorsey.github.io/partisci/"&gt;Partisci&lt;/a&gt;. J&amp;#39;essayerai &#xE0; l&amp;#39;avenir de faire un retour sur ce blog.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=IR9UhW8k6Ag&amp;amp;index=5&amp;amp;list=PLuZ_sYdawLiVbxgDCmrckrzJBcMfW_ycO"&gt;Vid&#xE9;o de Scaling clusters declaratively with Kubernetes and Docker&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Profiler une JVM de Zimbra Mailbox</title>
+      <link>https://blog.guillaumerenaudin.com/posts/zimbra_profiling</link>
+      <pubDate>05/09/2014</pubDate>
+      <description>&lt;p&gt;&lt;strong&gt;Simple envie...&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Sur une application actuellement en production, suite &#xE0; une mont&#xE9;e de version de Zimbra CS 7 &#xE0; Zimbra CS 8, nous avons constat&#xE9; des temps de traitement Batch plus longs sur un WebServices Zimbra appel&#xE9; en boucle pour des grosses volum&#xE9;tries.
+L&amp;#39;envie nous a donc pris de voir, comment le changement de version associ&#xE9; &#xE0; une grosse volum&#xE9;trie, impactait autant le temps de traitement du webservice Zimbra. Nous sommes partis sur un profiling de JVM.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Comment ?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Utilisation de JProfiler6 (certes pas tout r&#xE9;cent mais nous avions une licence dispo sous la main pour cette version)&lt;/p&gt;
+
+&lt;p&gt;Pour utiliser JProfiler (comme d&amp;#39;autres outil de profilage), il faut mettre un agent au niveau de la JVM. Les explications compl&#xE8;tes sont &lt;a href="http://resources.ej-technologies.com/jprofiler/help/doc/indexRedirect.html?http&amp;amp;&amp;amp;&amp;amp;resources.ej-technologies.com/jprofiler/help/doc/sessions/remoteTable.html"&gt;ici&lt;/a&gt; mais en r&#xE9;sum&#xE9;, il faut r&#xE9;cup&#xE9;rer les librairies de l&amp;#39;agent en fonction de l&amp;#39;environnement et ajouter l&amp;#39;option suivante &#xE0; la commande Java :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="-agentpath:/path_to_jprofiler_agent_lib```"&gt;
+*Les librairies sont contenues dans le r&#xE9;pertoire bin d&amp;#39;une installation de JProfiler donc si vous souhaitez profiler un JVM s&amp;#39;ex&#xE9;cutant sous Linux, depuis une GUI JProfiler sous Windows, alors il vous faudra une installation de JProfiler pour Linux (x86 ou x64) en plus de l&amp;#39;installation Windows.*
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Configuration de la JVM Mailbox&lt;/p&gt;
+
+&lt;p&gt;Il existe une option mailboxd&lt;em&gt;java&lt;/em&gt;options qui permet de passer des commandes suppl&#xE9;mentaires au daemon Mailbox.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Modifier les options de JVM :
+&lt;code&gt;zmlocalconfig -e mailboxd_java_options=&amp;quot;....&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;R&#xE9;cup&#xE9;rer la valeur courante :
+&lt;code&gt;zmlocalconfig -s mailboxd_java_options&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Pour ajouter l&amp;#39;option de profilage :
+&lt;code&gt;zmlocalconfig -e mailboxd_java_options=&amp;quot;`zmlocalconfig -s mailboxd_java_options` -agentpath:/path_to_jprofiler_agent_lib&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Oui mais...&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;La commande pour g&#xE9;rer le daemon mailbox (mailboxd) est : &lt;code&gt;zmmailboxdctl&lt;/code&gt; ou encore &lt;code&gt;zmcontrol&lt;/code&gt; qui lance tous les services Zimbra. Cette commande fait appel &#xE0; du code C pour g&#xE9;n&#xE9;rer la ligne de commande d&amp;#39;ex&#xE9;cution du processus Java qui correspond au daemon Zimbra Mailbox.&lt;/p&gt;
+
+&lt;p&gt;En lan&#xE7;ant la commande &lt;code&gt;zmmailboxdctl start&lt;/code&gt;, on obtient l&amp;#39;erreur suivante (dans /var/log/zimbra.log):
+&lt;code&gt;shell
+zmmailboxdmgr [31715]: JVM option: -agentpath=/appli/jprofiler6/bin/linux-x64/libjprofilerti.so=nowait: not allowed
+&lt;/code&gt;
+Finalement, en regardant le code source C du programme zmmailboxdmgr, on comprend mieux...&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="C"&gt;#ifndef UNRESTRICTED_JVM_ARGS
+/* Mailbox server JVM starts as root and then drops priveleges to run
+* as the zimbra Unix user. Zimbra Unix user is allowed to modify JVM
+* options. We preclude the Zimbra Unix user from specifying certain
+* options - code that runs when root must be from files owned by root.
+*/
+
+static const char *DisallowedJVMArgs[] = {
+&amp;quot;-Djava.class.path&amp;quot;,
+&amp;quot;-Djava.endorsed.dirs&amp;quot;,
+&amp;quot;-Djava.ext.dirs&amp;quot;
+&amp;quot;-Djava.library.path&amp;quot;,
+&amp;quot;-Dsun.boot.class.path&amp;quot;,
+&amp;quot;-Dsun.boot.library.path&amp;quot;,
+&amp;quot;-Xbootclasspath&amp;quot;,
+&amp;quot;-Xrun&amp;quot;,
+&amp;quot;-agentlib&amp;quot;,
+&amp;quot;-agentpath&amp;quot;,
+&amp;quot;-classpath&amp;quot;,
+&amp;quot;-javaagent&amp;quot;,
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Et c&amp;#39;est utilis&#xE9; ici :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="C"&gt;for (i = nextArg; i &amp;lt; argc; i++) {
+   if (IsAllowedJVMArg(argv[i])) {
+   AddArg(argv[i]);
+} else {
+   syslog(LOG_ERR, &amp;quot;JVM option: %s: not allowed\n&amp;quot;, argv[i]);
+   exit(1);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;L&amp;#39;explication donn&#xE9;e dans le code me semble quelque peu discutable, tout du moins je n&amp;#39;ai pas trouv&#xE9; de lien entre la diminution de privil&#xE8;ges et le fait de lancer un agent de profiling avec agentpath notamment... De l&#xE0; &#xE0; s&amp;#39;imaginer que le staff technique ne souhaite pas que l&amp;#39;on puisse profiler le code Java Zimbra...&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Solution (Simple) :&lt;/strong&gt;
+Apr&#xE8;s une recherche connexe sur la configuration Zimbra, il apparait que les indications suivantes (modification du code source et recompilation ne sont pas n&#xE9;cessaires). Une simple utilisation de la version &amp;quot;unrestricted&amp;quot; de la commande suffit :&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;(as root)&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="shell"&gt;
+# cd /opt/zimbra/libexec
+
+# mv zmmailboxdmgr zmmailboxdmgr.orig
+# ln -s zmmailboxdmgr.unrestricted zmmailboxdmgr
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Solution (si &#xE7;a ne passe pas) :&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Cloner le repository GIT &lt;a href="https://github.com/Grynn/zimbra-mirror.git"&gt;suivant&lt;/a&gt; ou voici un zip des sources. &lt;a href="https://docs.google.com/file/d/0BxS_NuLNuFQjb3JLUEl5XzRwWWhCbHVTaHlleDZ6YTRyR01z/edit?usp=docslist_api"&gt;SOURCES modifi&#xE9;es&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Modifications apport&#xE9;es :&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Suppression du mot clef &lt;strong&gt;agentpath&lt;/strong&gt; dans la liste des mots interdits&lt;/li&gt;
+&lt;li&gt;Ajout d&amp;#39;une variable &lt;strong&gt;OPTIONS&lt;/strong&gt; non pr&#xE9;sente dans les sources mais qui semble n&#xE9;cessaire pour notre version de production (Zimbra 8.0.6_GA) pour &#xE9;viter un &lt;code&gt;ClassNotFournException&lt;/code&gt; sur une classe de jetty-suid&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Dans zmmailboxdmgr.c :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="C"&gt;...
+static const char *DisallowedJVMArgs[] = {
+   &amp;quot;-Djava.class.path&amp;quot;,
+   &amp;quot;-Djava.endorsed.dirs&amp;quot;,
+   &amp;quot;-Djava.ext.dirs&amp;quot;
+   &amp;quot;-Djava.library.path&amp;quot;,
+   &amp;quot;-Dsun.boot.class.path&amp;quot;,
+   &amp;quot;-Dsun.boot.library.path&amp;quot;,
+   &amp;quot;-Xbootclasspath&amp;quot;,
+   &amp;quot;-Xrun&amp;quot;,
+   &amp;quot;-agentlib&amp;quot;,
+   &amp;quot;-javaagent&amp;quot;,
+};
+#endif
+...
+   AddArgFmt(&amp;quot;-Djetty.home=%s&amp;quot;, MAILBOXD_HOME);
+   AddArgFmt(&amp;quot;-DSTART=%s/etc/start.config&amp;quot;, MAILBOXD_HOME);
+   AddArg(&amp;quot;-jar&amp;quot;);
+   AddArgFmt(&amp;quot;%s/start.jar&amp;quot;, MAILBOXD_HOME);
+   AddArgFmt(&amp;quot;%s/etc/jetty.properties&amp;quot;, MAILBOXD_HOME);
+   AddArgFmt(&amp;quot;%s/etc/jetty-setuid.xml&amp;quot;, MAILBOXD_HOME);
+   AddArgFmt(&amp;quot;%s/etc/jetty.xml&amp;quot;, MAILBOXD_HOME);
+   AddArgFmt(&amp;quot;OPTIONS=%s&amp;quot;, ZIMBRA_OPTIONS);
+
+   if (Verbose) {
+...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Dans Makefile.c :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="C"&gt;LAUNCHER_CFLAGS = \
+-DJAVA_BINARY=&amp;#39;&amp;quot;$(JAVA_BINARY)&amp;quot;&amp;#39; \
+-DMAILBOXD_MANAGER_PIDFILE=&amp;#39;&amp;quot;$(MAILBOXD_MANAGER_PIDFILE)&amp;quot;&amp;#39; \
+-DMAILBOXD_MANAGER_DEPRECATED_PIDFILE=&amp;#39;&amp;quot;$(MAILBOXD_MANAGER_DEPRECATED_PIDFILE)&amp;quot;&amp;#39; \
+-DMAILBOXD_JAVA_PIDFILE=&amp;#39;&amp;quot;$(MAILBOXD_JAVA_PIDFILE)&amp;quot;&amp;#39; \
+-DMAILBOXD_CWD=&amp;#39;&amp;quot;$(MAILBOXD_CWD)&amp;quot;&amp;#39; \
+-DMAILBOXD_HOME=&amp;#39;&amp;quot;$(MAILBOXD_HOME)&amp;quot;&amp;#39; \
+-DMAILBOXD_OUTFILE=&amp;#39;&amp;quot;$(MAILBOXD_OUTFILE)&amp;quot;&amp;#39; \
+-DZIMBRA_LIB=&amp;#39;&amp;quot;$(ZIMBRA_LIB)&amp;quot;&amp;#39; \
+-DZIMBRA_USER=&amp;#39;&amp;quot;$(ZIMBRA_USER)&amp;quot;&amp;#39; \
+-DZIMBRA_OPTIONS=&amp;#39;&amp;quot;$(ZIMBRA_OPTIONS)&amp;quot;&amp;#39; \
+-DZIMBRA_CONFIG=&amp;#39;&amp;quot;$(ZIMBRA_CONFIG)&amp;quot;&amp;#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Compiler sur l&amp;#39;environnement cible les sources modifi&#xE9;es gr&#xE2;ce &#xE0; un simple make&lt;/li&gt;
+&lt;li&gt;Remplacer les scripts zmmailboxdmgr et zmmailboxdmgr.unrestricted par les fichiers g&#xE9;n&#xE9;r&#xE9;s dans le r&#xE9;pertoire build&lt;/li&gt;
+&lt;li&gt;Relancer le daemon Zimbra : zmmailboxdctl stop puis zmmailboxdctl start&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Il n&amp;#39;y a plus qu&amp;#39;&#xE0; profiler sur le port indiqu&#xE9; (par d&#xE9;faut avec JProfiler : 8849)&lt;/p&gt;
+</description>
+    </item>
+  </channel>
+</rss>

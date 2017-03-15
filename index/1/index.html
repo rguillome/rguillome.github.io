@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>JustIT - </title>
+    <link href="/assets/media/favicon.ico" rel="icon" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Guillaume Renaudin">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+<link href='/assets/stylesheets/bootstrap.min-88238289010db19359d2181e634e95cd.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/style-28c011f93a5d02de09256f309c5a46f5.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/base-9edbb2b7de9bbee2f38cdabbda84c092.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google_prettify/sons-of-obsidian-afb0925bfa2d994f17dab93e13fbf999.css' type='text/css' rel='stylesheet' media='all'>
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/"><img src="/assets/media/justit_logo.png" /></a>
+          <div class="container-description">
+            <p class="description"><span>... Does it help ?</span></p>
+          </div>
+          <ul class="nav">
+              
+                <li><a href="/archive">Archive</a></li>
+              
+              
+                <li><a href="/tags">Tags</a></li>
+              
+              
+                <li><a href="/categories">Categories</a></li>
+              
+              
+                <li><a href="/about">About</a></li>
+              
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+
+      <div class="content">
+        <div class="row-fluid">
+  <div class="span12">
+      <div class="_root">
+        <h3 class="title"><a href="/about">About</a><span class="date"></span></h3>
+
+        <div class="summary">Twitter : <a href="https://twitter.com/RGuillome">@RGuillome</a>
+<br>
+Github : <a href="https://github.com/rguillome/">rguillome</a>
+</div>
+
+        <div class="more">
+          <a href="/about" class="btn btn-small">read more..</a>
+        </div>
+      </div>
+      <div class="_root">
+        <h3 class="title"><a href="/archive">Archive</a><span class="date"></span></h3>
+
+        <div class="summary ellipsis">
+  <h2>2017</h2>
+    <h3>February</h3>
+    <ul>
+      <li>
+<span>25/02/2017</span> » <a href="/posts/android_apk_reinstall">Réinstaller automatiquement des applications Android via APK sous Linux</a>
+</li>
+    </ul>
+  <h2>2016</h2>
+    <h3>May</h3>
+    <ul>
+      <li>
+<span>12/05/2016</span> » <a href="/posts/presentation_reveal_docker">Présentation avec Reveal.js en mode container Docker</a>
+</li>
+    </ul>
+  <h2>2015</h2>
+    <h3>June</h3>
+    <ul>
+      <li>
+<span>25/06/2015</span> » <a href="/posts/generate_clear_stacktrace_output">Sortie lisible d'une stacktrace d'exception en Java</a>
+</li>
+    </ul>
+    <h3>April</h3>
+    <ul>
+      <li>
+<span>03/04/2015</span> » <a href="/posts/masse_rename_linux">Renommer en masse des fichiers (Linux)</a>
+</li>
+    </ul>
+    </div>
+
+        <div class="more">
+          <a href="/archive" class="btn btn-small">read more..</a>
+        </div>
+      </div>
+      <div class="_root">
+        <h3 class="title"><a href="/categories">Categories</a><span class="date"></span></h3>
+
+        <div class="summary ellipsis">
+<ul class="tag_box inline">
+  <li>
+    <a href="/categories#Conference-ref">Conference <span>1</span></a>
+  </li>
+  <li>
+    <a href="/categories#Web%20tools-ref">Web tools <span>2</span></a>
+  </li>
+  <li>
+    <a href="/categories#Web%20Tools-ref">Web Tools <span>1</span></a>
+  </li>
+  <li>
+    <a href="/categories#Mobility-ref">Mobility <span>1</span></a>
+  </li>
+  <li>
+    <a href="/categories#Java%20Dev-ref">Java Dev <span>2</span></a>
+  </li>
+</ul>
+
+  <h3>Conference (1)</h3>
+  </div>
+
+        <div class="more">
+          <a href="/categories" class="btn btn-small">read more..</a>
+        </div>
+      </div>
+      <div class="_root">
+        <h3 class="title"><a href="/">Home</a><span class="date"></span></h3>
+
+        <div class="summary ellipsis">
+<p>J'ai été confronté à une problématique : réinstaller une liste d'applications Android à partir d'APKs en contournant les problématiques de conflits de version, downgrade etc.</p>
+
+<p>Les étapes, pour chaque application que l'on souhaite réinstaller, sont successivement :</p>
+
+<ol>
+<li>Désinstallation via AAPT</li>
+<li>Installation à partir de l'APK via ADB</li>
+</ol>
+
+<p>Le tout nécessite :</p>
+
+<ul>
+<li>Linux</li>
+<li>Android Asset Packaging Tool (<a href="http://www.elinux.org/Android_aapt">aapt</a>)</li>
+<li>Android Device Bridge (<a href="https://developer.android.com/studio/command-line/adb.html">adb</a>)</li>
+<li>Un répertoire qui contient toutes les APKs</li>
+</ul>
+
+<p>La contrainte principale :</p>
+
+<ul>
+<li>Pour la désintallation, il est nécessaire de connaître le nom de l'application installée dans le device. Pour cela, on va utiliser le "package name" du manifest AndroidManifest.xml. Il faut donc que dans l'APK à réinstaller, le nom soit identique, sinon le device contiendra toujours l'ancienne version de l'application</li>
+</ul>
+</div>
+
+        <div class="more">
+          <a href="/" class="btn btn-small">read more..</a>
+        </div>
+      </div>
+      <div class="_root">
+        <h3 class="title"><a href="/tags">Tags</a><span class="date"></span></h3>
+
+        <div class="summary ellipsis">
+<ul class="tag_box inline">
+  <li>
+    <a href="/tags#java-ref">java <span>3</span></a>
+  </li>
+  <li>
+    <a href="/tags#google-ref">google <span>1</span></a>
+  </li>
+  <li>
+    <a href="/tags#nantes-ref">nantes <span>1</span></a>
+  </li>
+  <li>
+    <a href="/tags#gdg-ref">gdg <span>1</span></a>
+  </li>
+  <li>
+    <a href="/tags#js-ref">js <span>1</span></a>
+  </li>
+  <li>
+    <a href="/tags#docker-ref">docker <span>1</span></a>
+  </li>
+  <li>
+    <a href="/tags#reveal-ref">reveal <span>1</span></a>
+  </li>
+  <li>
+    <a href="/tags#zimbra-ref">zimbra <span>1</span></a>
+  </li>
+  <li>
+    <a href="/tags#debug-ref">debug <span>1</span></a>
+  </li>
+  <li>
+    <a href="/tags#profiling-ref">profiling <span>1</span></a>
+  </li>
+  <li>
+    <a href="/tags#android-ref">android <span>1</span></a>
+  </li>
+  <li>
+    <a href="/tags#apk-ref">apk <span>1</span></a>
+  </li>
+  <li>
+    <a href="/tags#linux-ref">linux <span>2</span></a>
+  </li>
+  <li>
+    <a href="/tags#stacktrace-ref">stacktrace <span>2</span></a>
+  </li>
+  <li>
+    <a href="/tags#stream-ref">stream <span>1</span></a>
+  </li>
+  <li>
+    <a href="/tags#java8-ref">java8 <span>1</span></a>
+  </li>
+  <li>
+    <a href="/tags#file-ref">file <span>1</span></a>
+  </li>
+</ul>
+</div>
+
+        <div class="more">
+          <a href="/tags" class="btn btn-small">read more..</a>
+        </div>
+      </div>
+
+    <div class="pagination">
+      <ul>
+          <li class="active"><a href="/index/1">1</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+      </div>
+
+      <hr>
+      <div class="footer">
+        <p>&copy; Guillaume Renaudin 2017
+          with help from <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">ruhoh</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Google Prettify -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+<!-- end Google Prettify -->
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-42249239-2']);
+  _gaq.push(['_trackPageview']);
+  
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+
+  </body>
+</html>

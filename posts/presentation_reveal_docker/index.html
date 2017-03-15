@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>JustIT - Présentation avec Reveal.js en mode container Docker</title>
+    <link href="/assets/media/favicon.ico" rel="icon" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Guillaume Renaudin">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+<link href='/assets/stylesheets/bootstrap.min-88238289010db19359d2181e634e95cd.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/style-28c011f93a5d02de09256f309c5a46f5.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/base-9edbb2b7de9bbee2f38cdabbda84c092.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google_prettify/sons-of-obsidian-afb0925bfa2d994f17dab93e13fbf999.css' type='text/css' rel='stylesheet' media='all'>
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/"><img src="/assets/media/justit_logo.png" /></a>
+          <div class="container-description">
+            <p class="description"><span>... Does it help ?</span></p>
+          </div>
+          <ul class="nav">
+              
+                <li><a href="/archive">Archive</a></li>
+              
+              
+                <li><a href="/tags">Tags</a></li>
+              
+              
+                <li><a href="/categories">Categories</a></li>
+              
+              
+                <li><a href="/about">About</a></li>
+              
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>Présentation avec Reveal.js en mode container Docker </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>12/05/2016</strong>
+    </div>
+    <div class="content">
+      <p>Dans le cadre d&#39;une présentation de Docker, j&#39;ai décidé d&#39;utiliser <a href="http://lab.hakim.se/reveal-js/#/">Reveal.js</a>.</p>
+
+<p>Pour ceux qui ne connaissent pas <strong><em>reveal.js</em></strong> est un framework Javascript qui permet de transformer du contenu texte fourni par exemple en <a href="https://daringfireball.net/projects/markdown/">Markdown</a> en HTML.</p>
+
+<p>Il permet de customiser le contenu de la présentation, les backgrounds, animations, etc.</p>
+
+<p>Pour fonctionner, il y a 2 modes :</p>
+
+<ol>
+<li>Le mode &quot;basic&quot; avec du contenu directement intégré dans une page HTML qui s&#39;occupe également de charger le javascript. Cette page affichée depuis un navigateur charge la librairie <strong><em>reveal</em></strong> qui transforme des balises <code>sections</code> en contenu formaté via HTML</li>
+<li>Le mode &quot;externalisé&quot; où l&#39;on peut charger un fichier Markdown externe par exemple. C&#39;est bien pratique, cela permet de découpler du contenu structuré du rendu final (ce qui est souvent un effet recherché et permet de ne pas enfermer le discours utile dans la techno de présentation - à bon PowerPointeur, salut !)</li>
+</ol>
+
+<p>J&#39;ai donc choisi de privilégier ce second mode. Petite problématique : le fonctionnement de <strong><em>reveal</em></strong> impose que les fichiers &quot;externes&quot; soit exposé telle une ressource web. Cela nécessite donc de la présenter sur un serveur Web.</p>
+
+<p>Pas de soucis, <strong><em>reveal</em></strong> propose de s&#39;installer via l&#39;outillage Node qui va bien : un npm install et un npm start et nous disposons d&#39;un serveur qui expose toutes les ressources du répertoire courant (statiques de <strong><em>reveal</em></strong> y compris).</p>
+
+<p>Oui mais du coup, à chaque fois que je vais vouloir exécuter ma présentation reveal sur un nouvel environnement, je vais devoir télécharger toutes les dépendances JS, réaliser les tâches automatique de configuration/installation: ce qui va me prendre du temps, beaucoup de temps...</p>
+
+<h3 id="toc_0">La solution...  Docker !</h3>
+
+<p>Après tout ma présentation est sur docker: quel meilleur démonstrateur que ma présentation elle-même?</p>
+
+<p>Après avoir cherché sur <a href="https://hub.docker.com/">Docker Hub</a>, je ne suis pas le seul à avoir eu l&#39;idée... c&#39;est toujours bon signe ;) Mais les images que j&#39;ai trouvées ne répondaient pas à mes exigences  :</p>
+
+<ul>
+<li>Construire facilement une image de container avec une nouvelle version de <strong><em>reveal</em></strong> (je souhaite que la maintenance et les évolutions futures soient la plus simple possible. J&#39;imagine même mettre en place un &quot;listener&quot; sur le dépôt git de <strong><em>reveal</em></strong>)</li>
+<li>Je souhaite pouvoir réutiliser facilement mon image pour exécuter différentes présentations donc fournir du contenu depuis l&#39;extérieur du container à l&#39;exécution. Solution: Passer par un volume Docker...</li>
+</ul>
+
+<p>Bref, j&#39;ai buildé, pushé ma première image Docker : <a href="https://hub.docker.com/r/rguillom/reveal/">rguillom/reveal</a> !</p>
+
+<p>Et le dépôt GitHub qui va bien : <a href="https://github.com/rguillome/docker-revealjs-img">https://github.com/rguillome/docker-revealjs-img</a></p>
+
+    </div>
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      <li>
+        <a href="/categories#Web tools-ref">Web tools <span>2</span></a>
+      </li>
+    </ul>
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      <li>
+        <a href="/tags#js-ref">js <span>1</span></a>
+      </li>
+      <li>
+        <a href="/tags#docker-ref">docker <span>1</span></a>
+      </li>
+      <li>
+        <a href="/tags#reveal-ref">reveal <span>1</span></a>
+      </li>
+    </ul>
+    <hr>
+    <div class="pagination">
+      <ul>
+          <li class="prev"><a href="/posts/generate_clear_stacktrace_output" title="Sortie lisible d&#39;une stacktrace d&#39;exception en Java">&larr; Previous</a></li>
+
+          <li><a href="/archive">Archive</a></li>
+
+          <li class="next"><a href="/posts/android_apk_reinstall" title="Réinstaller automatiquement des applications Android via APK sous Linux">Next &rarr;</a></li>
+      </ul>
+    </div>
+    <hr>
+    
+  </div>
+</div>
+
+
+      </div>
+
+      <hr>
+      <div class="footer">
+        <p>&copy; Guillaume Renaudin 2017
+          with help from <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">ruhoh</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Google Prettify -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+<!-- end Google Prettify -->
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-42249239-2']);
+  _gaq.push(['_trackPageview']);
+  
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+
+  </body>
+</html>

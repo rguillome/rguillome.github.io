@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>JustIT - Lecture d&#39;une stacktrace en Java</title>
+    <link href="/assets/media/favicon.ico" rel="icon" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Guillaume Renaudin">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+<link href='/assets/stylesheets/bootstrap.min-88238289010db19359d2181e634e95cd.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/style-28c011f93a5d02de09256f309c5a46f5.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/base-9edbb2b7de9bbee2f38cdabbda84c092.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google_prettify/sons-of-obsidian-afb0925bfa2d994f17dab93e13fbf999.css' type='text/css' rel='stylesheet' media='all'>
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/"><img src="/assets/media/justit_logo.png" /></a>
+          <div class="container-description">
+            <p class="description"><span>... Does it help ?</span></p>
+          </div>
+          <ul class="nav">
+              
+                <li><a href="/archive">Archive</a></li>
+              
+              
+                <li><a href="/tags">Tags</a></li>
+              
+              
+                <li><a href="/categories">Categories</a></li>
+              
+              
+                <li><a href="/about">About</a></li>
+              
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>Lecture d&#39;une stacktrace en Java </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>08/01/2015</strong>
+    </div>
+    <div class="content">
+      <p>Cet article présente quelques informations intéressantes pour lire une stacktrace lors du log d&#39;une exception par exemple.</p>
+
+<p>Tout d&#39;abord, un petit rappel sur la lecture d&#39;une trace d&#39;exception : il s&#39;agit du cheminement d&#39;exécution du programme jusqu&#39;à l&#39;erreur survenue. Une trace de pile (stack trace) et donc le dernier élément survenu est toujours le premier récupéré par les logs et on remonte la chronologie en lisant la trace par le bas.</p>
+
+<p>Dans le cas où l&#39;exception est la conséquence d&#39;autres exceptions indiquées par le code en tant que cause, des cause by... permettront de retracer l&#39;origine de l&#39;erreur. Il faut donc dans ce cas, se focaliser sur ce point.</p>
+
+<p>La trace, en plus d&#39;indiquer le type d&#39;exception survenue, complètera par des informations sur la signature de la méthode dans laquelle l&#39;erreur est survenue: Le nom canonique de la classe et le nom de la méthode ainsi que les paramètres d&#39;appel et le paramètre de retour.</p>
+
+<p>On aura donc une trace de la forme :</p>
+
+<pre><code class="[package].[className].[methodName]([parametersIn])[parameterOut]```">
+
+Par exemple :
+```org.springframework.cache.annotation.CacheAnnotationParser.parseCacheAnnotations(Ljava/lang/reflect/AnnotatedElement;)Ljava/util/Collection;```
+
+
+Les arguments ont une notation particulière comme on peut le voir dans l&#39;exemple.
+
+
+Chaque argument est donc présenté de cette forme :
+
+```[Type][(optional)[package].[className]];```
+
+
+Où Type sera :
+
+    L dans le cas d&#39;une classe ou une interface
+    Z pour pour un boolean
+    B pour un byte
+    C pour un char
+    D pour un double
+    F pour un float
+    I pour un int
+    J pour un long
+    S pour un short
+</code></pre>
+
+    </div>
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      <li>
+        <a href="/categories#Java Dev-ref">Java Dev <span>2</span></a>
+      </li>
+    </ul>
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      <li>
+        <a href="/tags#java-ref">java <span>3</span></a>
+      </li>
+      <li>
+        <a href="/tags#stacktrace-ref">stacktrace <span>2</span></a>
+      </li>
+    </ul>
+    <hr>
+    <div class="pagination">
+      <ul>
+          <li class="prev"><a href="/posts/retour_devfest_2014" title="DevFest Nantes 2014">&larr; Previous</a></li>
+
+          <li><a href="/archive">Archive</a></li>
+
+          <li class="next"><a href="/posts/masse_rename_linux" title="Renommer en masse des fichiers (Linux)">Next &rarr;</a></li>
+      </ul>
+    </div>
+    <hr>
+    
+  </div>
+</div>
+
+
+      </div>
+
+      <hr>
+      <div class="footer">
+        <p>&copy; Guillaume Renaudin 2017
+          with help from <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">ruhoh</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Google Prettify -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+<!-- end Google Prettify -->
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-42249239-2']);
+  _gaq.push(['_trackPageview']);
+  
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+
+  </body>
+</html>

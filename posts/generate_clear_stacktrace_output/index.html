@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>JustIT - Sortie lisible d&#39;une stacktrace d&#39;exception en Java</title>
+    <link href="/assets/media/favicon.ico" rel="icon" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Guillaume Renaudin">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+<link href='/assets/stylesheets/bootstrap.min-88238289010db19359d2181e634e95cd.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/style-28c011f93a5d02de09256f309c5a46f5.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/base-9edbb2b7de9bbee2f38cdabbda84c092.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google_prettify/sons-of-obsidian-afb0925bfa2d994f17dab93e13fbf999.css' type='text/css' rel='stylesheet' media='all'>
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/"><img src="/assets/media/justit_logo.png" /></a>
+          <div class="container-description">
+            <p class="description"><span>... Does it help ?</span></p>
+          </div>
+          <ul class="nav">
+              
+                <li><a href="/archive">Archive</a></li>
+              
+              
+                <li><a href="/tags">Tags</a></li>
+              
+              
+                <li><a href="/categories">Categories</a></li>
+              
+              
+                <li><a href="/about">About</a></li>
+              
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>Sortie lisible d&#39;une stacktrace d&#39;exception en Java </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>25/06/2015</strong>
+    </div>
+    <div class="content">
+      <p>Java 8 apporte son lot de nouveautés notamment les Stream. Le but n&#39;étant pas de fournir un cours ou une analyse sur les Stream, il en existe de très bons tel que <a href="http://blog.ippon.fr/2014/03/17/api-stream-une-nouvelle-facon-de-gerer-les-collections-en-java-8/">celui-ci</a> sur le blog d&#39;Ippon, mais de fournir des astuces sur des problèmes récurrents dans le développement d&#39;application Java.</p>
+
+<p><strong>Afficher une Stack d&#39;exception sous forme lisible :</strong></p>
+
+<pre><code class="Java">try{
+
+...
+
+} catch (MonException ex) {
+    List&lt;StackTraceElement&gt; listStackLine = Arrays.asList(e.getStackTrace());
+    String stack = listStackLine.stream().map(StackTraceElement::toString)
+                    .collect(Collectors.joining(&quot;\n&quot;));
+    fail(&quot;Exception reçue : &quot;+e.getMessage()+&quot; avec la stack &quot;+stack);
+}
+
+</code></pre>
+
+<p><strong>Explications :</strong></p>
+
+<ol>
+<li>Ligne  6 : récupération du tableau de String dans l&#39;exception et transformation en String</li>
+<li>Ligne 7 : utilisation d&#39;une stream puis application d&#39;une méthode de transformation pour ne garder que le résultat de la méthode &quot;toString&quot; de la classe StackTraceElement et utilisation d&#39;une méthode de collecte qui joint les éléments de la liste par un retour chariot.</li>
+</ol>
+
+<p><em>Cela peut être utile pour l&#39;inclure dans un log, un résultat de TU ou un fichier de rapport par exemple.</em></p>
+
+    </div>
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      <li>
+        <a href="/categories#Java Dev-ref">Java Dev <span>2</span></a>
+      </li>
+    </ul>
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      <li>
+        <a href="/tags#java-ref">java <span>3</span></a>
+      </li>
+      <li>
+        <a href="/tags#stacktrace-ref">stacktrace <span>2</span></a>
+      </li>
+      <li>
+        <a href="/tags#stream-ref">stream <span>1</span></a>
+      </li>
+      <li>
+        <a href="/tags#java8-ref">java8 <span>1</span></a>
+      </li>
+    </ul>
+    <hr>
+    <div class="pagination">
+      <ul>
+          <li class="prev"><a href="/posts/masse_rename_linux" title="Renommer en masse des fichiers (Linux)">&larr; Previous</a></li>
+
+          <li><a href="/archive">Archive</a></li>
+
+          <li class="next"><a href="/posts/presentation_reveal_docker" title="Présentation avec Reveal.js en mode container Docker">Next &rarr;</a></li>
+      </ul>
+    </div>
+    <hr>
+    
+  </div>
+</div>
+
+
+      </div>
+
+      <hr>
+      <div class="footer">
+        <p>&copy; Guillaume Renaudin 2017
+          with help from <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">ruhoh</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Google Prettify -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+<!-- end Google Prettify -->
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-42249239-2']);
+  _gaq.push(['_trackPageview']);
+  
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+
+  </body>
+</html>

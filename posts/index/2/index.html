@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>JustIT - </title>
+    <link href="/assets/media/favicon.ico" rel="icon" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Guillaume Renaudin">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+<link href='/assets/stylesheets/bootstrap.min-88238289010db19359d2181e634e95cd.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/style-28c011f93a5d02de09256f309c5a46f5.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/base-9edbb2b7de9bbee2f38cdabbda84c092.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google_prettify/sons-of-obsidian-afb0925bfa2d994f17dab93e13fbf999.css' type='text/css' rel='stylesheet' media='all'>
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/"><img src="/assets/media/justit_logo.png" /></a>
+          <div class="container-description">
+            <p class="description"><span>... Does it help ?</span></p>
+          </div>
+          <ul class="nav">
+              
+                <li><a href="/archive">Archive</a></li>
+              
+              
+                <li><a href="/tags">Tags</a></li>
+              
+              
+                <li><a href="/categories">Categories</a></li>
+              
+              
+                <li><a href="/about">About</a></li>
+              
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+
+      <div class="content">
+        <div class="row-fluid">
+  <div class="span12">
+      <div class="posts">
+        <h3 class="title"><a href="/posts/retour_devfest_2014">DevFest Nantes 2014</a><span class="date">18/11/2014</span></h3>
+
+        <div class="summary ellipsis">
+<style type="text/css">
+  img[alt=DockerWhale] {
+    width: 20%;
+    float:right;
+    clear:right;
+  }
+
+  img[alt=GoogleCloudPlatform] {
+    width: 30%;
+    float:right;
+    clear:right;
+  }
+
+  img[alt=Kubernetes] {
+    width: 20%;
+    float:right;
+    clear:right;
+  }
+</style>
+
+<p><img src="/assets/media/retour_devfest_2014/gdg_logo.png" alt="LogoDevFest">
+Retour sur le <strong>DevFest 2014</strong> qui a eu lieu à la cité des congrès de Nantes  le 07/11/2014.</p>
+</div>
+
+        <div class="more">
+          <a href="/posts/retour_devfest_2014" class="btn btn-small">read more..</a>
+        </div>
+      </div>
+      <div class="posts">
+        <h3 class="title"><a href="/posts/zimbra_profiling">Profiler une JVM de Zimbra Mailbox</a><span class="date">05/09/2014</span></h3>
+
+        <div class="summary ellipsis">
+<p><strong>Simple envie...</strong></p>
+
+<p>Sur une application actuellement en production, suite à une montée de version de Zimbra CS 7 à Zimbra CS 8, nous avons constaté des temps de traitement Batch plus longs sur un WebServices Zimbra appelé en boucle pour des grosses volumétries.
+L'envie nous a donc pris de voir, comment le changement de version associé à une grosse volumétrie, impactait autant le temps de traitement du webservice Zimbra. Nous sommes partis sur un profiling de JVM.</p>
+
+<p><strong>Comment ?</strong></p>
+
+<ul>
+<li>
+<p>Utilisation de JProfiler6 (certes pas tout récent mais nous avions une licence dispo sous la main pour cette version)</p>
+
+<p>Pour utiliser JProfiler (comme d'autres outil de profilage), il faut mettre un agent au niveau de la JVM. Les explications complètes sont <a href="http://resources.ej-technologies.com/jprofiler/help/doc/indexRedirect.html?http&amp;&amp;&amp;resources.ej-technologies.com/jprofiler/help/doc/sessions/remoteTable.html">ici</a> mais en résumé, il faut récupérer les librairies de l'agent en fonction de l'environnement et ajouter l'option suivante à la commande Java :</p>
+
+<pre><code class="-agentpath:/path_to_jprofiler_agent_lib```">
+*Les librairies sont contenues dans le répertoire bin d'une installation de JProfiler donc si vous souhaitez profiler un JVM s'exécutant sous Linux, depuis une GUI JProfiler sous Windows, alors il vous faudra une installation de JProfiler pour Linux (x86 ou x64) en plus de l'installation Windows.*
+</code></pre>
+</li>
+</ul>
+
+<ul>
+<li>
+<p>Configuration de la JVM Mailbox</p>
+
+<p>Il existe une option mailboxd<em>java</em>options qui permet de passer des commandes supplémentaires au daemon Mailbox.</p>
+
+<ul>
+<li>Modifier les options de JVM :
+<code>zmlocalconfig -e mailboxd_java_options="...."</code>
+</li>
+<li>Récupérer la valeur courante :
+<code>zmlocalconfig -s mailboxd_java_options</code>
+</li>
+<li>Pour ajouter l'option de profilage :
+<code>zmlocalconfig -e mailboxd_java_options="`zmlocalconfig -s mailboxd_java_options` -agentpath:/path_to_jprofiler_agent_lib"</code>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+        <div class="more">
+          <a href="/posts/zimbra_profiling" class="btn btn-small">read more..</a>
+        </div>
+      </div>
+
+    <div class="pagination">
+      <ul>
+          <li><a href="/posts/index/1">1</a></li>
+          <li class="active"><a href="/posts/index/2">2</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+      </div>
+
+      <hr>
+      <div class="footer">
+        <p>&copy; Guillaume Renaudin 2017
+          with help from <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">ruhoh</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Google Prettify -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+<!-- end Google Prettify -->
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-42249239-2']);
+  _gaq.push(['_trackPageview']);
+  
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+
+  </body>
+</html>

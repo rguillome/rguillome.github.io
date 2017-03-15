@@ -1,0 +1,396 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+  <channel>
+    <title>JustIT</title>
+    <description>... Does it help ?</description>
+    <link>https://blog.guillaumerenaudin.com</link>
+    <pubDate>15/03/2017</pubDate>
+    <item>
+      <title>About</title>
+      <link>https://blog.guillaumerenaudin.com/about</link>
+      <description>Twitter : &lt;a href="https://twitter.com/RGuillome"&gt;@RGuillome&lt;/a&gt;
+&lt;br/&gt;
+Github : &lt;a href="https://github.com/rguillome/"&gt;rguillome&lt;/a&gt;
+</description>
+    </item>
+    <item>
+      <title>Archive</title>
+      <link>https://blog.guillaumerenaudin.com/archive</link>
+      <description>
+  &lt;h2&gt;2017&lt;/h2&gt;
+    &lt;h3&gt;February&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;span&gt;25/02/2017&lt;/span&gt; &amp;raquo; &lt;a href="/posts/android_apk_reinstall"&gt;R&#xE9;installer automatiquement des applications Android via APK sous Linux&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;h2&gt;2016&lt;/h2&gt;
+    &lt;h3&gt;May&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;span&gt;12/05/2016&lt;/span&gt; &amp;raquo; &lt;a href="/posts/presentation_reveal_docker"&gt;Pr&#xE9;sentation avec Reveal.js en mode container Docker&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;h2&gt;2015&lt;/h2&gt;
+    &lt;h3&gt;June&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;span&gt;25/06/2015&lt;/span&gt; &amp;raquo; &lt;a href="/posts/generate_clear_stacktrace_output"&gt;Sortie lisible d&amp;#39;une stacktrace d&amp;#39;exception en Java&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;h3&gt;April&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;span&gt;03/04/2015&lt;/span&gt; &amp;raquo; &lt;a href="/posts/masse_rename_linux"&gt;Renommer en masse des fichiers (Linux)&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;h3&gt;January&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;span&gt;08/01/2015&lt;/span&gt; &amp;raquo; &lt;a href="/posts/stacktrace_easyreading"&gt;Lecture d&amp;#39;une stacktrace en Java&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;h2&gt;2014&lt;/h2&gt;
+    &lt;h3&gt;November&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;span&gt;18/11/2014&lt;/span&gt; &amp;raquo; &lt;a href="/posts/retour_devfest_2014"&gt;DevFest Nantes 2014&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;h3&gt;September&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;span&gt;05/09/2014&lt;/span&gt; &amp;raquo; &lt;a href="/posts/zimbra_profiling"&gt;Profiler une JVM de Zimbra Mailbox&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+</description>
+    </item>
+    <item>
+      <title>Categories</title>
+      <link>https://blog.guillaumerenaudin.com/categories</link>
+      <description>
+&lt;ul class="tag_box inline"&gt;
+  &lt;li&gt;
+    &lt;a href="/categories#Conference-ref"&gt;Conference &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/categories#Web tools-ref"&gt;Web tools &lt;span&gt;2&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/categories#Web Tools-ref"&gt;Web Tools &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/categories#Mobility-ref"&gt;Mobility &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/categories#Java Dev-ref"&gt;Java Dev &lt;span&gt;2&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+  &lt;h3&gt;Conference (1)&lt;/h3&gt;
+  &lt;ul&gt;
+      &lt;li&gt;&lt;a href="/posts/retour_devfest_2014"&gt;DevFest Nantes 2014&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;h3&gt;Web tools (2)&lt;/h3&gt;
+  &lt;ul&gt;
+      &lt;li&gt;&lt;a href="/posts/presentation_reveal_docker"&gt;Pr&#xE9;sentation avec Reveal.js en mode container Docker&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/posts/masse_rename_linux"&gt;Renommer en masse des fichiers (Linux)&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;h3&gt;Web Tools (1)&lt;/h3&gt;
+  &lt;ul&gt;
+      &lt;li&gt;&lt;a href="/posts/zimbra_profiling"&gt;Profiler une JVM de Zimbra Mailbox&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;h3&gt;Mobility (1)&lt;/h3&gt;
+  &lt;ul&gt;
+      &lt;li&gt;&lt;a href="/posts/android_apk_reinstall"&gt;R&#xE9;installer automatiquement des applications Android via APK sous Linux&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;h3&gt;Java Dev (2)&lt;/h3&gt;
+  &lt;ul&gt;
+      &lt;li&gt;&lt;a href="/posts/stacktrace_easyreading"&gt;Lecture d&amp;#39;une stacktrace en Java&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/posts/generate_clear_stacktrace_output"&gt;Sortie lisible d&amp;#39;une stacktrace d&amp;#39;exception en Java&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+</description>
+    </item>
+    <item>
+      <title>Home</title>
+      <link>https://blog.guillaumerenaudin.com/</link>
+      <description>
+
+&lt;div class="posts"&gt;
+    &lt;h3 class="title"&gt;&lt;a href="/posts/android_apk_reinstall"&gt;R&#xE9;installer automatiquement des applications Android via APK sous Linux&lt;/a&gt;&lt;span class="date"&gt;25/02/2017&lt;/span&gt;&lt;/h3&gt;
+
+  &lt;div class="summary ellipsis"&gt;
+&lt;p&gt;J'ai &#xE9;t&#xE9; confront&#xE9; &#xE0; une probl&#xE9;matique : r&#xE9;installer une liste d'applications Android &#xE0; partir d'APKs en contournant les probl&#xE9;matiques de conflits de version, downgrade etc.&lt;/p&gt;
+
+&lt;p&gt;Les &#xE9;tapes, pour chaque application que l'on souhaite r&#xE9;installer, sont successivement :&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;D&#xE9;sinstallation via AAPT&lt;/li&gt;
+&lt;li&gt;Installation &#xE0; partir de l'APK via ADB&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Le tout n&#xE9;cessite :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Linux&lt;/li&gt;
+&lt;li&gt;Android Asset Packaging Tool (&lt;a href="http://www.elinux.org/Android_aapt"&gt;aapt&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Android Device Bridge (&lt;a href="https://developer.android.com/studio/command-line/adb.html"&gt;adb&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Un r&#xE9;pertoire qui contient toutes les APKs&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;La contrainte principale :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Pour la d&#xE9;sintallation, il est n&#xE9;cessaire de conna&#xEE;tre le nom de l'application install&#xE9;e dans le device. Pour cela, on va utiliser le "package name" du manifest AndroidManifest.xml. Il faut donc que dans l'APK &#xE0; r&#xE9;installer, le nom soit identique, sinon le device contiendra toujours l'ancienne version de l'application&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+  &lt;div class="more"&gt;
+    &lt;a href="/posts/android_apk_reinstall" class="btn btn-small"&gt;read more..&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="posts"&gt;
+    &lt;h3 class="title"&gt;&lt;a href="/posts/presentation_reveal_docker"&gt;Pr&#xE9;sentation avec Reveal.js en mode container Docker&lt;/a&gt;&lt;span class="date"&gt;12/05/2016&lt;/span&gt;&lt;/h3&gt;
+
+  &lt;div class="summary ellipsis"&gt;
+&lt;p&gt;Dans le cadre d'une pr&#xE9;sentation de Docker, j'ai d&#xE9;cid&#xE9; d'utiliser &lt;a href="http://lab.hakim.se/reveal-js/#/"&gt;Reveal.js&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Pour ceux qui ne connaissent pas &lt;strong&gt;&lt;em&gt;reveal.js&lt;/em&gt;&lt;/strong&gt; est un framework Javascript qui permet de transformer du contenu texte fourni par exemple en &lt;a href="https://daringfireball.net/projects/markdown/"&gt;Markdown&lt;/a&gt; en HTML.&lt;/p&gt;
+
+&lt;p&gt;Il permet de customiser le contenu de la pr&#xE9;sentation, les backgrounds, animations, etc.&lt;/p&gt;
+
+&lt;p&gt;Pour fonctionner, il y a 2 modes :&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Le mode "basic" avec du contenu directement int&#xE9;gr&#xE9; dans une page HTML qui s'occupe &#xE9;galement de charger le javascript. Cette page affich&#xE9;e depuis un navigateur charge la librairie &lt;strong&gt;&lt;em&gt;reveal&lt;/em&gt;&lt;/strong&gt; qui transforme des balises &lt;code&gt;sections&lt;/code&gt; en contenu format&#xE9; via HTML&lt;/li&gt;
+&lt;li&gt;Le mode "externalis&#xE9;" o&#xF9; l'on peut charger un fichier Markdown externe par exemple. C'est bien pratique, cela permet de d&#xE9;coupler du contenu structur&#xE9; du rendu final (ce qui est souvent un effet recherch&#xE9; et permet de ne pas enfermer le discours utile dans la techno de pr&#xE9;sentation - &#xE0; bon PowerPointeur, salut !)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;J'ai donc choisi de privil&#xE9;gier ce second mode. Petite probl&#xE9;matique : le fonctionnement de &lt;strong&gt;&lt;em&gt;reveal&lt;/em&gt;&lt;/strong&gt; impose que les fichiers "externes" soit expos&#xE9; telle une ressource web. Cela n&#xE9;cessite donc de la pr&#xE9;senter sur un serveur Web.&lt;/p&gt;
+
+&lt;p&gt;Pas de soucis, &lt;strong&gt;&lt;em&gt;reveal&lt;/em&gt;&lt;/strong&gt; propose de s'installer via l'outillage Node qui va bien : un npm install et un npm start et nous disposons d'un serveur qui expose toutes les ressources du r&#xE9;pertoire courant (statiques de &lt;strong&gt;&lt;em&gt;reveal&lt;/em&gt;&lt;/strong&gt; y compris).&lt;/p&gt;
+
+&lt;p&gt;Oui mais du coup, &#xE0; chaque fois que je vais vouloir ex&#xE9;cuter ma pr&#xE9;sentation reveal sur un nouvel environnement, je vais devoir t&#xE9;l&#xE9;charger toutes les d&#xE9;pendances JS, r&#xE9;aliser les t&#xE2;ches automatique de configuration/installation: ce qui va me prendre du temps, beaucoup de temps...&lt;/p&gt;
+
+&lt;h3 id="toc_0"&gt;La solution...  Docker !&lt;/h3&gt;
+
+&lt;/div&gt;
+
+  &lt;div class="more"&gt;
+    &lt;a href="/posts/presentation_reveal_docker" class="btn btn-small"&gt;read more..&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="posts"&gt;
+    &lt;h3 class="title"&gt;&lt;a href="/posts/generate_clear_stacktrace_output"&gt;Sortie lisible d&amp;#39;une stacktrace d&amp;#39;exception en Java&lt;/a&gt;&lt;span class="date"&gt;25/06/2015&lt;/span&gt;&lt;/h3&gt;
+
+  &lt;div class="summary ellipsis"&gt;
+&lt;p&gt;Java 8 apporte son lot de nouveaut&#xE9;s notamment les Stream. Le but n'&#xE9;tant pas de fournir un cours ou une analyse sur les Stream, il en existe de tr&#xE8;s bons tel que &lt;a href="http://blog.ippon.fr/2014/03/17/api-stream-une-nouvelle-facon-de-gerer-les-collections-en-java-8/"&gt;celui-ci&lt;/a&gt; sur le blog d'Ippon, mais de fournir des astuces sur des probl&#xE8;mes r&#xE9;currents dans le d&#xE9;veloppement d'application Java.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Afficher une Stack d'exception sous forme lisible :&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="Java"&gt;try{
+
+...
+
+} catch (MonException ex) {
+    List&amp;lt;StackTraceElement&amp;gt; listStackLine = Arrays.asList(e.getStackTrace());
+    String stack = listStackLine.stream().map(StackTraceElement::toString)
+                    .collect(Collectors.joining("\n"));
+    fail("Exception re&#xE7;ue : "+e.getMessage()+" avec la stack "+stack);
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Explications :&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Ligne  6 : r&#xE9;cup&#xE9;ration du tableau de String dans l'exception et transformation en String&lt;/li&gt;
+&lt;li&gt;Ligne 7 : utilisation d'une stream puis application d'une m&#xE9;thode de transformation pour ne garder que le r&#xE9;sultat de la m&#xE9;thode "toString" de la classe StackTraceElement et utilisation d'une m&#xE9;thode de collecte qui joint les &#xE9;l&#xE9;ments de la liste par un retour chariot.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+
+  &lt;div class="more"&gt;
+    &lt;a href="/posts/generate_clear_stacktrace_output" class="btn btn-small"&gt;read more..&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="posts"&gt;
+    &lt;h3 class="title"&gt;&lt;a href="/posts/masse_rename_linux"&gt;Renommer en masse des fichiers (Linux)&lt;/a&gt;&lt;span class="date"&gt;03/04/2015&lt;/span&gt;&lt;/h3&gt;
+
+  &lt;div class="summary"&gt;
+&lt;p&gt;Dans les projets auxquels je participe, j'ai souvent besoin de renommer des fichiers en masse; en rempla&#xE7;ant une sous-chaine fixe du nom de fichier par une autre et ce sur plusieurs fichiers d'un r&#xE9;pertoire &#xE0; la fois.&lt;/p&gt;
+
+&lt;p&gt;Voici un script shell qui me permet d'effectuer ces op&#xE9;rations:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="shell"&gt;#!/bin/sh
+# RSLOF : Replace Substring in List of FileNames
+#
+# @author : @RGuillome
+# @args :
+#  - 1 : substring to replace
+#   - 2 : replace by...
+
+if [ $# -le 2 ];
+ then echo "Usage : rslof [SUBSTRING_TO_REPLACE] [SUBSTRING_REPLACEMENT]"
+fi
+
+substring_to_replace=$1
+substring_replacement=$2
+
+
+echo "Replacement of $1 by $2"
+
+for i in `ls *$substring_to_replace*`
+do
+ new_name=$(echo "${i/$substring_to_replace/$substring_replacement}")
+ echo "$i name will be replaced by $new_name"
+ mv $i $new_name
+done
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+  &lt;div class="more"&gt;
+    &lt;a href="/posts/masse_rename_linux" class="btn btn-small"&gt;read more..&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="posts"&gt;
+    &lt;h3 class="title"&gt;&lt;a href="/posts/stacktrace_easyreading"&gt;Lecture d&amp;#39;une stacktrace en Java&lt;/a&gt;&lt;span class="date"&gt;08/01/2015&lt;/span&gt;&lt;/h3&gt;
+
+  &lt;div class="summary"&gt;
+&lt;p&gt;Cet article pr&#xE9;sente quelques informations int&#xE9;ressantes pour lire une stacktrace lors du log d'une exception par exemple.&lt;/p&gt;
+
+&lt;p&gt;Tout d'abord, un petit rappel sur la lecture d'une trace d'exception : il s'agit du cheminement d'ex&#xE9;cution du programme jusqu'&#xE0; l'erreur survenue. Une trace de pile (stack trace) et donc le dernier &#xE9;l&#xE9;ment survenu est toujours le premier r&#xE9;cup&#xE9;r&#xE9; par les logs et on remonte la chronologie en lisant la trace par le bas.&lt;/p&gt;
+
+&lt;p&gt;Dans le cas o&#xF9; l'exception est la cons&#xE9;quence d'autres exceptions indiqu&#xE9;es par le code en tant que cause, des cause by... permettront de retracer l'origine de l'erreur. Il faut donc dans ce cas, se focaliser sur ce point.&lt;/p&gt;
+
+&lt;p&gt;La trace, en plus d'indiquer le type d'exception survenue, compl&#xE8;tera par des informations sur la signature de la m&#xE9;thode dans laquelle l'erreur est survenue: Le nom canonique de la classe et le nom de la m&#xE9;thode ainsi que les param&#xE8;tres d'appel et le param&#xE8;tre de retour.&lt;/p&gt;
+
+&lt;p&gt;On aura donc une trace de la forme :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="[package].[className].[methodName]([parametersIn])[parameterOut]```"&gt;
+
+Par exemple :
+```org.springframework.cache.annotation.CacheAnnotationParser.parseCacheAnnotations(Ljava/lang/reflect/AnnotatedElement;)Ljava/util/Collection;```
+
+
+Les arguments ont une notation particuli&#xE8;re comme on peut le voir dans l'exemple.
+
+
+Chaque argument est donc pr&#xE9;sent&#xE9; de cette forme :
+
+```[Type][(optional)[package].[className]];```
+
+
+O&#xF9; Type sera :
+
+    L dans le cas d'une classe ou une interface
+    Z pour pour un boolean
+    B pour un byte
+    C pour un char
+    D pour un double
+    F pour un float
+    I pour un int
+    J pour un long
+    S pour un short
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+  &lt;div class="more"&gt;
+    &lt;a href="/posts/stacktrace_easyreading" class="btn btn-small"&gt;read more..&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="pagination"&gt;
+  &lt;ul&gt;
+      &lt;li class="active"&gt;&lt;a href="/posts/index/1"&gt;1&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/posts/index/2"&gt;2&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    <item>
+      <title>Tags</title>
+      <link>https://blog.guillaumerenaudin.com/tags</link>
+      <description>
+&lt;ul class="tag_box inline"&gt;
+  &lt;li&gt;
+    &lt;a href="/tags#java-ref"&gt;java &lt;span&gt;3&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/tags#google-ref"&gt;google &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/tags#nantes-ref"&gt;nantes &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/tags#gdg-ref"&gt;gdg &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/tags#js-ref"&gt;js &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/tags#docker-ref"&gt;docker &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/tags#reveal-ref"&gt;reveal &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/tags#zimbra-ref"&gt;zimbra &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/tags#debug-ref"&gt;debug &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/tags#profiling-ref"&gt;profiling &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/tags#android-ref"&gt;android &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/tags#apk-ref"&gt;apk &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/tags#linux-ref"&gt;linux &lt;span&gt;2&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/tags#stacktrace-ref"&gt;stacktrace &lt;span&gt;2&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/tags#stream-ref"&gt;stream &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/tags#java8-ref"&gt;java8 &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/tags#file-ref"&gt;file &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+  &lt;h3 id="java-ref"&gt;java&lt;/h3&gt;
+    &lt;li&gt;&lt;a href="/posts/retour_devfest_2014"&gt;DevFest Nantes 2014&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/posts/stacktrace_easyreading"&gt;Lecture d&amp;#39;une stacktrace en Java&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/posts/generate_clear_stacktrace_output"&gt;Sortie lisible d&amp;#39;une stacktrace d&amp;#39;exception en Java&lt;/a&gt;&lt;/li&gt;
+  &lt;h3 id="google-ref"&gt;google&lt;/h3&gt;
+    &lt;li&gt;&lt;a href="/posts/retour_devfest_2014"&gt;DevFest Nantes 2014&lt;/a&gt;&lt;/li&gt;
+  &lt;h3 id="nantes-ref"&gt;nantes&lt;/h3&gt;
+    &lt;li&gt;&lt;a href="/posts/retour_devfest_2014"&gt;DevFest Nantes 2014&lt;/a&gt;&lt;/li&gt;
+  &lt;h3 id="gdg-ref"&gt;gdg&lt;/h3&gt;
+    &lt;li&gt;&lt;a href="/posts/retour_devfest_2014"&gt;DevFest Nantes 2014&lt;/a&gt;&lt;/li&gt;
+  &lt;h3 id="js-ref"&gt;js&lt;/h3&gt;
+    &lt;li&gt;&lt;a href="/posts/presentation_reveal_docker"&gt;Pr&#xE9;sentation avec Reveal.js en mode container Docker&lt;/a&gt;&lt;/li&gt;
+  &lt;h3 id="docker-ref"&gt;docker&lt;/h3&gt;
+    &lt;li&gt;&lt;a href="/posts/presentation_reveal_docker"&gt;Pr&#xE9;sentation avec Reveal.js en mode container Docker&lt;/a&gt;&lt;/li&gt;
+  &lt;h3 id="reveal-ref"&gt;reveal&lt;/h3&gt;
+    &lt;li&gt;&lt;a href="/posts/presentation_reveal_docker"&gt;Pr&#xE9;sentation avec Reveal.js en mode container Docker&lt;/a&gt;&lt;/li&gt;
+  &lt;h3 id="zimbra-ref"&gt;zimbra&lt;/h3&gt;
+    &lt;li&gt;&lt;a href="/posts/zimbra_profiling"&gt;Profiler une JVM de Zimbra Mailbox&lt;/a&gt;&lt;/li&gt;
+  &lt;h3 id="debug-ref"&gt;debug&lt;/h3&gt;
+    &lt;li&gt;&lt;a href="/posts/zimbra_profiling"&gt;Profiler une JVM de Zimbra Mailbox&lt;/a&gt;&lt;/li&gt;
+  &lt;h3 id="profiling-ref"&gt;profiling&lt;/h3&gt;
+    &lt;li&gt;&lt;a href="/posts/zimbra_profiling"&gt;Profiler une JVM de Zimbra Mailbox&lt;/a&gt;&lt;/li&gt;
+  &lt;h3 id="android-ref"&gt;android&lt;/h3&gt;
+    &lt;li&gt;&lt;a href="/posts/android_apk_reinstall"&gt;R&#xE9;installer automatiquement des applications Android via APK sous Linux&lt;/a&gt;&lt;/li&gt;
+  &lt;h3 id="apk-ref"&gt;apk&lt;/h3&gt;
+    &lt;li&gt;&lt;a href="/posts/android_apk_reinstall"&gt;R&#xE9;installer automatiquement des applications Android via APK sous Linux&lt;/a&gt;&lt;/li&gt;
+  &lt;h3 id="linux-ref"&gt;linux&lt;/h3&gt;
+    &lt;li&gt;&lt;a href="/posts/android_apk_reinstall"&gt;R&#xE9;installer automatiquement des applications Android via APK sous Linux&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/posts/masse_rename_linux"&gt;Renommer en masse des fichiers (Linux)&lt;/a&gt;&lt;/li&gt;
+  &lt;h3 id="stacktrace-ref"&gt;stacktrace&lt;/h3&gt;
+    &lt;li&gt;&lt;a href="/posts/stacktrace_easyreading"&gt;Lecture d&amp;#39;une stacktrace en Java&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/posts/generate_clear_stacktrace_output"&gt;Sortie lisible d&amp;#39;une stacktrace d&amp;#39;exception en Java&lt;/a&gt;&lt;/li&gt;
+  &lt;h3 id="stream-ref"&gt;stream&lt;/h3&gt;
+    &lt;li&gt;&lt;a href="/posts/generate_clear_stacktrace_output"&gt;Sortie lisible d&amp;#39;une stacktrace d&amp;#39;exception en Java&lt;/a&gt;&lt;/li&gt;
+  &lt;h3 id="java8-ref"&gt;java8&lt;/h3&gt;
+    &lt;li&gt;&lt;a href="/posts/generate_clear_stacktrace_output"&gt;Sortie lisible d&amp;#39;une stacktrace d&amp;#39;exception en Java&lt;/a&gt;&lt;/li&gt;
+  &lt;h3 id="file-ref"&gt;file&lt;/h3&gt;
+    &lt;li&gt;&lt;a href="/posts/masse_rename_linux"&gt;Renommer en masse des fichiers (Linux)&lt;/a&gt;&lt;/li&gt;
+ 
+</description>
+    </item>
+  </channel>
+</rss>

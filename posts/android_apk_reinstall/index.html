@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>JustIT - Réinstaller automatiquement des applications Android via APK sous Linux</title>
+    <link href="/assets/media/favicon.ico" rel="icon" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Guillaume Renaudin">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+<link href='/assets/stylesheets/bootstrap.min-88238289010db19359d2181e634e95cd.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/style-28c011f93a5d02de09256f309c5a46f5.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/base-9edbb2b7de9bbee2f38cdabbda84c092.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google_prettify/sons-of-obsidian-afb0925bfa2d994f17dab93e13fbf999.css' type='text/css' rel='stylesheet' media='all'>
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/"><img src="/assets/media/justit_logo.png" /></a>
+          <div class="container-description">
+            <p class="description"><span>... Does it help ?</span></p>
+          </div>
+          <ul class="nav">
+              
+                <li><a href="/archive">Archive</a></li>
+              
+              
+                <li><a href="/tags">Tags</a></li>
+              
+              
+                <li><a href="/categories">Categories</a></li>
+              
+              
+                <li><a href="/about">About</a></li>
+              
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>Réinstaller automatiquement des applications Android via APK sous Linux </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>25/02/2017</strong>
+    </div>
+    <div class="content">
+      <p>J&#39;ai été confronté à une problématique : réinstaller une liste d&#39;applications Android à partir d&#39;APKs en contournant les problématiques de conflits de version, downgrade etc.</p>
+
+<p>Les étapes, pour chaque application que l&#39;on souhaite réinstaller, sont successivement :</p>
+
+<ol>
+<li>Désinstallation via AAPT</li>
+<li>Installation à partir de l&#39;APK via ADB</li>
+</ol>
+
+<p>Le tout nécessite :</p>
+
+<ul>
+<li>Linux</li>
+<li>Android Asset Packaging Tool (<a href="http://www.elinux.org/Android_aapt">aapt</a>)</li>
+<li>Android Device Bridge (<a href="https://developer.android.com/studio/command-line/adb.html">adb</a>)</li>
+<li>Un répertoire qui contient toutes les APKs</li>
+</ul>
+
+<p>La contrainte principale :</p>
+
+<ul>
+<li>Pour la désintallation, il est nécessaire de connaître le nom de l&#39;application installée dans le device. Pour cela, on va utiliser le &quot;package name&quot; du manifest AndroidManifest.xml. Il faut donc que dans l&#39;APK à réinstaller, le nom soit identique, sinon le device contiendra toujours l&#39;ancienne version de l&#39;application</li>
+</ul>
+
+<p>Le script, à exécuter à partir du répertoire contenant tous les APKs, est donc :</p>
+
+<pre><code class="shell">#!/bin/sh
+# @author : @RGuillome
+
+for i in `ls *.apk`
+do
+
+    PACKAGE_NAME=`aapt dump badging $i | grep package:\ name | awk -F&#39;[/=]&#39; &#39;{print $2}&#39; | awk &#39;{print $1}&#39; | sed  &quot;s/&#39;//g&quot;`;
+    echo &quot;Uninstall package : $PACKAGE_NAME&quot;;
+    adb uninstall $PACKAGE_NAME;
+
+    echo &quot;Installation de $i&quot;;
+    adb install -r -d $i;
+done
+</code></pre>
+
+    </div>
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      <li>
+        <a href="/categories#Mobility-ref">Mobility <span>1</span></a>
+      </li>
+    </ul>
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      <li>
+        <a href="/tags#android-ref">android <span>1</span></a>
+      </li>
+      <li>
+        <a href="/tags#apk-ref">apk <span>1</span></a>
+      </li>
+      <li>
+        <a href="/tags#linux-ref">linux <span>2</span></a>
+      </li>
+    </ul>
+    <hr>
+    <div class="pagination">
+      <ul>
+          <li class="prev"><a href="/posts/presentation_reveal_docker" title="Présentation avec Reveal.js en mode container Docker">&larr; Previous</a></li>
+
+          <li><a href="/archive">Archive</a></li>
+
+          <li class="next disabled"><a>Next &rarr;</a>
+      </ul>
+    </div>
+    <hr>
+    
+  </div>
+</div>
+
+
+      </div>
+
+      <hr>
+      <div class="footer">
+        <p>&copy; Guillaume Renaudin 2017
+          with help from <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">ruhoh</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Google Prettify -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+<!-- end Google Prettify -->
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-42249239-2']);
+  _gaq.push(['_trackPageview']);
+  
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+
+  </body>
+</html>
