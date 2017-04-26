@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>JustIT - Breizhcamp 2017</title>
+    <link href="/assets/media/favicon.ico" rel="icon" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Guillaume Renaudin">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+<link href='/assets/stylesheets/bootstrap.min-88238289010db19359d2181e634e95cd.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/style-28c011f93a5d02de09256f309c5a46f5.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/base-f9484737448082ff8eea5bb519bc1ff4.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google_prettify/sons-of-obsidian-afb0925bfa2d994f17dab93e13fbf999.css' type='text/css' rel='stylesheet' media='all'>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/"><img src="/assets/media/justit_logo.png" /></a>
+          <div class="container-description">
+            <p class="description"><span>... Does it help ?</span></p>
+          </div>
+          <ul class="nav">
+              
+                <li><a href="/archive">Archive</a></li>
+              
+              
+                <li><a href="/tags">Tags</a></li>
+              
+              
+                <li><a href="/categories">Categories</a></li>
+              
+              
+                <li><a href="/about">About</a></li>
+              
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>Breizhcamp 2017 </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>25/04/2017</strong>
+    </div>
+    <div class="content">
+      <style type="text/css">
+  img[alt=AfficheBzc2017] {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+  }
+
+</style>
+
+<p>Voici un petit retour sur 2 jours passés au Breizhcamp 2017. Cette année le thème était la série <a href="http://www.allocine.fr/series/ficheserie_gen_cserie=3517.html">Breaking Bad</a>. Et une chose est sûre, les organisateurs ainsi que les sponsors ont vraiment jouer le jeu à fond :</p>
+
+<p><img src="/assets/media/retour_breizhcamp_2017/breakingcamp.png" alt="AfficheBzc2017"></p>
+
+<p>Plutôt que de résumer les conférences auxquelles j&#39;ai assisté, j&#39;ai décidé de ne présenter qu&#39;une seule idée de chaque session. Ca permettra une lecture rapide et un équilibre de feedback entre toutes les conférences :</p>
+
+<p><strong>Les problèmes que l’on rencontre en microservice : configuration, authentification et autre joyeusetés</strong> - <a href="https://twitter.com/waxzce">Quentin Adam</a></p>
+
+<blockquote>
+<p>Pour l&#39;authentification de vos services mangez des <a href="http://hackingdistributed.com/2014/05/16/macaroons-are-better-than-cookies/">Macaroons</a> c&#39;est bien meilleurs que des cookies</p>
+</blockquote>
+
+<p><strong>Retour d&#39;expérience: le déploiement continu chez Expedia</strong> - <a href="https://twitter.com/g_scheibel">Guillaume Scheibel</a></p>
+
+<blockquote>
+<p>Utiliser le SHA1 des commit GIT dans ses logs pour tracer la version d&#39;une feature. (<em>Utile pour de l&#39;AB testing par exemple</em>)</p>
+</blockquote>
+
+<p><strong>Construire et automatiser l&#39;ecosystème de son SaaS grâce à une spécification Swagger</strong> - <a href="https://twitter.com/FGRibreau">Francois-Guillaume Ribreau</a></p>
+
+<blockquote>
+<p>Générer toutes ses librairies clientes dans tous les langages pour vos API avec Swagger, ok : mais prévoir du rewrite manuel sur celles qui ciblent vos utilisateurs récurrents</p>
+</blockquote>
+
+<p><strong>Premiers pas en Deep Learning avec Keras</strong> - <a href="https://twitter.com/mverriez">Manuel Verriez</a></p>
+
+<blockquote>
+<p>Si Tensor Flow est un peu trop bas niveau au début, utilisez Keras qui propose une API efficace et bien structurée pour entrainer et exécuter vos algorithmes de Deep Learning</p>
+</blockquote>
+
+<p><strong>Je vois avec mes yeux</strong> - <a href="https://twitter.com/Jeff_Abrahamson">Jeff Abrahamson</a></p>
+
+<blockquote>
+<p>Même avec des copies d&#39;écrans au 1/1000ième couplées à une reconnaissance de texte sur le nom de ses fenêtres de travail, on peut analyser et anticiper son comportement de travail. Imaginez ce que la NSA fait avec nos données perso :)</p>
+</blockquote>
+
+<p><strong>Comment ça marche systemd déjà</strong> ? - <a href="https://twitter.com/waxzce">Quentin Adam</a></p>
+
+<blockquote>
+<p>Initd est un gestionnaire de service dont le code repose uniquement sur des scripts Bash qui contiennent notamment les conventions de la CLI. Systemd utilise, lui, des fichiers de configuration bien documentés et structurés qui n&#39;empêchent en rien d&#39;y ajouter des scripts pour les extensions ponctuelles ...</p>
+</blockquote>
+
+<p><strong>Le test d’intrusion Red Team : digne successeur de l’audit de sécurité ?</strong> - <a href="@clement_michel">Clément Michel</a></p>
+
+<blockquote>
+<p>ReadTeam : Une équipe de choc en mode hidden qui tente de pénétrer votre réseau pendant 6 mois à 1 an, ça permet d&#39;efficacement colmater les brèches mais cela n&#39;évitera pas un audit traditionnel pour définir la stratégie long terme de votre politique SSI</p>
+</blockquote>
+
+<p><strong>Keynote &quot;Qui veut gagner une carrière de développeur&quot;</strong> - <a href="@jefbinomed">Jean-François Garreau</a> <a href="@ThomasGX">Thomas Gx</a></p>
+
+<blockquote>
+<p>Les développeurs sont mal payés et infine c&#39;est toujours le CTO qui décide. </p>
+
+<p><em>Désolé ça fait 2 idées mais je n&#39;arrivais vraiment pas à choisir (ndlr)</em> </p>
+</blockquote>
+
+<p><strong>Keynote &quot;Comment les logiciels pourrissent ma vie et pourraient la faciliter&quot;</strong> - <a href="@antoninlemee">Antonin Le Mée</a></p>
+
+<blockquote>
+<p>Ne jamais croire que son expérience personnelle, ses connaissances et ses a priori permettent de comprendre et de définir la diversité du monde qui nous entoure. De là, ajouter des contraintes dans son dev si ce n&#39;est pas impératif, c&#39;est littéralement... comment ils disent déjà ? overkill !</p>
+</blockquote>
+
+<p><strong>Smartphone et blockchain, armes de révolution massive</strong> - <a href="@GuiillaumeN">Guillaume Nicolas</a> et <a href="@dlecan">Damien Lecan</a></p>
+
+<blockquote>
+<p>Ne rajoutez pas d&#39;intermédiaire entre vous et la blockchain : seul un noeud de blockchain embarqué dans un téléphone mobile est digne de confiance car c&#39;est le vôtre !</p>
+</blockquote>
+
+<p><strong>Sinon, quoi de neuf côté Apache Groovy</strong> ? - <a href="@glaforge">Guillaume Laforge</a> et <a href="@CedricChampeau">Cédric Champeau</a></p>
+
+<blockquote>
+<p>Grâce aux macros vous pouvez désormais écrire plus facile des instructions de compilation pour AST sans avoir à utiliser le modèle objet de l&#39;arbre syntaxique</p>
+</blockquote>
+
+<p><strong>Quand Internet sera gouvernée par les |chats&gt; de Shrödinger</strong> - <a href="@ndeloof">Nicolas De Loof</a></p>
+
+<blockquote>
+<p><script type="math/tex"> |\Psi(t)> </script> ... et puis il y avait 42 chats mais on ne savait jamais précisément où ils étaient ou n&#39;étaient pas ...</p>
+</blockquote>
+
+<p><strong>Introduction à Unikernel</strong> - <a href="@rstomasalberto">Tomas Rodriguez</a> et <a href="@jbclaramonte">Jean-Baptiste Claramonte</a></p>
+
+<blockquote>
+<p>Unikernel sera peut-être le futur des conteneurs : avantages d&#39;isolation d&#39;une VM avec la légèreté et le &quot;just what I need&quot; d&#39;un conteneur</p>
+</blockquote>
+
+<p><strong>Ici le commandant de bord, on passe en mode avion !</strong> - <a href="@olivierleplus">Olivier Leplus</a> et <a href="@manekinekko">Wassim Chegham</a></p>
+
+<blockquote>
+<p>L&#39;API sync permet de contrôler ce qui peut être fait lorsque l&#39;on récupère la connexion, complétée par une local database, c&#39;est l&#39;outil privilégié pour une expérience offline sans avoir besoin de sauter en vol !</p>
+</blockquote>
+
+<p><strong>Automatiser la gestion de vos environnements avec Ansible</strong> - <a href="@FabienPaitry">Fabien PAITRY</a></p>
+
+<blockquote>
+<p>Ansible est plus simple à prendre en main que Puppet et fonctionne sans agent ce qui simplifie son intégration dans les infrastructures actuelles </p>
+</blockquote>
+
+<p>Je complèterai par une idée majeure qui est valable pour le BreizhCamp mais aussi pour d&#39;autres évènements de développeurs auxquels j&#39;ai pu participer tels que le DevFest. Il s&#39;agit de la <strong>bienveillance générale</strong> qui reigne dans ces confs : chacun peut échanger, essayer, proposer, se tromper, réussir et tout ça toujours dans une bonne ambiance et avec un soutien général des participants, speakers et organisateurs.
+Et si un conflit survient, il se transforme par la suite en une belle leçon de savoir-vivre, d&#39;humilité et d&#39;humanité. Il faut apprendre à évoluer avec les autres.</p>
+
+<div align="center">Merci et bravo Breizhcamp !</div>
+
+    </div>
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      <li>
+        <a href="/categories#Conference-ref">Conference <span>2</span></a>
+      </li>
+    </ul>
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      <li>
+        <a href="/tags#development-ref">development <span>1</span></a>
+      </li>
+      <li>
+        <a href="/tags#breizhcamp-ref">breizhcamp <span>1</span></a>
+      </li>
+      <li>
+        <a href="/tags#rennes-ref">rennes <span>1</span></a>
+      </li>
+    </ul>
+    <hr>
+    <div class="pagination">
+      <ul>
+          <li class="prev"><a href="/posts/android_apk_reinstall" title="Réinstaller automatiquement des applications Android via APK sous Linux">&larr; Previous</a></li>
+
+          <li><a href="/archive">Archive</a></li>
+
+          <li class="next disabled"><a>Next &rarr;</a>
+      </ul>
+    </div>
+    <hr>
+    <div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'guillaumerenaudin-com'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+</div>
+
+
+      </div>
+
+      <hr>
+      <div class="footer">
+        <p>&copy; Guillaume Renaudin 2017
+          with help from <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">ruhoh</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Google Prettify -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+<!-- end Google Prettify -->
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-42249239-2']);
+  _gaq.push(['_trackPageview']);
+  
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+
+  </body>
+</html>

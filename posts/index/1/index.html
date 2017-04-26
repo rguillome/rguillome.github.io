@@ -15,8 +15,10 @@
     <!-- Le styles -->
 <link href='/assets/stylesheets/bootstrap.min-88238289010db19359d2181e634e95cd.css' type='text/css' rel='stylesheet' media='all'>
 <link href='/assets/stylesheets/style-28c011f93a5d02de09256f309c5a46f5.css' type='text/css' rel='stylesheet' media='all'>
-<link href='/assets/stylesheets/base-9edbb2b7de9bbee2f38cdabbda84c092.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/base-f9484737448082ff8eea5bb519bc1ff4.css' type='text/css' rel='stylesheet' media='all'>
 <link href='/assets/stylesheets/google_prettify/sons-of-obsidian-afb0925bfa2d994f17dab93e13fbf999.css' type='text/css' rel='stylesheet' media='all'>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+
     <!-- Le fav and touch icons -->
   <!-- Update these with your own images
     <link rel="shortcut icon" href="images/favicon.ico">
@@ -58,6 +60,37 @@
       <div class="content">
         <div class="row-fluid">
   <div class="span12">
+      <div class="posts">
+        <h3 class="title"><a href="/posts/retour_breizhcamp_2017">Breizhcamp 2017</a><span class="date">25/04/2017</span></h3>
+
+        <div class="summary ellipsis">
+<style type="text/css">
+  img[alt=AfficheBzc2017] {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+  }
+
+</style>
+
+<p>Voici un petit retour sur 2 jours passés au Breizhcamp 2017. Cette année le thème était la série <a href="http://www.allocine.fr/series/ficheserie_gen_cserie=3517.html">Breaking Bad</a>. Et une chose est sûre, les organisateurs ainsi que les sponsors ont vraiment jouer le jeu à fond :</p>
+
+<p><img src="/assets/media/retour_breizhcamp_2017/breakingcamp.png" alt="AfficheBzc2017"></p>
+
+<p>Plutôt que de résumer les conférences auxquelles j'ai assisté, j'ai décidé de ne présenter qu'une seule idée de chaque session. Ca permettra une lecture rapide et un équilibre de feedback entre toutes les conférences :</p>
+
+<p><strong>Les problèmes que l’on rencontre en microservice : configuration, authentification et autre joyeusetés</strong> - <a href="https://twitter.com/waxzce">Quentin Adam</a></p>
+
+<blockquote>
+<p>Pour l'authentification de vos services mangez des <a href="http://hackingdistributed.com/2014/05/16/macaroons-are-better-than-cookies/">Macaroons</a> c'est bien meilleurs que des cookies</p>
+</blockquote>
+
+</div>
+
+        <div class="more">
+          <a href="/posts/retour_breizhcamp_2017" class="btn btn-small">read more..</a>
+        </div>
+      </div>
       <div class="posts">
         <h3 class="title"><a href="/posts/android_apk_reinstall">Réinstaller automatiquement des applications Android via APK sous Linux</a><span class="date">25/02/2017</span></h3>
 
@@ -129,26 +162,25 @@
 <p>Java 8 apporte son lot de nouveautés notamment les Stream. Le but n'étant pas de fournir un cours ou une analyse sur les Stream, il en existe de très bons tel que <a href="http://blog.ippon.fr/2014/03/17/api-stream-une-nouvelle-facon-de-gerer-les-collections-en-java-8/">celui-ci</a> sur le blog d'Ippon, mais de fournir des astuces sur des problèmes récurrents dans le développement d'application Java.</p>
 
 <p><strong>Afficher une Stack d'exception sous forme lisible :</strong></p>
-
 <pre><code class="Java">try{
 
 ...
 
 } catch (MonException ex) {
-    List&lt;StackTraceElement&gt; listStackLine = Arrays.asList(e.getStackTrace());
+    List<stacktraceelement> listStackLine = Arrays.asList(e.getStackTrace());
     String stack = listStackLine.stream().map(StackTraceElement::toString)
                     .collect(Collectors.joining("\n"));
     fail("Exception reçue : "+e.getMessage()+" avec la stack "+stack);
 }
 
-</code></pre>
-
+</stacktraceelement></code></pre>
 <p><strong>Explications :</strong></p>
 
 <ol>
 <li>Ligne  6 : récupération du tableau de String dans l'exception et transformation en String</li>
 <li>Ligne 7 : utilisation d'une stream puis application d'une méthode de transformation pour ne garder que le résultat de la méthode "toString" de la classe StackTraceElement et utilisation d'une méthode de collecte qui joint les éléments de la liste par un retour chariot.</li>
 </ol>
+
 </div>
 
         <div class="more">
@@ -162,7 +194,6 @@
 <p>Dans les projets auxquels je participe, j'ai souvent besoin de renommer des fichiers en masse; en remplaçant une sous-chaine fixe du nom de fichier par une autre et ce sur plusieurs fichiers d'un répertoire à la fois.</p>
 
 <p>Voici un script shell qui me permet d'effectuer ces opérations:</p>
-
 <pre><code class="shell">#!/bin/sh
 # RSLOF : Replace Substring in List of FileNames
 #
@@ -192,52 +223,6 @@ done
 
         <div class="more">
           <a href="/posts/masse_rename_linux" class="btn btn-small">read more..</a>
-        </div>
-      </div>
-      <div class="posts">
-        <h3 class="title"><a href="/posts/stacktrace_easyreading">Lecture d&#39;une stacktrace en Java</a><span class="date">08/01/2015</span></h3>
-
-        <div class="summary">
-<p>Cet article présente quelques informations intéressantes pour lire une stacktrace lors du log d'une exception par exemple.</p>
-
-<p>Tout d'abord, un petit rappel sur la lecture d'une trace d'exception : il s'agit du cheminement d'exécution du programme jusqu'à l'erreur survenue. Une trace de pile (stack trace) et donc le dernier élément survenu est toujours le premier récupéré par les logs et on remonte la chronologie en lisant la trace par le bas.</p>
-
-<p>Dans le cas où l'exception est la conséquence d'autres exceptions indiquées par le code en tant que cause, des cause by... permettront de retracer l'origine de l'erreur. Il faut donc dans ce cas, se focaliser sur ce point.</p>
-
-<p>La trace, en plus d'indiquer le type d'exception survenue, complètera par des informations sur la signature de la méthode dans laquelle l'erreur est survenue: Le nom canonique de la classe et le nom de la méthode ainsi que les paramètres d'appel et le paramètre de retour.</p>
-
-<p>On aura donc une trace de la forme :</p>
-
-<pre><code class="[package].[className].[methodName]([parametersIn])[parameterOut]```">
-
-Par exemple :
-```org.springframework.cache.annotation.CacheAnnotationParser.parseCacheAnnotations(Ljava/lang/reflect/AnnotatedElement;)Ljava/util/Collection;```
-
-
-Les arguments ont une notation particulière comme on peut le voir dans l'exemple.
-
-
-Chaque argument est donc présenté de cette forme :
-
-```[Type][(optional)[package].[className]];```
-
-
-Où Type sera :
-
-    L dans le cas d'une classe ou une interface
-    Z pour pour un boolean
-    B pour un byte
-    C pour un char
-    D pour un double
-    F pour un float
-    I pour un int
-    J pour un long
-    S pour un short
-</code></pre>
-</div>
-
-        <div class="more">
-          <a href="/posts/stacktrace_easyreading" class="btn btn-small">read more..</a>
         </div>
       </div>
 

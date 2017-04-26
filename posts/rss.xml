@@ -3,11 +3,128 @@
   <channel>
     <title>JustIT</title>
     <description>... Does it help ?</description>
-    <link>https://blog.guillaumerenaudin.com</link>
-    <pubDate>15/03/2017</pubDate>
+    <link>https://guillaumerenaudin.com</link>
+    <pubDate>26/04/2017</pubDate>
+    <item>
+      <title>Breizhcamp 2017</title>
+      <link>https://guillaumerenaudin.com/posts/retour_breizhcamp_2017</link>
+      <pubDate>25/04/2017</pubDate>
+      <description>&lt;style type="text/css"&gt;
+  img[alt=AfficheBzc2017] {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+  }
+
+&lt;/style&gt;
+
+&lt;p&gt;Voici un petit retour sur 2 jours pass&#xE9;s au Breizhcamp 2017. Cette ann&#xE9;e le th&#xE8;me &#xE9;tait la s&#xE9;rie &lt;a href="http://www.allocine.fr/series/ficheserie_gen_cserie=3517.html"&gt;Breaking Bad&lt;/a&gt;. Et une chose est s&#xFB;re, les organisateurs ainsi que les sponsors ont vraiment jouer le jeu &#xE0; fond :&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="/assets/media/retour_breizhcamp_2017/breakingcamp.png" alt="AfficheBzc2017"&gt;&lt;/p&gt;
+
+&lt;p&gt;Plut&#xF4;t que de r&#xE9;sumer les conf&#xE9;rences auxquelles j&amp;#39;ai assist&#xE9;, j&amp;#39;ai d&#xE9;cid&#xE9; de ne pr&#xE9;senter qu&amp;#39;une seule id&#xE9;e de chaque session. Ca permettra une lecture rapide et un &#xE9;quilibre de feedback entre toutes les conf&#xE9;rences :&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Les probl&#xE8;mes que l&#x2019;on rencontre en microservice : configuration, authentification et autre joyeuset&#xE9;s&lt;/strong&gt; - &lt;a href="https://twitter.com/waxzce"&gt;Quentin Adam&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Pour l&amp;#39;authentification de vos services mangez des &lt;a href="http://hackingdistributed.com/2014/05/16/macaroons-are-better-than-cookies/"&gt;Macaroons&lt;/a&gt; c&amp;#39;est bien meilleurs que des cookies&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Retour d&amp;#39;exp&#xE9;rience: le d&#xE9;ploiement continu chez Expedia&lt;/strong&gt; - &lt;a href="https://twitter.com/g_scheibel"&gt;Guillaume Scheibel&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Utiliser le SHA1 des commit GIT dans ses logs pour tracer la version d&amp;#39;une feature. (&lt;em&gt;Utile pour de l&amp;#39;AB testing par exemple&lt;/em&gt;)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Construire et automatiser l&amp;#39;ecosyst&#xE8;me de son SaaS gr&#xE2;ce &#xE0; une sp&#xE9;cification Swagger&lt;/strong&gt; - &lt;a href="https://twitter.com/FGRibreau"&gt;Francois-Guillaume Ribreau&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;G&#xE9;n&#xE9;rer toutes ses librairies clientes dans tous les langages pour vos API avec Swagger, ok : mais pr&#xE9;voir du rewrite manuel sur celles qui ciblent vos utilisateurs r&#xE9;currents&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Premiers pas en Deep Learning avec Keras&lt;/strong&gt; - &lt;a href="https://twitter.com/mverriez"&gt;Manuel Verriez&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Si Tensor Flow est un peu trop bas niveau au d&#xE9;but, utilisez Keras qui propose une API efficace et bien structur&#xE9;e pour entrainer et ex&#xE9;cuter vos algorithmes de Deep Learning&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Je vois avec mes yeux&lt;/strong&gt; - &lt;a href="https://twitter.com/Jeff_Abrahamson"&gt;Jeff Abrahamson&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;M&#xEA;me avec des copies d&amp;#39;&#xE9;crans au 1/1000i&#xE8;me coupl&#xE9;es &#xE0; une reconnaissance de texte sur le nom de ses fen&#xEA;tres de travail, on peut analyser et anticiper son comportement de travail. Imaginez ce que la NSA fait avec nos donn&#xE9;es perso :)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Comment &#xE7;a marche systemd d&#xE9;j&#xE0;&lt;/strong&gt; ? - &lt;a href="https://twitter.com/waxzce"&gt;Quentin Adam&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Initd est un gestionnaire de service dont le code repose uniquement sur des scripts Bash qui contiennent notamment les conventions de la CLI. Systemd utilise, lui, des fichiers de configuration bien document&#xE9;s et structur&#xE9;s qui n&amp;#39;emp&#xEA;chent en rien d&amp;#39;y ajouter des scripts pour les extensions ponctuelles ...&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Le test d&#x2019;intrusion Red Team : digne successeur de l&#x2019;audit de s&#xE9;curit&#xE9; ?&lt;/strong&gt; - &lt;a href="@clement_michel"&gt;Cl&#xE9;ment Michel&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;ReadTeam : Une &#xE9;quipe de choc en mode hidden qui tente de p&#xE9;n&#xE9;trer votre r&#xE9;seau pendant 6 mois &#xE0; 1 an, &#xE7;a permet d&amp;#39;efficacement colmater les br&#xE8;ches mais cela n&amp;#39;&#xE9;vitera pas un audit traditionnel pour d&#xE9;finir la strat&#xE9;gie long terme de votre politique SSI&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Keynote &amp;quot;Qui veut gagner une carri&#xE8;re de d&#xE9;veloppeur&amp;quot;&lt;/strong&gt; - &lt;a href="@jefbinomed"&gt;Jean-Fran&#xE7;ois Garreau&lt;/a&gt; &lt;a href="@ThomasGX"&gt;Thomas Gx&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Les d&#xE9;veloppeurs sont mal pay&#xE9;s et infine c&amp;#39;est toujours le CTO qui d&#xE9;cide. &lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;D&#xE9;sol&#xE9; &#xE7;a fait 2 id&#xE9;es mais je n&amp;#39;arrivais vraiment pas &#xE0; choisir (ndlr)&lt;/em&gt; &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Keynote &amp;quot;Comment les logiciels pourrissent ma vie et pourraient la faciliter&amp;quot;&lt;/strong&gt; - &lt;a href="@antoninlemee"&gt;Antonin Le M&#xE9;e&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Ne jamais croire que son exp&#xE9;rience personnelle, ses connaissances et ses a priori permettent de comprendre et de d&#xE9;finir la diversit&#xE9; du monde qui nous entoure. De l&#xE0;, ajouter des contraintes dans son dev si ce n&amp;#39;est pas imp&#xE9;ratif, c&amp;#39;est litt&#xE9;ralement... comment ils disent d&#xE9;j&#xE0; ? overkill !&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Smartphone et blockchain, armes de r&#xE9;volution massive&lt;/strong&gt; - &lt;a href="@GuiillaumeN"&gt;Guillaume Nicolas&lt;/a&gt; et &lt;a href="@dlecan"&gt;Damien Lecan&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Ne rajoutez pas d&amp;#39;interm&#xE9;diaire entre vous et la blockchain : seul un noeud de blockchain embarqu&#xE9; dans un t&#xE9;l&#xE9;phone mobile est digne de confiance car c&amp;#39;est le v&#xF4;tre !&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Sinon, quoi de neuf c&#xF4;t&#xE9; Apache Groovy&lt;/strong&gt; ? - &lt;a href="@glaforge"&gt;Guillaume Laforge&lt;/a&gt; et &lt;a href="@CedricChampeau"&gt;C&#xE9;dric Champeau&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Gr&#xE2;ce aux macros vous pouvez d&#xE9;sormais &#xE9;crire plus facile des instructions de compilation pour AST sans avoir &#xE0; utiliser le mod&#xE8;le objet de l&amp;#39;arbre syntaxique&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Quand Internet sera gouvern&#xE9;e par les |chats&amp;gt; de Shr&#xF6;dinger&lt;/strong&gt; - &lt;a href="@ndeloof"&gt;Nicolas De Loof&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;script type="math/tex"&gt; |\Psi(t)&gt; &lt;/script&gt; ... et puis il y avait 42 chats mais on ne savait jamais pr&#xE9;cis&#xE9;ment o&#xF9; ils &#xE9;taient ou n&amp;#39;&#xE9;taient pas ...&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Introduction &#xE0; Unikernel&lt;/strong&gt; - &lt;a href="@rstomasalberto"&gt;Tomas Rodriguez&lt;/a&gt; et &lt;a href="@jbclaramonte"&gt;Jean-Baptiste Claramonte&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Unikernel sera peut-&#xEA;tre le futur des conteneurs : avantages d&amp;#39;isolation d&amp;#39;une VM avec la l&#xE9;g&#xE8;ret&#xE9; et le &amp;quot;just what I need&amp;quot; d&amp;#39;un conteneur&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Ici le commandant de bord, on passe en mode avion !&lt;/strong&gt; - &lt;a href="@olivierleplus"&gt;Olivier Leplus&lt;/a&gt; et &lt;a href="@manekinekko"&gt;Wassim Chegham&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;L&amp;#39;API sync permet de contr&#xF4;ler ce qui peut &#xEA;tre fait lorsque l&amp;#39;on r&#xE9;cup&#xE8;re la connexion, compl&#xE9;t&#xE9;e par une local database, c&amp;#39;est l&amp;#39;outil privil&#xE9;gi&#xE9; pour une exp&#xE9;rience offline sans avoir besoin de sauter en vol !&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Automatiser la gestion de vos environnements avec Ansible&lt;/strong&gt; - &lt;a href="@FabienPaitry"&gt;Fabien PAITRY&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Ansible est plus simple &#xE0; prendre en main que Puppet et fonctionne sans agent ce qui simplifie son int&#xE9;gration dans les infrastructures actuelles &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Je compl&#xE8;terai par une id&#xE9;e majeure qui est valable pour le BreizhCamp mais aussi pour d&amp;#39;autres &#xE9;v&#xE8;nements de d&#xE9;veloppeurs auxquels j&amp;#39;ai pu participer tels que le DevFest. Il s&amp;#39;agit de la &lt;strong&gt;bienveillance g&#xE9;n&#xE9;rale&lt;/strong&gt; qui reigne dans ces confs : chacun peut &#xE9;changer, essayer, proposer, se tromper, r&#xE9;ussir et tout &#xE7;a toujours dans une bonne ambiance et avec un soutien g&#xE9;n&#xE9;ral des participants, speakers et organisateurs.
+Et si un conflit survient, il se transforme par la suite en une belle le&#xE7;on de savoir-vivre, d&amp;#39;humilit&#xE9; et d&amp;#39;humanit&#xE9;. Il faut apprendre &#xE0; &#xE9;voluer avec les autres.&lt;/p&gt;
+
+&lt;div align="center"&gt;Merci et bravo Breizhcamp !&lt;/div&gt;
+</description>
+    </item>
     <item>
       <title>R&#xE9;installer automatiquement des applications Android via APK sous Linux</title>
-      <link>https://blog.guillaumerenaudin.com/posts/android_apk_reinstall</link>
+      <link>https://guillaumerenaudin.com/posts/android_apk_reinstall</link>
       <pubDate>25/02/2017</pubDate>
       <description>&lt;p&gt;J&amp;#39;ai &#xE9;t&#xE9; confront&#xE9; &#xE0; une probl&#xE9;matique : r&#xE9;installer une liste d&amp;#39;applications Android &#xE0; partir d&amp;#39;APKs en contournant les probl&#xE9;matiques de conflits de version, downgrade etc.&lt;/p&gt;
 
@@ -34,26 +151,24 @@
 &lt;/ul&gt;
 
 &lt;p&gt;Le script, &#xE0; ex&#xE9;cuter &#xE0; partir du r&#xE9;pertoire contenant tous les APKs, est donc :&lt;/p&gt;
-
 &lt;pre&gt;&lt;code class="shell"&gt;#!/bin/sh
 # @author : @RGuillome
 
 for i in `ls *.apk`
 do
 
-    PACKAGE_NAME=`aapt dump badging $i | grep package:\ name | awk -F&amp;#39;[/=]&amp;#39; &amp;#39;{print $2}&amp;#39; | awk &amp;#39;{print $1}&amp;#39; | sed  &amp;quot;s/&amp;#39;//g&amp;quot;`;
-    echo &amp;quot;Uninstall package : $PACKAGE_NAME&amp;quot;;
+    PACKAGE_NAME=`aapt dump badging $i | grep package:\ name | awk -F'[/=]' '{print $2}' | awk '{print $1}' | sed  "s/'//g"`;
+    echo "Uninstall package : $PACKAGE_NAME";
     adb uninstall $PACKAGE_NAME;
 
-    echo &amp;quot;Installation de $i&amp;quot;;
+    echo "Installation de $i";
     adb install -r -d $i;
 done
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     <item>
       <title>Pr&#xE9;sentation avec Reveal.js en mode container Docker</title>
-      <link>https://blog.guillaumerenaudin.com/posts/presentation_reveal_docker</link>
+      <link>https://guillaumerenaudin.com/posts/presentation_reveal_docker</link>
       <pubDate>12/05/2016</pubDate>
       <description>&lt;p&gt;Dans le cadre d&amp;#39;une pr&#xE9;sentation de Docker, j&amp;#39;ai d&#xE9;cid&#xE9; d&amp;#39;utiliser &lt;a href="http://lab.hakim.se/reveal-js/#/"&gt;Reveal.js&lt;/a&gt;.&lt;/p&gt;
 
@@ -92,25 +207,23 @@ done
     </item>
     <item>
       <title>Sortie lisible d'une stacktrace d'exception en Java</title>
-      <link>https://blog.guillaumerenaudin.com/posts/generate_clear_stacktrace_output</link>
+      <link>https://guillaumerenaudin.com/posts/generate_clear_stacktrace_output</link>
       <pubDate>25/06/2015</pubDate>
       <description>&lt;p&gt;Java 8 apporte son lot de nouveaut&#xE9;s notamment les Stream. Le but n&amp;#39;&#xE9;tant pas de fournir un cours ou une analyse sur les Stream, il en existe de tr&#xE8;s bons tel que &lt;a href="http://blog.ippon.fr/2014/03/17/api-stream-une-nouvelle-facon-de-gerer-les-collections-en-java-8/"&gt;celui-ci&lt;/a&gt; sur le blog d&amp;#39;Ippon, mais de fournir des astuces sur des probl&#xE8;mes r&#xE9;currents dans le d&#xE9;veloppement d&amp;#39;application Java.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Afficher une Stack d&amp;#39;exception sous forme lisible :&lt;/strong&gt;&lt;/p&gt;
-
 &lt;pre&gt;&lt;code class="Java"&gt;try{
 
 ...
 
 } catch (MonException ex) {
-    List&amp;lt;StackTraceElement&amp;gt; listStackLine = Arrays.asList(e.getStackTrace());
+    List&lt;StackTraceElement&gt; listStackLine = Arrays.asList(e.getStackTrace());
     String stack = listStackLine.stream().map(StackTraceElement::toString)
-                    .collect(Collectors.joining(&amp;quot;\n&amp;quot;));
-    fail(&amp;quot;Exception re&#xE7;ue : &amp;quot;+e.getMessage()+&amp;quot; avec la stack &amp;quot;+stack);
+                    .collect(Collectors.joining("\n"));
+    fail("Exception re&#xE7;ue : "+e.getMessage()+" avec la stack "+stack);
 }
 
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;&lt;strong&gt;Explications :&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ol&gt;
@@ -123,12 +236,11 @@ done
     </item>
     <item>
       <title>Renommer en masse des fichiers (Linux)</title>
-      <link>https://blog.guillaumerenaudin.com/posts/masse_rename_linux</link>
+      <link>https://guillaumerenaudin.com/posts/masse_rename_linux</link>
       <pubDate>03/04/2015</pubDate>
       <description>&lt;p&gt;Dans les projets auxquels je participe, j&amp;#39;ai souvent besoin de renommer des fichiers en masse; en rempla&#xE7;ant une sous-chaine fixe du nom de fichier par une autre et ce sur plusieurs fichiers d&amp;#39;un r&#xE9;pertoire &#xE0; la fois.&lt;/p&gt;
 
 &lt;p&gt;Voici un script shell qui me permet d&amp;#39;effectuer ces op&#xE9;rations:&lt;/p&gt;
-
 &lt;pre&gt;&lt;code class="shell"&gt;#!/bin/sh
 # RSLOF : Replace Substring in List of FileNames
 #
@@ -138,27 +250,26 @@ done
 #   - 2 : replace by...
 
 if [ $# -le 2 ];
- then echo &amp;quot;Usage : rslof [SUBSTRING_TO_REPLACE] [SUBSTRING_REPLACEMENT]&amp;quot;
+ then echo "Usage : rslof [SUBSTRING_TO_REPLACE] [SUBSTRING_REPLACEMENT]"
 fi
 
 substring_to_replace=$1
 substring_replacement=$2
 
 
-echo &amp;quot;Replacement of $1 by $2&amp;quot;
+echo "Replacement of $1 by $2"
 
 for i in `ls *$substring_to_replace*`
 do
- new_name=$(echo &amp;quot;${i/$substring_to_replace/$substring_replacement}&amp;quot;)
- echo &amp;quot;$i name will be replaced by $new_name&amp;quot;
+ new_name=$(echo "${i/$substring_to_replace/$substring_replacement}")
+ echo "$i name will be replaced by $new_name"
  mv $i $new_name
 done
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     <item>
       <title>Lecture d'une stacktrace en Java</title>
-      <link>https://blog.guillaumerenaudin.com/posts/stacktrace_easyreading</link>
+      <link>https://guillaumerenaudin.com/posts/stacktrace_easyreading</link>
       <pubDate>08/01/2015</pubDate>
       <description>&lt;p&gt;Cet article pr&#xE9;sente quelques informations int&#xE9;ressantes pour lire une stacktrace lors du log d&amp;#39;une exception par exemple.&lt;/p&gt;
 
@@ -169,14 +280,13 @@ done
 &lt;p&gt;La trace, en plus d&amp;#39;indiquer le type d&amp;#39;exception survenue, compl&#xE8;tera par des informations sur la signature de la m&#xE9;thode dans laquelle l&amp;#39;erreur est survenue: Le nom canonique de la classe et le nom de la m&#xE9;thode ainsi que les param&#xE8;tres d&amp;#39;appel et le param&#xE8;tre de retour.&lt;/p&gt;
 
 &lt;p&gt;On aura donc une trace de la forme :&lt;/p&gt;
-
 &lt;pre&gt;&lt;code class="[package].[className].[methodName]([parametersIn])[parameterOut]```"&gt;
 
 Par exemple :
 ```org.springframework.cache.annotation.CacheAnnotationParser.parseCacheAnnotations(Ljava/lang/reflect/AnnotatedElement;)Ljava/util/Collection;```
 
 
-Les arguments ont une notation particuli&#xE8;re comme on peut le voir dans l&amp;#39;exemple.
+Les arguments ont une notation particuli&#xE8;re comme on peut le voir dans l'exemple.
 
 
 Chaque argument est donc pr&#xE9;sent&#xE9; de cette forme :
@@ -186,7 +296,7 @@ Chaque argument est donc pr&#xE9;sent&#xE9; de cette forme :
 
 O&#xF9; Type sera :
 
-    L dans le cas d&amp;#39;une classe ou une interface
+    L dans le cas d'une classe ou une interface
     Z pour pour un boolean
     B pour un byte
     C pour un char
@@ -195,12 +305,11 @@ O&#xF9; Type sera :
     I pour un int
     J pour un long
     S pour un short
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     <item>
       <title>DevFest Nantes 2014</title>
-      <link>https://blog.guillaumerenaudin.com/posts/retour_devfest_2014</link>
+      <link>https://guillaumerenaudin.com/posts/retour_devfest_2014</link>
       <pubDate>18/11/2014</pubDate>
       <description>&lt;style type="text/css"&gt;
   img[alt=DockerWhale] {
@@ -370,36 +479,34 @@ Du temps libre pour traiter de nouvelles t&#xE2;ches : On d&#xE9;pile, on traite
 &lt;p&gt;Kubernetes introduit ensuite la notion de &lt;strong&gt;Replication controllers&lt;/strong&gt; utilis&#xE9;s pour g&#xE9;rer les pods et leur instanciation. Gr&#xE2;ce &#xE0; une syntaxe JSON qui leur sert de template, les replication controllers s&amp;#39;assurent qu&amp;#39;&#xE0; tout moment, le nombre d&amp;#39;instance de chaque Pod est bien pr&#xE9;sente sur le syst&#xE8;me cible, dans l&amp;#39;&#xE9;tat configur&#xE9;.&lt;/p&gt;
 
 &lt;p&gt;Voici un exemple d&amp;#39;un fichier de template disponible sur le github de Kubernetes :&lt;/p&gt;
-
 &lt;pre&gt;&lt;code class="json"&gt;{
-  &amp;quot;id&amp;quot;: &amp;quot;redisSlaveController&amp;quot;,
-  &amp;quot;kind&amp;quot;: &amp;quot;ReplicationController&amp;quot;,
-  &amp;quot;apiVersion&amp;quot;: &amp;quot;v1beta1&amp;quot;,
-  &amp;quot;desiredState&amp;quot;: {
-    &amp;quot;replicas&amp;quot;: 2,
-    &amp;quot;replicaSelector&amp;quot;: {&amp;quot;name&amp;quot;: &amp;quot;redisslave&amp;quot;},
-    &amp;quot;podTemplate&amp;quot;: {
-      &amp;quot;desiredState&amp;quot;: {
-         &amp;quot;manifest&amp;quot;: {
-           &amp;quot;version&amp;quot;: &amp;quot;v1beta1&amp;quot;,
-           &amp;quot;id&amp;quot;: &amp;quot;redisSlaveController&amp;quot;,
-           &amp;quot;containers&amp;quot;: [{
-             &amp;quot;name&amp;quot;: &amp;quot;slave&amp;quot;,
-             &amp;quot;image&amp;quot;: &amp;quot;brendanburns/redis-slave&amp;quot;,
-             &amp;quot;cpu&amp;quot;: 200,
-             &amp;quot;ports&amp;quot;: [{&amp;quot;containerPort&amp;quot;: 6379, &amp;quot;hostPort&amp;quot;: 6380}]
+  "id": "redisSlaveController",
+  "kind": "ReplicationController",
+  "apiVersion": "v1beta1",
+  "desiredState": {
+    "replicas": 2,
+    "replicaSelector": {"name": "redisslave"},
+    "podTemplate": {
+      "desiredState": {
+         "manifest": {
+           "version": "v1beta1",
+           "id": "redisSlaveController",
+           "containers": [{
+             "name": "slave",
+             "image": "brendanburns/redis-slave",
+             "cpu": 200,
+             "ports": [{"containerPort": 6379, "hostPort": 6380}]
            }]
          }
        },
-       &amp;quot;labels&amp;quot;: {
-         &amp;quot;name&amp;quot;: &amp;quot;redisslave&amp;quot;,
-         &amp;quot;uses&amp;quot;: &amp;quot;redis-master&amp;quot;,
+       "labels": {
+         "name": "redisslave",
+         "uses": "redis-master",
        }
       }},
-  &amp;quot;labels&amp;quot;: {&amp;quot;name&amp;quot;: &amp;quot;redisslave&amp;quot;}
+  "labels": {"name": "redisslave"}
 }
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;Enfin un dernier composant fait son apparition : les &lt;strong&gt;services&lt;/strong&gt;. Il permettent de pointer vers les diff&#xE9;rents pods et jouent donc le r&#xF4;le de proxies permettant d&amp;#39;orient&#xE9; les requ&#xEA;tes en fonction de contraintes configur&#xE9;es. Il permettent ainsi de r&#xE9;partir les demandes au sein des replicas de pods.&lt;/p&gt;
 
 &lt;p&gt;En terme de d&#xE9;mo, le rendu est tr&#xE8;s convaincant: Brian configure Kubernetes pour qu&amp;#39;il compose l&amp;#39;environnement de 2 instances d&amp;#39;un pod et en quelques secondes l&amp;#39;&#xE9;tat &amp;quot;D&#xE9;marr&#xE9;&amp;quot; de ces instances est visible dans une application qui les monitore.&lt;/p&gt;
@@ -421,7 +528,7 @@ Du temps libre pour traiter de nouvelles t&#xE2;ches : On d&#xE9;pile, on traite
     </item>
     <item>
       <title>Profiler une JVM de Zimbra Mailbox</title>
-      <link>https://blog.guillaumerenaudin.com/posts/zimbra_profiling</link>
+      <link>https://guillaumerenaudin.com/posts/zimbra_profiling</link>
       <pubDate>05/09/2014</pubDate>
       <description>&lt;p&gt;&lt;strong&gt;Simple envie...&lt;/strong&gt;&lt;/p&gt;
 
@@ -434,9 +541,8 @@ L&amp;#39;envie nous a donc pris de voir, comment le changement de version assoc
 &lt;li&gt;&lt;p&gt;Utilisation de JProfiler6 (certes pas tout r&#xE9;cent mais nous avions une licence dispo sous la main pour cette version)&lt;/p&gt;
 
 &lt;p&gt;Pour utiliser JProfiler (comme d&amp;#39;autres outil de profilage), il faut mettre un agent au niveau de la JVM. Les explications compl&#xE8;tes sont &lt;a href="http://resources.ej-technologies.com/jprofiler/help/doc/indexRedirect.html?http&amp;amp;&amp;amp;&amp;amp;resources.ej-technologies.com/jprofiler/help/doc/sessions/remoteTable.html"&gt;ici&lt;/a&gt; mais en r&#xE9;sum&#xE9;, il faut r&#xE9;cup&#xE9;rer les librairies de l&amp;#39;agent en fonction de l&amp;#39;environnement et ajouter l&amp;#39;option suivante &#xE0; la commande Java :&lt;/p&gt;
-
 &lt;pre&gt;&lt;code class="-agentpath:/path_to_jprofiler_agent_lib```"&gt;
-*Les librairies sont contenues dans le r&#xE9;pertoire bin d&amp;#39;une installation de JProfiler donc si vous souhaitez profiler un JVM s&amp;#39;ex&#xE9;cutant sous Linux, depuis une GUI JProfiler sous Windows, alors il vous faudra une installation de JProfiler pour Linux (x86 ou x64) en plus de l&amp;#39;installation Windows.*
+*Les librairies sont contenues dans le r&#xE9;pertoire bin d'une installation de JProfiler donc si vous souhaitez profiler un JVM s'ex&#xE9;cutant sous Linux, depuis une GUI JProfiler sous Windows, alors il vous faudra une installation de JProfiler pour Linux (x86 ou x64) en plus de l'installation Windows.*
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -447,11 +553,11 @@ L&amp;#39;envie nous a donc pris de voir, comment le changement de version assoc
 
 &lt;ul&gt;
 &lt;li&gt;Modifier les options de JVM :
-&lt;code&gt;zmlocalconfig -e mailboxd_java_options=&amp;quot;....&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;code&gt;zmlocalconfig -e mailboxd_java_options="...."&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;R&#xE9;cup&#xE9;rer la valeur courante :
 &lt;code&gt;zmlocalconfig -s mailboxd_java_options&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Pour ajouter l&amp;#39;option de profilage :
-&lt;code&gt;zmlocalconfig -e mailboxd_java_options=&amp;quot;`zmlocalconfig -s mailboxd_java_options` -agentpath:/path_to_jprofiler_agent_lib&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;code&gt;zmlocalconfig -e mailboxd_java_options="`zmlocalconfig -s mailboxd_java_options` -agentpath:/path_to_jprofiler_agent_lib"&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -464,7 +570,6 @@ L&amp;#39;envie nous a donc pris de voir, comment le changement de version assoc
 zmmailboxdmgr [31715]: JVM option: -agentpath=/appli/jprofiler6/bin/linux-x64/libjprofilerti.so=nowait: not allowed
 &lt;/code&gt;
 Finalement, en regardant le code source C du programme zmmailboxdmgr, on comprend mieux...&lt;/p&gt;
-
 &lt;pre&gt;&lt;code class="C"&gt;#ifndef UNRESTRICTED_JVM_ARGS
 /* Mailbox server JVM starts as root and then drops priveleges to run
 * as the zimbra Unix user. Zimbra Unix user is allowed to modify JVM
@@ -473,46 +578,41 @@ Finalement, en regardant le code source C du programme zmmailboxdmgr, on compren
 */
 
 static const char *DisallowedJVMArgs[] = {
-&amp;quot;-Djava.class.path&amp;quot;,
-&amp;quot;-Djava.endorsed.dirs&amp;quot;,
-&amp;quot;-Djava.ext.dirs&amp;quot;
-&amp;quot;-Djava.library.path&amp;quot;,
-&amp;quot;-Dsun.boot.class.path&amp;quot;,
-&amp;quot;-Dsun.boot.library.path&amp;quot;,
-&amp;quot;-Xbootclasspath&amp;quot;,
-&amp;quot;-Xrun&amp;quot;,
-&amp;quot;-agentlib&amp;quot;,
-&amp;quot;-agentpath&amp;quot;,
-&amp;quot;-classpath&amp;quot;,
-&amp;quot;-javaagent&amp;quot;,
+"-Djava.class.path",
+"-Djava.endorsed.dirs",
+"-Djava.ext.dirs"
+"-Djava.library.path",
+"-Dsun.boot.class.path",
+"-Dsun.boot.library.path",
+"-Xbootclasspath",
+"-Xrun",
+"-agentlib",
+"-agentpath",
+"-classpath",
+"-javaagent",
 };
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;Et c&amp;#39;est utilis&#xE9; ici :&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="C"&gt;for (i = nextArg; i &amp;lt; argc; i++) {
+&lt;pre&gt;&lt;code class="C"&gt;for (i = nextArg; i &lt; argc; i++) {
    if (IsAllowedJVMArg(argv[i])) {
    AddArg(argv[i]);
 } else {
-   syslog(LOG_ERR, &amp;quot;JVM option: %s: not allowed\n&amp;quot;, argv[i]);
+   syslog(LOG_ERR, "JVM option: %s: not allowed\n", argv[i]);
    exit(1);
 }
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;L&amp;#39;explication donn&#xE9;e dans le code me semble quelque peu discutable, tout du moins je n&amp;#39;ai pas trouv&#xE9; de lien entre la diminution de privil&#xE8;ges et le fait de lancer un agent de profiling avec agentpath notamment... De l&#xE0; &#xE0; s&amp;#39;imaginer que le staff technique ne souhaite pas que l&amp;#39;on puisse profiler le code Java Zimbra...&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Solution (Simple) :&lt;/strong&gt;
 Apr&#xE8;s une recherche connexe sur la configuration Zimbra, il apparait que les indications suivantes (modification du code source et recompilation ne sont pas n&#xE9;cessaires). Une simple utilisation de la version &amp;quot;unrestricted&amp;quot; de la commande suffit :&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;(as root)&lt;/em&gt;&lt;/p&gt;
-
 &lt;pre&gt;&lt;code class="shell"&gt;
 # cd /opt/zimbra/libexec
 
 # mv zmmailboxdmgr zmmailboxdmgr.orig
 # ln -s zmmailboxdmgr.unrestricted zmmailboxdmgr
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;&lt;strong&gt;Solution (si &#xE7;a ne passe pas) :&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ul&gt;
@@ -527,51 +627,47 @@ Apr&#xE8;s une recherche connexe sur la configuration Zimbra, il apparait que le
 &lt;/ol&gt;
 
 &lt;p&gt;Dans zmmailboxdmgr.c :&lt;/p&gt;
-
 &lt;pre&gt;&lt;code class="C"&gt;...
 static const char *DisallowedJVMArgs[] = {
-   &amp;quot;-Djava.class.path&amp;quot;,
-   &amp;quot;-Djava.endorsed.dirs&amp;quot;,
-   &amp;quot;-Djava.ext.dirs&amp;quot;
-   &amp;quot;-Djava.library.path&amp;quot;,
-   &amp;quot;-Dsun.boot.class.path&amp;quot;,
-   &amp;quot;-Dsun.boot.library.path&amp;quot;,
-   &amp;quot;-Xbootclasspath&amp;quot;,
-   &amp;quot;-Xrun&amp;quot;,
-   &amp;quot;-agentlib&amp;quot;,
-   &amp;quot;-javaagent&amp;quot;,
+   "-Djava.class.path",
+   "-Djava.endorsed.dirs",
+   "-Djava.ext.dirs"
+   "-Djava.library.path",
+   "-Dsun.boot.class.path",
+   "-Dsun.boot.library.path",
+   "-Xbootclasspath",
+   "-Xrun",
+   "-agentlib",
+   "-javaagent",
 };
 #endif
 ...
-   AddArgFmt(&amp;quot;-Djetty.home=%s&amp;quot;, MAILBOXD_HOME);
-   AddArgFmt(&amp;quot;-DSTART=%s/etc/start.config&amp;quot;, MAILBOXD_HOME);
-   AddArg(&amp;quot;-jar&amp;quot;);
-   AddArgFmt(&amp;quot;%s/start.jar&amp;quot;, MAILBOXD_HOME);
-   AddArgFmt(&amp;quot;%s/etc/jetty.properties&amp;quot;, MAILBOXD_HOME);
-   AddArgFmt(&amp;quot;%s/etc/jetty-setuid.xml&amp;quot;, MAILBOXD_HOME);
-   AddArgFmt(&amp;quot;%s/etc/jetty.xml&amp;quot;, MAILBOXD_HOME);
-   AddArgFmt(&amp;quot;OPTIONS=%s&amp;quot;, ZIMBRA_OPTIONS);
+   AddArgFmt("-Djetty.home=%s", MAILBOXD_HOME);
+   AddArgFmt("-DSTART=%s/etc/start.config", MAILBOXD_HOME);
+   AddArg("-jar");
+   AddArgFmt("%s/start.jar", MAILBOXD_HOME);
+   AddArgFmt("%s/etc/jetty.properties", MAILBOXD_HOME);
+   AddArgFmt("%s/etc/jetty-setuid.xml", MAILBOXD_HOME);
+   AddArgFmt("%s/etc/jetty.xml", MAILBOXD_HOME);
+   AddArgFmt("OPTIONS=%s", ZIMBRA_OPTIONS);
 
    if (Verbose) {
 ...
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;Dans Makefile.c :&lt;/p&gt;
-
 &lt;pre&gt;&lt;code class="C"&gt;LAUNCHER_CFLAGS = \
--DJAVA_BINARY=&amp;#39;&amp;quot;$(JAVA_BINARY)&amp;quot;&amp;#39; \
--DMAILBOXD_MANAGER_PIDFILE=&amp;#39;&amp;quot;$(MAILBOXD_MANAGER_PIDFILE)&amp;quot;&amp;#39; \
--DMAILBOXD_MANAGER_DEPRECATED_PIDFILE=&amp;#39;&amp;quot;$(MAILBOXD_MANAGER_DEPRECATED_PIDFILE)&amp;quot;&amp;#39; \
--DMAILBOXD_JAVA_PIDFILE=&amp;#39;&amp;quot;$(MAILBOXD_JAVA_PIDFILE)&amp;quot;&amp;#39; \
--DMAILBOXD_CWD=&amp;#39;&amp;quot;$(MAILBOXD_CWD)&amp;quot;&amp;#39; \
--DMAILBOXD_HOME=&amp;#39;&amp;quot;$(MAILBOXD_HOME)&amp;quot;&amp;#39; \
--DMAILBOXD_OUTFILE=&amp;#39;&amp;quot;$(MAILBOXD_OUTFILE)&amp;quot;&amp;#39; \
--DZIMBRA_LIB=&amp;#39;&amp;quot;$(ZIMBRA_LIB)&amp;quot;&amp;#39; \
--DZIMBRA_USER=&amp;#39;&amp;quot;$(ZIMBRA_USER)&amp;quot;&amp;#39; \
--DZIMBRA_OPTIONS=&amp;#39;&amp;quot;$(ZIMBRA_OPTIONS)&amp;quot;&amp;#39; \
--DZIMBRA_CONFIG=&amp;#39;&amp;quot;$(ZIMBRA_CONFIG)&amp;quot;&amp;#39;
+-DJAVA_BINARY='"$(JAVA_BINARY)"' \
+-DMAILBOXD_MANAGER_PIDFILE='"$(MAILBOXD_MANAGER_PIDFILE)"' \
+-DMAILBOXD_MANAGER_DEPRECATED_PIDFILE='"$(MAILBOXD_MANAGER_DEPRECATED_PIDFILE)"' \
+-DMAILBOXD_JAVA_PIDFILE='"$(MAILBOXD_JAVA_PIDFILE)"' \
+-DMAILBOXD_CWD='"$(MAILBOXD_CWD)"' \
+-DMAILBOXD_HOME='"$(MAILBOXD_HOME)"' \
+-DMAILBOXD_OUTFILE='"$(MAILBOXD_OUTFILE)"' \
+-DZIMBRA_LIB='"$(ZIMBRA_LIB)"' \
+-DZIMBRA_USER='"$(ZIMBRA_USER)"' \
+-DZIMBRA_OPTIONS='"$(ZIMBRA_OPTIONS)"' \
+-DZIMBRA_CONFIG='"$(ZIMBRA_CONFIG)"'
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;ul&gt;
 &lt;li&gt;Compiler sur l&amp;#39;environnement cible les sources modifi&#xE9;es gr&#xE2;ce &#xE0; un simple make&lt;/li&gt;
 &lt;li&gt;Remplacer les scripts zmmailboxdmgr et zmmailboxdmgr.unrestricted par les fichiers g&#xE9;n&#xE9;r&#xE9;s dans le r&#xE9;pertoire build&lt;/li&gt;

@@ -15,8 +15,10 @@
     <!-- Le styles -->
 <link href='/assets/stylesheets/bootstrap.min-88238289010db19359d2181e634e95cd.css' type='text/css' rel='stylesheet' media='all'>
 <link href='/assets/stylesheets/style-28c011f93a5d02de09256f309c5a46f5.css' type='text/css' rel='stylesheet' media='all'>
-<link href='/assets/stylesheets/base-9edbb2b7de9bbee2f38cdabbda84c092.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/base-f9484737448082ff8eea5bb519bc1ff4.css' type='text/css' rel='stylesheet' media='all'>
 <link href='/assets/stylesheets/google_prettify/sons-of-obsidian-afb0925bfa2d994f17dab93e13fbf999.css' type='text/css' rel='stylesheet' media='all'>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+
     <!-- Le fav and touch icons -->
   <!-- Update these with your own images
     <link rel="shortcut icon" href="images/favicon.ico">
@@ -92,22 +94,20 @@
 </ul>
 
 <p>Le script, à exécuter à partir du répertoire contenant tous les APKs, est donc :</p>
-
 <pre><code class="shell">#!/bin/sh
 # @author : @RGuillome
 
 for i in `ls *.apk`
 do
 
-    PACKAGE_NAME=`aapt dump badging $i | grep package:\ name | awk -F&#39;[/=]&#39; &#39;{print $2}&#39; | awk &#39;{print $1}&#39; | sed  &quot;s/&#39;//g&quot;`;
-    echo &quot;Uninstall package : $PACKAGE_NAME&quot;;
+    PACKAGE_NAME=`aapt dump badging $i | grep package:\ name | awk -F'[/=]' '{print $2}' | awk '{print $1}' | sed  "s/'//g"`;
+    echo "Uninstall package : $PACKAGE_NAME";
     adb uninstall $PACKAGE_NAME;
 
-    echo &quot;Installation de $i&quot;;
+    echo "Installation de $i";
     adb install -r -d $i;
 done
 </code></pre>
-
     </div>
     <ul class="tag_box inline">
       <li><i class="icon-folder-open"></i></li>
@@ -134,11 +134,24 @@ done
 
           <li><a href="/archive">Archive</a></li>
 
-          <li class="next disabled"><a>Next &rarr;</a>
+          <li class="next"><a href="/posts/retour_breizhcamp_2017" title="Breizhcamp 2017">Next &rarr;</a></li>
       </ul>
     </div>
     <hr>
-    
+    <div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'guillaumerenaudin-com'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
   </div>
 </div>
 

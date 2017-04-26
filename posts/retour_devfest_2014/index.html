@@ -15,8 +15,10 @@
     <!-- Le styles -->
 <link href='/assets/stylesheets/bootstrap.min-88238289010db19359d2181e634e95cd.css' type='text/css' rel='stylesheet' media='all'>
 <link href='/assets/stylesheets/style-28c011f93a5d02de09256f309c5a46f5.css' type='text/css' rel='stylesheet' media='all'>
-<link href='/assets/stylesheets/base-9edbb2b7de9bbee2f38cdabbda84c092.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/base-f9484737448082ff8eea5bb519bc1ff4.css' type='text/css' rel='stylesheet' media='all'>
 <link href='/assets/stylesheets/google_prettify/sons-of-obsidian-afb0925bfa2d994f17dab93e13fbf999.css' type='text/css' rel='stylesheet' media='all'>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+
     <!-- Le fav and touch icons -->
   <!-- Update these with your own images
     <link rel="shortcut icon" href="images/favicon.ico">
@@ -235,36 +237,34 @@ Du temps libre pour traiter de nouvelles tâches : On dépile, on traite, on dé
 <p>Kubernetes introduit ensuite la notion de <strong>Replication controllers</strong> utilisés pour gérer les pods et leur instanciation. Grâce à une syntaxe JSON qui leur sert de template, les replication controllers s&#39;assurent qu&#39;à tout moment, le nombre d&#39;instance de chaque Pod est bien présente sur le système cible, dans l&#39;état configuré.</p>
 
 <p>Voici un exemple d&#39;un fichier de template disponible sur le github de Kubernetes :</p>
-
 <pre><code class="json">{
-  &quot;id&quot;: &quot;redisSlaveController&quot;,
-  &quot;kind&quot;: &quot;ReplicationController&quot;,
-  &quot;apiVersion&quot;: &quot;v1beta1&quot;,
-  &quot;desiredState&quot;: {
-    &quot;replicas&quot;: 2,
-    &quot;replicaSelector&quot;: {&quot;name&quot;: &quot;redisslave&quot;},
-    &quot;podTemplate&quot;: {
-      &quot;desiredState&quot;: {
-         &quot;manifest&quot;: {
-           &quot;version&quot;: &quot;v1beta1&quot;,
-           &quot;id&quot;: &quot;redisSlaveController&quot;,
-           &quot;containers&quot;: [{
-             &quot;name&quot;: &quot;slave&quot;,
-             &quot;image&quot;: &quot;brendanburns/redis-slave&quot;,
-             &quot;cpu&quot;: 200,
-             &quot;ports&quot;: [{&quot;containerPort&quot;: 6379, &quot;hostPort&quot;: 6380}]
+  "id": "redisSlaveController",
+  "kind": "ReplicationController",
+  "apiVersion": "v1beta1",
+  "desiredState": {
+    "replicas": 2,
+    "replicaSelector": {"name": "redisslave"},
+    "podTemplate": {
+      "desiredState": {
+         "manifest": {
+           "version": "v1beta1",
+           "id": "redisSlaveController",
+           "containers": [{
+             "name": "slave",
+             "image": "brendanburns/redis-slave",
+             "cpu": 200,
+             "ports": [{"containerPort": 6379, "hostPort": 6380}]
            }]
          }
        },
-       &quot;labels&quot;: {
-         &quot;name&quot;: &quot;redisslave&quot;,
-         &quot;uses&quot;: &quot;redis-master&quot;,
+       "labels": {
+         "name": "redisslave",
+         "uses": "redis-master",
        }
       }},
-  &quot;labels&quot;: {&quot;name&quot;: &quot;redisslave&quot;}
+  "labels": {"name": "redisslave"}
 }
 </code></pre>
-
 <p>Enfin un dernier composant fait son apparition : les <strong>services</strong>. Il permettent de pointer vers les différents pods et jouent donc le rôle de proxies permettant d&#39;orienté les requêtes en fonction de contraintes configurées. Il permettent ainsi de répartir les demandes au sein des replicas de pods.</p>
 
 <p>En terme de démo, le rendu est très convaincant: Brian configure Kubernetes pour qu&#39;il compose l&#39;environnement de 2 instances d&#39;un pod et en quelques secondes l&#39;état &quot;Démarré&quot; de ces instances est visible dans une application qui les monitore.</p>
@@ -287,7 +287,7 @@ Du temps libre pour traiter de nouvelles tâches : On dépile, on traite, on dé
     <ul class="tag_box inline">
       <li><i class="icon-folder-open"></i></li>
       <li>
-        <a href="/categories#Conference-ref">Conference <span>1</span></a>
+        <a href="/categories#Conference-ref">Conference <span>2</span></a>
       </li>
     </ul>
     <ul class="tag_box inline">
@@ -316,7 +316,20 @@ Du temps libre pour traiter de nouvelles tâches : On dépile, on traite, on dé
       </ul>
     </div>
     <hr>
-    
+    <div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'guillaumerenaudin-com'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
   </div>
 </div>
 

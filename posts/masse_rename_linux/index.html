@@ -15,8 +15,10 @@
     <!-- Le styles -->
 <link href='/assets/stylesheets/bootstrap.min-88238289010db19359d2181e634e95cd.css' type='text/css' rel='stylesheet' media='all'>
 <link href='/assets/stylesheets/style-28c011f93a5d02de09256f309c5a46f5.css' type='text/css' rel='stylesheet' media='all'>
-<link href='/assets/stylesheets/base-9edbb2b7de9bbee2f38cdabbda84c092.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/base-f9484737448082ff8eea5bb519bc1ff4.css' type='text/css' rel='stylesheet' media='all'>
 <link href='/assets/stylesheets/google_prettify/sons-of-obsidian-afb0925bfa2d994f17dab93e13fbf999.css' type='text/css' rel='stylesheet' media='all'>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+
     <!-- Le fav and touch icons -->
   <!-- Update these with your own images
     <link rel="shortcut icon" href="images/favicon.ico">
@@ -70,7 +72,6 @@
       <p>Dans les projets auxquels je participe, j&#39;ai souvent besoin de renommer des fichiers en masse; en remplaçant une sous-chaine fixe du nom de fichier par une autre et ce sur plusieurs fichiers d&#39;un répertoire à la fois.</p>
 
 <p>Voici un script shell qui me permet d&#39;effectuer ces opérations:</p>
-
 <pre><code class="shell">#!/bin/sh
 # RSLOF : Replace Substring in List of FileNames
 #
@@ -80,23 +81,22 @@
 #   - 2 : replace by...
 
 if [ $# -le 2 ];
- then echo &quot;Usage : rslof [SUBSTRING_TO_REPLACE] [SUBSTRING_REPLACEMENT]&quot;
+ then echo "Usage : rslof [SUBSTRING_TO_REPLACE] [SUBSTRING_REPLACEMENT]"
 fi
 
 substring_to_replace=$1
 substring_replacement=$2
 
 
-echo &quot;Replacement of $1 by $2&quot;
+echo "Replacement of $1 by $2"
 
 for i in `ls *$substring_to_replace*`
 do
- new_name=$(echo &quot;${i/$substring_to_replace/$substring_replacement}&quot;)
- echo &quot;$i name will be replaced by $new_name&quot;
+ new_name=$(echo "${i/$substring_to_replace/$substring_replacement}")
+ echo "$i name will be replaced by $new_name"
  mv $i $new_name
 done
 </code></pre>
-
     </div>
     <ul class="tag_box inline">
       <li><i class="icon-folder-open"></i></li>
@@ -124,7 +124,20 @@ done
       </ul>
     </div>
     <hr>
-    
+    <div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'guillaumerenaudin-com'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
   </div>
 </div>
 

@@ -15,8 +15,10 @@
     <!-- Le styles -->
 <link href='/assets/stylesheets/bootstrap.min-88238289010db19359d2181e634e95cd.css' type='text/css' rel='stylesheet' media='all'>
 <link href='/assets/stylesheets/style-28c011f93a5d02de09256f309c5a46f5.css' type='text/css' rel='stylesheet' media='all'>
-<link href='/assets/stylesheets/base-9edbb2b7de9bbee2f38cdabbda84c092.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/base-f9484737448082ff8eea5bb519bc1ff4.css' type='text/css' rel='stylesheet' media='all'>
 <link href='/assets/stylesheets/google_prettify/sons-of-obsidian-afb0925bfa2d994f17dab93e13fbf999.css' type='text/css' rel='stylesheet' media='all'>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+
     <!-- Le fav and touch icons -->
   <!-- Update these with your own images
     <link rel="shortcut icon" href="images/favicon.ico">
@@ -76,14 +78,13 @@
 <p>La trace, en plus d&#39;indiquer le type d&#39;exception survenue, complètera par des informations sur la signature de la méthode dans laquelle l&#39;erreur est survenue: Le nom canonique de la classe et le nom de la méthode ainsi que les paramètres d&#39;appel et le paramètre de retour.</p>
 
 <p>On aura donc une trace de la forme :</p>
-
 <pre><code class="[package].[className].[methodName]([parametersIn])[parameterOut]```">
 
 Par exemple :
 ```org.springframework.cache.annotation.CacheAnnotationParser.parseCacheAnnotations(Ljava/lang/reflect/AnnotatedElement;)Ljava/util/Collection;```
 
 
-Les arguments ont une notation particulière comme on peut le voir dans l&#39;exemple.
+Les arguments ont une notation particulière comme on peut le voir dans l'exemple.
 
 
 Chaque argument est donc présenté de cette forme :
@@ -93,7 +94,7 @@ Chaque argument est donc présenté de cette forme :
 
 Où Type sera :
 
-    L dans le cas d&#39;une classe ou une interface
+    L dans le cas d'une classe ou une interface
     Z pour pour un boolean
     B pour un byte
     C pour un char
@@ -103,7 +104,6 @@ Où Type sera :
     J pour un long
     S pour un short
 </code></pre>
-
     </div>
     <ul class="tag_box inline">
       <li><i class="icon-folder-open"></i></li>
@@ -131,7 +131,20 @@ Où Type sera :
       </ul>
     </div>
     <hr>
-    
+    <div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'guillaumerenaudin-com'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
   </div>
 </div>
 
