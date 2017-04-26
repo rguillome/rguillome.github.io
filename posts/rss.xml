@@ -60,13 +60,13 @@
 &lt;p&gt;Initd est un gestionnaire de service dont le code repose uniquement sur des scripts Bash qui contiennent notamment les conventions de la CLI. Systemd utilise, lui, des fichiers de configuration bien document&#xE9;s et structur&#xE9;s qui n&amp;#39;emp&#xEA;chent en rien d&amp;#39;y ajouter des scripts pour les extensions ponctuelles ...&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;strong&gt;Le test d&#x2019;intrusion Red Team : digne successeur de l&#x2019;audit de s&#xE9;curit&#xE9; ?&lt;/strong&gt; - &lt;a href="@clement_michel"&gt;Cl&#xE9;ment Michel&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Le test d&#x2019;intrusion Red Team : digne successeur de l&#x2019;audit de s&#xE9;curit&#xE9; ?&lt;/strong&gt; - &lt;a href="https://twitter.com/clement_michel"&gt;Cl&#xE9;ment Michel&lt;/a&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;ReadTeam : Une &#xE9;quipe de choc en mode hidden qui tente de p&#xE9;n&#xE9;trer votre r&#xE9;seau pendant 6 mois &#xE0; 1 an, &#xE7;a permet d&amp;#39;efficacement colmater les br&#xE8;ches mais cela n&amp;#39;&#xE9;vitera pas un audit traditionnel pour d&#xE9;finir la strat&#xE9;gie long terme de votre politique SSI&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;strong&gt;Keynote &amp;quot;Qui veut gagner une carri&#xE8;re de d&#xE9;veloppeur&amp;quot;&lt;/strong&gt; - &lt;a href="@jefbinomed"&gt;Jean-Fran&#xE7;ois Garreau&lt;/a&gt; &lt;a href="@ThomasGX"&gt;Thomas Gx&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Keynote &amp;quot;Qui veut gagner une carri&#xE8;re de d&#xE9;veloppeur&amp;quot;&lt;/strong&gt; - &lt;a href="https://twitter.com/jefbinomed"&gt;Jean-Fran&#xE7;ois Garreau&lt;/a&gt; &amp;amp; &lt;a href="https://twitter.com/ThomasGX"&gt;Thomas Gx&lt;/a&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;Les d&#xE9;veloppeurs sont mal pay&#xE9;s et infine c&amp;#39;est toujours le CTO qui d&#xE9;cide. &lt;/p&gt;
@@ -74,43 +74,43 @@
 &lt;p&gt;&lt;em&gt;D&#xE9;sol&#xE9; &#xE7;a fait 2 id&#xE9;es mais je n&amp;#39;arrivais vraiment pas &#xE0; choisir (ndlr)&lt;/em&gt; &lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;strong&gt;Keynote &amp;quot;Comment les logiciels pourrissent ma vie et pourraient la faciliter&amp;quot;&lt;/strong&gt; - &lt;a href="@antoninlemee"&gt;Antonin Le M&#xE9;e&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Keynote &amp;quot;Comment les logiciels pourrissent ma vie et pourraient la faciliter&amp;quot;&lt;/strong&gt; - &lt;a href="https://twitter.com/antoninlemee"&gt;Antonin Le M&#xE9;e&lt;/a&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;Ne jamais croire que son exp&#xE9;rience personnelle, ses connaissances et ses a priori permettent de comprendre et de d&#xE9;finir la diversit&#xE9; du monde qui nous entoure. De l&#xE0;, ajouter des contraintes dans son dev si ce n&amp;#39;est pas imp&#xE9;ratif, c&amp;#39;est litt&#xE9;ralement... comment ils disent d&#xE9;j&#xE0; ? overkill !&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;strong&gt;Smartphone et blockchain, armes de r&#xE9;volution massive&lt;/strong&gt; - &lt;a href="@GuiillaumeN"&gt;Guillaume Nicolas&lt;/a&gt; et &lt;a href="@dlecan"&gt;Damien Lecan&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Smartphone et blockchain, armes de r&#xE9;volution massive&lt;/strong&gt; - &lt;a href="https://twitter.com/GuiillaumeN"&gt;Guillaume Nicolas&lt;/a&gt; et &lt;a href="https://twitter.com/dlecan"&gt;Damien Lecan&lt;/a&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;Ne rajoutez pas d&amp;#39;interm&#xE9;diaire entre vous et la blockchain : seul un noeud de blockchain embarqu&#xE9; dans un t&#xE9;l&#xE9;phone mobile est digne de confiance car c&amp;#39;est le v&#xF4;tre !&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;strong&gt;Sinon, quoi de neuf c&#xF4;t&#xE9; Apache Groovy&lt;/strong&gt; ? - &lt;a href="@glaforge"&gt;Guillaume Laforge&lt;/a&gt; et &lt;a href="@CedricChampeau"&gt;C&#xE9;dric Champeau&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Sinon, quoi de neuf c&#xF4;t&#xE9; Apache Groovy&lt;/strong&gt; ? - &lt;a href="https://twitter.com/glaforge"&gt;Guillaume Laforge&lt;/a&gt; et &lt;a href="https://twitter.com/CedricChampeau"&gt;C&#xE9;dric Champeau&lt;/a&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;Gr&#xE2;ce aux macros vous pouvez d&#xE9;sormais &#xE9;crire plus facile des instructions de compilation pour AST sans avoir &#xE0; utiliser le mod&#xE8;le objet de l&amp;#39;arbre syntaxique&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;strong&gt;Quand Internet sera gouvern&#xE9;e par les |chats&amp;gt; de Shr&#xF6;dinger&lt;/strong&gt; - &lt;a href="@ndeloof"&gt;Nicolas De Loof&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Quand Internet sera gouvern&#xE9;e par les |chats&amp;gt; de Shr&#xF6;dinger&lt;/strong&gt; - &lt;a href="https://twitter.com/ndeloof"&gt;Nicolas De Loof&lt;/a&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;&lt;script type="math/tex"&gt; |\Psi(t)&gt; &lt;/script&gt; ... et puis il y avait 42 chats mais on ne savait jamais pr&#xE9;cis&#xE9;ment o&#xF9; ils &#xE9;taient ou n&amp;#39;&#xE9;taient pas ...&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;strong&gt;Introduction &#xE0; Unikernel&lt;/strong&gt; - &lt;a href="@rstomasalberto"&gt;Tomas Rodriguez&lt;/a&gt; et &lt;a href="@jbclaramonte"&gt;Jean-Baptiste Claramonte&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Introduction &#xE0; Unikernel&lt;/strong&gt; - &lt;a href="https://twitter.com/rstomasalberto"&gt;Tomas Rodriguez&lt;/a&gt; et &lt;a href="https://twitter.com/jbclaramonte"&gt;Jean-Baptiste Claramonte&lt;/a&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;Unikernel sera peut-&#xEA;tre le futur des conteneurs : avantages d&amp;#39;isolation d&amp;#39;une VM avec la l&#xE9;g&#xE8;ret&#xE9; et le &amp;quot;just what I need&amp;quot; d&amp;#39;un conteneur&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;strong&gt;Ici le commandant de bord, on passe en mode avion !&lt;/strong&gt; - &lt;a href="@olivierleplus"&gt;Olivier Leplus&lt;/a&gt; et &lt;a href="@manekinekko"&gt;Wassim Chegham&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ici le commandant de bord, on passe en mode avion !&lt;/strong&gt; - &lt;a href="https://twitter.com/olivierleplus"&gt;Olivier Leplus&lt;/a&gt; et &lt;a href="https://twitter.com/manekinekko"&gt;Wassim Chegham&lt;/a&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;L&amp;#39;API sync permet de contr&#xF4;ler ce qui peut &#xEA;tre fait lorsque l&amp;#39;on r&#xE9;cup&#xE8;re la connexion, compl&#xE9;t&#xE9;e par une local database, c&amp;#39;est l&amp;#39;outil privil&#xE9;gi&#xE9; pour une exp&#xE9;rience offline sans avoir besoin de sauter en vol !&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;strong&gt;Automatiser la gestion de vos environnements avec Ansible&lt;/strong&gt; - &lt;a href="@FabienPaitry"&gt;Fabien PAITRY&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Automatiser la gestion de vos environnements avec Ansible&lt;/strong&gt; - &lt;a href="https://twitter.com/FabienPaitry"&gt;Fabien PAITRY&lt;/a&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;Ansible est plus simple &#xE0; prendre en main que Puppet et fonctionne sans agent ce qui simplifie son int&#xE9;gration dans les infrastructures actuelles &lt;/p&gt;
