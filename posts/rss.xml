@@ -4,7 +4,7 @@
     <title>JustIT</title>
     <description>... Does it help ?</description>
     <link>https://guillaumerenaudin.com</link>
-    <pubDate>27/04/2017</pubDate>
+    <pubDate>21/08/2017</pubDate>
     <item>
       <title>Breizhcamp 2017</title>
       <link>https://guillaumerenaudin.com/posts/retour_breizhcamp_2017</link>
@@ -18,16 +18,16 @@
 
 &lt;/style&gt;
 
-&lt;p&gt;Voici un petit retour sur 2 jours pass&#xE9;s au Breizhcamp 2017. Cette ann&#xE9;e le th&#xE8;me &#xE9;tait la s&#xE9;rie &lt;a href="http://www.allocine.fr/series/ficheserie_gen_cserie=3517.html"&gt;Breaking Bad&lt;/a&gt;. Et une chose est s&#xFB;re, les organisateurs ainsi que les sponsors ont vraiment jouer le jeu &#xE0; fond :&lt;/p&gt;
+&lt;p&gt;Voici un petit retour sur 2 jours pass&#xE9;s au Breizhcamp 2017. Cette ann&#xE9;e le th&#xE8;me &#xE9;tait la s&#xE9;rie &lt;a href="http://www.allocine.fr/series/ficheserie_gen_cserie=3517.html"&gt;Breaking Bad&lt;/a&gt;. Et une chose est s&#xFB;re, les organisateurs ainsi que les sponsors ont vraiment jou&#xE9; le jeu &#xE0; fond :&lt;/p&gt;
 
 &lt;p&gt;&lt;img src="/assets/media/retour_breizhcamp_2017/breakingcamp.png" alt="AfficheBzc2017"&gt;&lt;/p&gt;
 
-&lt;p&gt;Plut&#xF4;t que de r&#xE9;sumer les conf&#xE9;rences auxquelles j&amp;#39;ai assist&#xE9;, j&amp;#39;ai d&#xE9;cid&#xE9; de ne pr&#xE9;senter qu&amp;#39;une seule id&#xE9;e de chaque session. Ca permettra une lecture rapide et un &#xE9;quilibre de feedback entre toutes les conf&#xE9;rences :&lt;/p&gt;
+&lt;p&gt;Plut&#xF4;t que de r&#xE9;sumer les conf&#xE9;rences auxquelles j&amp;#39;ai assist&#xE9;es, j&amp;#39;ai d&#xE9;cid&#xE9; de ne pr&#xE9;senter qu&amp;#39;une seule id&#xE9;e de chaque session. Ca permettra une lecture rapide et un &#xE9;quilibre de feedback entre toutes les conf&#xE9;rences :&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Les probl&#xE8;mes que l&#x2019;on rencontre en microservice : configuration, authentification et autre joyeuset&#xE9;s&lt;/strong&gt; - &lt;a href="https://twitter.com/waxzce"&gt;Quentin Adam&lt;/a&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;Pour l&amp;#39;authentification de vos services mangez des &lt;a href="http://hackingdistributed.com/2014/05/16/macaroons-are-better-than-cookies/"&gt;Macaroons&lt;/a&gt; c&amp;#39;est bien meilleurs que des cookies&lt;/p&gt;
+&lt;p&gt;Pour l&amp;#39;authentification de vos services mangez des &lt;a href="http://hackingdistributed.com/2014/05/16/macaroons-are-better-than-cookies/"&gt;Macaroons&lt;/a&gt; c&amp;#39;est bien meilleur que des cookies&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;&lt;strong&gt;Retour d&amp;#39;exp&#xE9;rience: le d&#xE9;ploiement continu chez Expedia&lt;/strong&gt; - &lt;a href="https://twitter.com/g_scheibel"&gt;Guillaume Scheibel&lt;/a&gt;&lt;/p&gt;
@@ -69,7 +69,7 @@
 &lt;p&gt;&lt;strong&gt;Keynote &amp;quot;Qui veut gagner une carri&#xE8;re de d&#xE9;veloppeur&amp;quot;&lt;/strong&gt; - &lt;a href="https://twitter.com/jefbinomed"&gt;Jean-Fran&#xE7;ois Garreau&lt;/a&gt; &amp;amp; &lt;a href="https://twitter.com/ThomasGX"&gt;Thomas Gx&lt;/a&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;Les d&#xE9;veloppeurs sont mal pay&#xE9;s et infine c&amp;#39;est toujours le CTO qui d&#xE9;cide. &lt;/p&gt;
+&lt;p&gt;Les d&#xE9;veloppeurs sont mal pay&#xE9;s et in fine c&amp;#39;est toujours le CTO qui d&#xE9;cide. &lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;D&#xE9;sol&#xE9; &#xE7;a fait 2 id&#xE9;es mais je n&amp;#39;arrivais vraiment pas &#xE0; choisir (ndlr)&lt;/em&gt; &lt;/p&gt;
 &lt;/blockquote&gt;
@@ -116,7 +116,7 @@
 &lt;p&gt;Ansible est plus simple &#xE0; prendre en main que Puppet et fonctionne sans agent ce qui simplifie son int&#xE9;gration dans les infrastructures actuelles &lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;Je compl&#xE8;terai par une id&#xE9;e majeure qui est valable pour le BreizhCamp mais aussi pour d&amp;#39;autres &#xE9;v&#xE8;nements de d&#xE9;veloppeurs auxquels j&amp;#39;ai pu participer tels que le DevFest. Il s&amp;#39;agit de la &lt;strong&gt;bienveillance g&#xE9;n&#xE9;rale&lt;/strong&gt; qui reigne dans ces confs : chacun peut &#xE9;changer, essayer, proposer, se tromper, r&#xE9;ussir et tout &#xE7;a toujours dans une bonne ambiance et avec un soutien g&#xE9;n&#xE9;ral des participants, speakers et organisateurs.
+&lt;p&gt;Je compl&#xE8;terai par une id&#xE9;e majeure qui est valable pour le BreizhCamp mais aussi pour d&amp;#39;autres &#xE9;v&#xE8;nements de d&#xE9;veloppeurs auxquels j&amp;#39;ai pu participer tels que le DevFest. Il s&amp;#39;agit de la &lt;strong&gt;bienveillance g&#xE9;n&#xE9;rale&lt;/strong&gt; qui r&#xE8;gne dans ces confs : chacun peut &#xE9;changer, essayer, proposer, se tromper, r&#xE9;ussir et tout &#xE7;a toujours dans une bonne ambiance et avec un soutien g&#xE9;n&#xE9;ral des participants, speakers et organisateurs.
 Et si un conflit survient, il se transforme par la suite en une belle le&#xE7;on de savoir-vivre, d&amp;#39;humilit&#xE9; et d&amp;#39;humanit&#xE9;. Il faut apprendre &#xE0; &#xE9;voluer avec les autres.&lt;/p&gt;
 
 &lt;div align="center"&gt;Merci et bravo Breizhcamp !&lt;/div&gt;

@@ -4,7 +4,7 @@
     <title>JustIT</title>
     <description>... Does it help ?</description>
     <link>https://guillaumerenaudin.com</link>
-    <pubDate>27/04/2017</pubDate>
+    <pubDate>21/08/2017</pubDate>
     <item>
       <title>About</title>
       <link>https://guillaumerenaudin.com/about</link>
@@ -61,44 +61,44 @@ Github : &lt;a href="https://github.com/rguillome/"&gt;rguillome&lt;/a&gt;
       <description>
 &lt;ul class="tag_box inline"&gt;
   &lt;li&gt;
-    &lt;a href="/categories#Conference-ref"&gt;Conference &lt;span&gt;2&lt;/span&gt;&lt;/a&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;a href="/categories#Web tools-ref"&gt;Web tools &lt;span&gt;2&lt;/span&gt;&lt;/a&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;a href="/categories#Web Tools-ref"&gt;Web Tools &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
     &lt;a href="/categories#Mobility-ref"&gt;Mobility &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;a href="/categories#Java Dev-ref"&gt;Java Dev &lt;span&gt;2&lt;/span&gt;&lt;/a&gt;
   &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/categories#Web tools-ref"&gt;Web tools &lt;span&gt;2&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/categories#Conference-ref"&gt;Conference &lt;span&gt;2&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/categories#Web Tools-ref"&gt;Web Tools &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
-  &lt;h3&gt;Conference (2)&lt;/h3&gt;
-  &lt;ul&gt;
-      &lt;li&gt;&lt;a href="/posts/retour_breizhcamp_2017"&gt;Breizhcamp 2017&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href="/posts/retour_devfest_2014"&gt;DevFest Nantes 2014&lt;/a&gt;&lt;/li&gt;
-  &lt;/ul&gt;
-  &lt;h3&gt;Web tools (2)&lt;/h3&gt;
-  &lt;ul&gt;
-      &lt;li&gt;&lt;a href="/posts/presentation_reveal_docker"&gt;Pr&#xE9;sentation avec Reveal.js en mode container Docker&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href="/posts/masse_rename_linux"&gt;Renommer en masse des fichiers (Linux)&lt;/a&gt;&lt;/li&gt;
-  &lt;/ul&gt;
-  &lt;h3&gt;Web Tools (1)&lt;/h3&gt;
-  &lt;ul&gt;
-      &lt;li&gt;&lt;a href="/posts/zimbra_profiling"&gt;Profiler une JVM de Zimbra Mailbox&lt;/a&gt;&lt;/li&gt;
-  &lt;/ul&gt;
   &lt;h3&gt;Mobility (1)&lt;/h3&gt;
   &lt;ul&gt;
       &lt;li&gt;&lt;a href="/posts/android_apk_reinstall"&gt;R&#xE9;installer automatiquement des applications Android via APK sous Linux&lt;/a&gt;&lt;/li&gt;
   &lt;/ul&gt;
   &lt;h3&gt;Java Dev (2)&lt;/h3&gt;
   &lt;ul&gt;
-      &lt;li&gt;&lt;a href="/posts/stacktrace_easyreading"&gt;Lecture d&amp;#39;une stacktrace en Java&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href="/posts/generate_clear_stacktrace_output"&gt;Sortie lisible d&amp;#39;une stacktrace d&amp;#39;exception en Java&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/posts/stacktrace_easyreading"&gt;Lecture d&amp;#39;une stacktrace en Java&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;h3&gt;Web tools (2)&lt;/h3&gt;
+  &lt;ul&gt;
+      &lt;li&gt;&lt;a href="/posts/masse_rename_linux"&gt;Renommer en masse des fichiers (Linux)&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/posts/presentation_reveal_docker"&gt;Pr&#xE9;sentation avec Reveal.js en mode container Docker&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;h3&gt;Conference (2)&lt;/h3&gt;
+  &lt;ul&gt;
+      &lt;li&gt;&lt;a href="/posts/retour_breizhcamp_2017"&gt;Breizhcamp 2017&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/posts/retour_devfest_2014"&gt;DevFest Nantes 2014&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;h3&gt;Web Tools (1)&lt;/h3&gt;
+  &lt;ul&gt;
+      &lt;li&gt;&lt;a href="/posts/zimbra_profiling"&gt;Profiler une JVM de Zimbra Mailbox&lt;/a&gt;&lt;/li&gt;
   &lt;/ul&gt;
 </description>
     </item>
@@ -120,16 +120,16 @@ Github : &lt;a href="https://github.com/rguillome/"&gt;rguillome&lt;/a&gt;
 
 &lt;/style&gt;
 
-&lt;p&gt;Voici un petit retour sur 2 jours pass&#xE9;s au Breizhcamp 2017. Cette ann&#xE9;e le th&#xE8;me &#xE9;tait la s&#xE9;rie &lt;a href="http://www.allocine.fr/series/ficheserie_gen_cserie=3517.html"&gt;Breaking Bad&lt;/a&gt;. Et une chose est s&#xFB;re, les organisateurs ainsi que les sponsors ont vraiment jouer le jeu &#xE0; fond :&lt;/p&gt;
+&lt;p&gt;Voici un petit retour sur 2 jours pass&#xE9;s au Breizhcamp 2017. Cette ann&#xE9;e le th&#xE8;me &#xE9;tait la s&#xE9;rie &lt;a href="http://www.allocine.fr/series/ficheserie_gen_cserie=3517.html"&gt;Breaking Bad&lt;/a&gt;. Et une chose est s&#xFB;re, les organisateurs ainsi que les sponsors ont vraiment jou&#xE9; le jeu &#xE0; fond :&lt;/p&gt;
 
 &lt;p&gt;&lt;img src="/assets/media/retour_breizhcamp_2017/breakingcamp.png" alt="AfficheBzc2017"&gt;&lt;/p&gt;
 
-&lt;p&gt;Plut&#xF4;t que de r&#xE9;sumer les conf&#xE9;rences auxquelles j'ai assist&#xE9;, j'ai d&#xE9;cid&#xE9; de ne pr&#xE9;senter qu'une seule id&#xE9;e de chaque session. Ca permettra une lecture rapide et un &#xE9;quilibre de feedback entre toutes les conf&#xE9;rences :&lt;/p&gt;
+&lt;p&gt;Plut&#xF4;t que de r&#xE9;sumer les conf&#xE9;rences auxquelles j'ai assist&#xE9;es, j'ai d&#xE9;cid&#xE9; de ne pr&#xE9;senter qu'une seule id&#xE9;e de chaque session. Ca permettra une lecture rapide et un &#xE9;quilibre de feedback entre toutes les conf&#xE9;rences :&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Les probl&#xE8;mes que l&#x2019;on rencontre en microservice : configuration, authentification et autre joyeuset&#xE9;s&lt;/strong&gt; - &lt;a href="https://twitter.com/waxzce"&gt;Quentin Adam&lt;/a&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;Pour l'authentification de vos services mangez des &lt;a href="http://hackingdistributed.com/2014/05/16/macaroons-are-better-than-cookies/"&gt;Macaroons&lt;/a&gt; c'est bien meilleurs que des cookies&lt;/p&gt;
+&lt;p&gt;Pour l'authentification de vos services mangez des &lt;a href="http://hackingdistributed.com/2014/05/16/macaroons-are-better-than-cookies/"&gt;Macaroons&lt;/a&gt; c'est bien meilleur que des cookies&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;/div&gt;
@@ -287,45 +287,6 @@ done
       <description>
 &lt;ul class="tag_box inline"&gt;
   &lt;li&gt;
-    &lt;a href="/tags#development-ref"&gt;development &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;a href="/tags#breizhcamp-ref"&gt;breizhcamp &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;a href="/tags#rennes-ref"&gt;rennes &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;a href="/tags#java-ref"&gt;java &lt;span&gt;3&lt;/span&gt;&lt;/a&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;a href="/tags#google-ref"&gt;google &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;a href="/tags#nantes-ref"&gt;nantes &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;a href="/tags#gdg-ref"&gt;gdg &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;a href="/tags#js-ref"&gt;js &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;a href="/tags#docker-ref"&gt;docker &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;a href="/tags#reveal-ref"&gt;reveal &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;a href="/tags#zimbra-ref"&gt;zimbra &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;a href="/tags#debug-ref"&gt;debug &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;a href="/tags#profiling-ref"&gt;profiling &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
     &lt;a href="/tags#android-ref"&gt;android &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
   &lt;/li&gt;
   &lt;li&gt;
@@ -333,6 +294,9 @@ done
   &lt;/li&gt;
   &lt;li&gt;
     &lt;a href="/tags#linux-ref"&gt;linux &lt;span&gt;2&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/tags#java-ref"&gt;java &lt;span&gt;3&lt;/span&gt;&lt;/a&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;a href="/tags#stacktrace-ref"&gt;stacktrace &lt;span&gt;2&lt;/span&gt;&lt;/a&gt;
@@ -346,36 +310,44 @@ done
   &lt;li&gt;
     &lt;a href="/tags#file-ref"&gt;file &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
   &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/tags#js-ref"&gt;js &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/tags#docker-ref"&gt;docker &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/tags#reveal-ref"&gt;reveal &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/tags#development-ref"&gt;development &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/tags#breizhcamp-ref"&gt;breizhcamp &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/tags#rennes-ref"&gt;rennes &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/tags#google-ref"&gt;google &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/tags#nantes-ref"&gt;nantes &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/tags#gdg-ref"&gt;gdg &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/tags#zimbra-ref"&gt;zimbra &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/tags#debug-ref"&gt;debug &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/tags#profiling-ref"&gt;profiling &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
-  &lt;h3 id="development-ref"&gt;development&lt;/h3&gt;
-    &lt;li&gt;&lt;a href="/posts/retour_breizhcamp_2017"&gt;Breizhcamp 2017&lt;/a&gt;&lt;/li&gt;
-  &lt;h3 id="breizhcamp-ref"&gt;breizhcamp&lt;/h3&gt;
-    &lt;li&gt;&lt;a href="/posts/retour_breizhcamp_2017"&gt;Breizhcamp 2017&lt;/a&gt;&lt;/li&gt;
-  &lt;h3 id="rennes-ref"&gt;rennes&lt;/h3&gt;
-    &lt;li&gt;&lt;a href="/posts/retour_breizhcamp_2017"&gt;Breizhcamp 2017&lt;/a&gt;&lt;/li&gt;
-  &lt;h3 id="java-ref"&gt;java&lt;/h3&gt;
-    &lt;li&gt;&lt;a href="/posts/retour_devfest_2014"&gt;DevFest Nantes 2014&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href="/posts/stacktrace_easyreading"&gt;Lecture d&amp;#39;une stacktrace en Java&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href="/posts/generate_clear_stacktrace_output"&gt;Sortie lisible d&amp;#39;une stacktrace d&amp;#39;exception en Java&lt;/a&gt;&lt;/li&gt;
-  &lt;h3 id="google-ref"&gt;google&lt;/h3&gt;
-    &lt;li&gt;&lt;a href="/posts/retour_devfest_2014"&gt;DevFest Nantes 2014&lt;/a&gt;&lt;/li&gt;
-  &lt;h3 id="nantes-ref"&gt;nantes&lt;/h3&gt;
-    &lt;li&gt;&lt;a href="/posts/retour_devfest_2014"&gt;DevFest Nantes 2014&lt;/a&gt;&lt;/li&gt;
-  &lt;h3 id="gdg-ref"&gt;gdg&lt;/h3&gt;
-    &lt;li&gt;&lt;a href="/posts/retour_devfest_2014"&gt;DevFest Nantes 2014&lt;/a&gt;&lt;/li&gt;
-  &lt;h3 id="js-ref"&gt;js&lt;/h3&gt;
-    &lt;li&gt;&lt;a href="/posts/presentation_reveal_docker"&gt;Pr&#xE9;sentation avec Reveal.js en mode container Docker&lt;/a&gt;&lt;/li&gt;
-  &lt;h3 id="docker-ref"&gt;docker&lt;/h3&gt;
-    &lt;li&gt;&lt;a href="/posts/presentation_reveal_docker"&gt;Pr&#xE9;sentation avec Reveal.js en mode container Docker&lt;/a&gt;&lt;/li&gt;
-  &lt;h3 id="reveal-ref"&gt;reveal&lt;/h3&gt;
-    &lt;li&gt;&lt;a href="/posts/presentation_reveal_docker"&gt;Pr&#xE9;sentation avec Reveal.js en mode container Docker&lt;/a&gt;&lt;/li&gt;
-  &lt;h3 id="zimbra-ref"&gt;zimbra&lt;/h3&gt;
-    &lt;li&gt;&lt;a href="/posts/zimbra_profiling"&gt;Profiler une JVM de Zimbra Mailbox&lt;/a&gt;&lt;/li&gt;
-  &lt;h3 id="debug-ref"&gt;debug&lt;/h3&gt;
-    &lt;li&gt;&lt;a href="/posts/zimbra_profiling"&gt;Profiler une JVM de Zimbra Mailbox&lt;/a&gt;&lt;/li&gt;
-  &lt;h3 id="profiling-ref"&gt;profiling&lt;/h3&gt;
-    &lt;li&gt;&lt;a href="/posts/zimbra_profiling"&gt;Profiler une JVM de Zimbra Mailbox&lt;/a&gt;&lt;/li&gt;
   &lt;h3 id="android-ref"&gt;android&lt;/h3&gt;
     &lt;li&gt;&lt;a href="/posts/android_apk_reinstall"&gt;R&#xE9;installer automatiquement des applications Android via APK sous Linux&lt;/a&gt;&lt;/li&gt;
   &lt;h3 id="apk-ref"&gt;apk&lt;/h3&gt;
@@ -383,15 +355,43 @@ done
   &lt;h3 id="linux-ref"&gt;linux&lt;/h3&gt;
     &lt;li&gt;&lt;a href="/posts/android_apk_reinstall"&gt;R&#xE9;installer automatiquement des applications Android via APK sous Linux&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href="/posts/masse_rename_linux"&gt;Renommer en masse des fichiers (Linux)&lt;/a&gt;&lt;/li&gt;
-  &lt;h3 id="stacktrace-ref"&gt;stacktrace&lt;/h3&gt;
-    &lt;li&gt;&lt;a href="/posts/stacktrace_easyreading"&gt;Lecture d&amp;#39;une stacktrace en Java&lt;/a&gt;&lt;/li&gt;
+  &lt;h3 id="java-ref"&gt;java&lt;/h3&gt;
     &lt;li&gt;&lt;a href="/posts/generate_clear_stacktrace_output"&gt;Sortie lisible d&amp;#39;une stacktrace d&amp;#39;exception en Java&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/posts/retour_devfest_2014"&gt;DevFest Nantes 2014&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/posts/stacktrace_easyreading"&gt;Lecture d&amp;#39;une stacktrace en Java&lt;/a&gt;&lt;/li&gt;
+  &lt;h3 id="stacktrace-ref"&gt;stacktrace&lt;/h3&gt;
+    &lt;li&gt;&lt;a href="/posts/generate_clear_stacktrace_output"&gt;Sortie lisible d&amp;#39;une stacktrace d&amp;#39;exception en Java&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/posts/stacktrace_easyreading"&gt;Lecture d&amp;#39;une stacktrace en Java&lt;/a&gt;&lt;/li&gt;
   &lt;h3 id="stream-ref"&gt;stream&lt;/h3&gt;
     &lt;li&gt;&lt;a href="/posts/generate_clear_stacktrace_output"&gt;Sortie lisible d&amp;#39;une stacktrace d&amp;#39;exception en Java&lt;/a&gt;&lt;/li&gt;
   &lt;h3 id="java8-ref"&gt;java8&lt;/h3&gt;
     &lt;li&gt;&lt;a href="/posts/generate_clear_stacktrace_output"&gt;Sortie lisible d&amp;#39;une stacktrace d&amp;#39;exception en Java&lt;/a&gt;&lt;/li&gt;
   &lt;h3 id="file-ref"&gt;file&lt;/h3&gt;
     &lt;li&gt;&lt;a href="/posts/masse_rename_linux"&gt;Renommer en masse des fichiers (Linux)&lt;/a&gt;&lt;/li&gt;
+  &lt;h3 id="js-ref"&gt;js&lt;/h3&gt;
+    &lt;li&gt;&lt;a href="/posts/presentation_reveal_docker"&gt;Pr&#xE9;sentation avec Reveal.js en mode container Docker&lt;/a&gt;&lt;/li&gt;
+  &lt;h3 id="docker-ref"&gt;docker&lt;/h3&gt;
+    &lt;li&gt;&lt;a href="/posts/presentation_reveal_docker"&gt;Pr&#xE9;sentation avec Reveal.js en mode container Docker&lt;/a&gt;&lt;/li&gt;
+  &lt;h3 id="reveal-ref"&gt;reveal&lt;/h3&gt;
+    &lt;li&gt;&lt;a href="/posts/presentation_reveal_docker"&gt;Pr&#xE9;sentation avec Reveal.js en mode container Docker&lt;/a&gt;&lt;/li&gt;
+  &lt;h3 id="development-ref"&gt;development&lt;/h3&gt;
+    &lt;li&gt;&lt;a href="/posts/retour_breizhcamp_2017"&gt;Breizhcamp 2017&lt;/a&gt;&lt;/li&gt;
+  &lt;h3 id="breizhcamp-ref"&gt;breizhcamp&lt;/h3&gt;
+    &lt;li&gt;&lt;a href="/posts/retour_breizhcamp_2017"&gt;Breizhcamp 2017&lt;/a&gt;&lt;/li&gt;
+  &lt;h3 id="rennes-ref"&gt;rennes&lt;/h3&gt;
+    &lt;li&gt;&lt;a href="/posts/retour_breizhcamp_2017"&gt;Breizhcamp 2017&lt;/a&gt;&lt;/li&gt;
+  &lt;h3 id="google-ref"&gt;google&lt;/h3&gt;
+    &lt;li&gt;&lt;a href="/posts/retour_devfest_2014"&gt;DevFest Nantes 2014&lt;/a&gt;&lt;/li&gt;
+  &lt;h3 id="nantes-ref"&gt;nantes&lt;/h3&gt;
+    &lt;li&gt;&lt;a href="/posts/retour_devfest_2014"&gt;DevFest Nantes 2014&lt;/a&gt;&lt;/li&gt;
+  &lt;h3 id="gdg-ref"&gt;gdg&lt;/h3&gt;
+    &lt;li&gt;&lt;a href="/posts/retour_devfest_2014"&gt;DevFest Nantes 2014&lt;/a&gt;&lt;/li&gt;
+  &lt;h3 id="zimbra-ref"&gt;zimbra&lt;/h3&gt;
+    &lt;li&gt;&lt;a href="/posts/zimbra_profiling"&gt;Profiler une JVM de Zimbra Mailbox&lt;/a&gt;&lt;/li&gt;
+  &lt;h3 id="debug-ref"&gt;debug&lt;/h3&gt;
+    &lt;li&gt;&lt;a href="/posts/zimbra_profiling"&gt;Profiler une JVM de Zimbra Mailbox&lt;/a&gt;&lt;/li&gt;
+  &lt;h3 id="profiling-ref"&gt;profiling&lt;/h3&gt;
+    &lt;li&gt;&lt;a href="/posts/zimbra_profiling"&gt;Profiler une JVM de Zimbra Mailbox&lt;/a&gt;&lt;/li&gt;
  
 </description>
     </item>
